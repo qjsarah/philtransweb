@@ -1,26 +1,27 @@
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 
-.services{
+.services {
     background-color: #BF0D3D;
     height: auto;
 }
 
-.services-card{
-    transition: 0.3s ;
+.services-card {
+    transition: 0.3s;
     border-style: solid;
     border-width: thin;
     border-color: #BF0D3D;
 }
 
-.services-card:hover{
+.services-card:hover {
     box-shadow: 10px 10px;
-    transition:  0.3s;
+    transition: 0.3s;
     border-style: solid;
     border-color: white;
 }
 
-.contact{
-    margin-top: 50px;
-    background-color: #BF0D3D;
-    height: 150vh;
+.contact {
+    height: 100vh;
+    background-image: url("/img/Contact_BG.png");
+    width: 100%;
+    background-repeat: no-repeat;
 }

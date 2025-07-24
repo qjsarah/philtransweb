@@ -26,8 +26,8 @@
         </div>
     </section>
 
-    <section class="contact rounded-circle bg-danger">
-        <h5>Contact us</h5>
+    <section class="contact mt-5 text-center">
+        <h5 class="text-white">Contact us</h5>
     </section>
 </body>
 </html>
