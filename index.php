@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="light">
 <head>
   <meta charset="UTF-8">
   <title>Manga Info Search</title>
@@ -9,7 +9,13 @@
 </head>
 
 <body>
-    <?php include 'navbar.php'?>
+    <?php include 'navbar.php'; ?>
+    <div id="download">
+      <?php include 'download.php'; ?>
+    </div>
+    <div id="about">
+      <?php include 'src/about.php'; ?>
+    </div>
 </body>
 
 </html>
