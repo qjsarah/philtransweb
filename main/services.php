@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -26,8 +27,57 @@
         </div>
     </section>
 
-    <section class="contact mt-5 text-center">
-        <h5 class="text-white">Contact us</h5>
-    </section>
+<section class="contact mt-5 text-center text-white">
+    <div class="container py-5">
+        <h5 class="pt-3 fs-3">Contact us</h5>
+        
+        <!-- Wrapper to center form -->
+        <div class="row justify-content-center">
+            <form class="col-md-8 mt-4">
+                
+                <!-- Name and Email on Same Line -->
+                <div class="form-group row mb-3">
+                <!-- Name -->
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <input type="text" class="form-control" id="inputName" placeholder="Enter your name">
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-6">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email">
+                </div>
+                </div>
+
+                <!-- Message Field -->
+                <div class="form-group row mb-4">
+                <div class="col-12">
+                    <textarea class="form-control" id="inputMessage" rows="7" placeholder="Type your message here..."></textarea>
+                </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group row">
+                <div class="col text-center">
+                    <button type="submit" class="contact_button px-3 py-2 rounded text-white">Send Message</button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="rounded-circle border border-white">
+        <img src="../img/message.png" alt="">
+    </div>
+    <div class="rounded">
+        <img src="../img/web.png" alt="">
+    </div>
+
+    <div class="rounded ">
+        <img src="../img/location.png" alt="">
+    </div>
+
+</section>
+
+
 </body>
 </html>

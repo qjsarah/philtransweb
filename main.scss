@@ -1,5 +1,11 @@
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 .services {
     background-color: #BF0D3D;
     height: auto;
@@ -21,7 +27,28 @@
 
 .contact {
     height: 100vh;
-    background-image: url("/img/Contact_BG.png");
     width: 100%;
+    background-image: url("img/Contact_BG.png");
     background-repeat: no-repeat;
+    background-size: cover;        /* Ensures the image covers full width/height */
+    overflow-x: hidden;      
+}
+
+.contact_button{
+  transition: 0.3s;
+  background-color: #BF0D3D;
+    border-style: solid;
+    border-color: white;
+
+    border-width: thin;
+}
+
+.contact_button:hover {
+    box-shadow: 5px 5px;
+    transition: 0.3s;
+    border-style: solid;
+}
+
+.contact-info{
+    font-size: 5rem;
 }
