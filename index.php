@@ -16,6 +16,9 @@
     <div id="about">
       <?php include 'src/about.php'; ?>
     </div>
+    <div id="services">
+      <?php include 'main/services.php'; ?>
+    </div>
 </body>
 
 </html>
