@@ -21,7 +21,7 @@
             <p>This system is designed to provide a seamless and efficient experience, ensuring that fares accurately reflect the services rendered. By incorporating various parameters into the calculation process, we strive to offer a comprehensive and reliable fare estimation mechanism that meets the diverse needs of our users. With our commitment to accuracy and fairness, passengers can trust that they are charged appropriately for their rides, while drivers can rely on consistent and equitable compensation for their services.</p>
         </div>
 
-            <div class="services-card w-75 p-3 mx-auto d-block text-white rounded my-3">
+        <div class="services-card w-75 p-3 mx-auto d-block text-white rounded my-3">
             <h3>COMMUNITY INVOLVEMENT:</h3>
             <p>Community involvement is a cornerstone of our approach. We proactively participate in local initiatives aimed at enhancing tricycle transportation and fostering community well-being. By partnering with community members, we strive to make meaningful improvements to the tricycle transport system while simultaneously contributing to the overall welfare of the community.</p>
         </div>
@@ -64,17 +64,26 @@
             </form>
         </div>
     </div>
+        
+    <div class="services-card w-75 p-3 mx-auto d-block text-white rounded my-3">
+            <h3>COMMUNITY INVOLVEMENT:</h3>
+            <p>Community involvement is a cornerstone of our approach. We proactively participate in local initiatives aimed at enhancing tricycle transportation and fostering community well-being. By partnering with community members, we strive to make meaningful improvements to the tricycle transport system while simultaneously contributing to the overall welfare of the community.</p>
+        </div>
 
-    <div class="rounded-circle border border-white">
-        <img src="../img/message.png" alt="">
-    </div>
-    <div class="rounded">
-        <img src="../img/web.png" alt="">
-    </div>
+        <div class="d-flex">
 
-    <div class="rounded ">
-        <img src="../img/location.png" alt="">
-    </div>
+                <div class="">
+                    <img src="../img/message.png" alt="" class="contact_info p-5">
+                </div>
+                
+                <div class="rounded">
+                    <img src="../img/web.png" alt="">
+                </div>
+                
+                <div class="rounded ">
+                    <img src="../img/location.png" alt="">
+                </div>
+        </div>
 
 </section>
 
