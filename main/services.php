@@ -65,15 +65,10 @@
         </div>
     </div>
         
-    <div class="services-card w-75 p-3 mx-auto d-block text-white rounded my-3">
-            <h3>COMMUNITY INVOLVEMENT:</h3>
-            <p>Community involvement is a cornerstone of our approach. We proactively participate in local initiatives aimed at enhancing tricycle transportation and fostering community well-being. By partnering with community members, we strive to make meaningful improvements to the tricycle transport system while simultaneously contributing to the overall welfare of the community.</p>
-        </div>
-
-        <div class="d-flex">
+        <div class="d-flex text-center justify-content-around ">
 
                 <div class="">
-                    <img src="../img/message.png" alt="" class="contact_info p-5">
+                    <img src="../img/message.png" alt="" class="contact_info p-5 rounded-circle">
                 </div>
                 
                 <div class="rounded">
