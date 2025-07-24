@@ -10,7 +10,7 @@
 
 <body>
     <?php include 'navbar.php'; ?>
-    <div id="download">
+    <div id="#">
       <?php include 'download.php'; ?>
     </div>
     <div id="about">
