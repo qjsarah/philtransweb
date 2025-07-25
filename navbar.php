@@ -13,7 +13,7 @@
         </li>
 
         <div class="d-flex flex-row nav-right gap-5 layer p-2 px-3 bg-light justify-content-end mt-3 ">
-          <li class="nav-item"><a class="nav-link  text-secondary" href="#">Testimonial</a></li>
+          <li class="nav-item"><a class="nav-link  text-secondary" href="#testimonial">Testimonial</a></li>
           <li class="nav-item"><a class="nav-link  text-secondary" href="#">Contact</a></li>
         </div>
       </ul>
