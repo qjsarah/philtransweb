@@ -15,7 +15,8 @@
 <body>
     <?php include 'navbar.php'; ?>
     <section id="#">
-      <?php include 'download.php'; ?>
+      <?php include 'download.php'; 
+      include 'welcome.php'; ?>
     </div>
     <div id="about">
       <?php include 'about_mvision.php'; ?>

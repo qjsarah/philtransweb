@@ -1,7 +1,9 @@
-$secondary: #000066; 
+$secondary: #000066;
 $danger: #BF0D3D;
-
-@import "node_modules/bootstrap/scss/bootstrap.scss";
+@use "node_modules/bootstrap/scss/bootstrap.scss"  with (
+  $secondary: #000066,
+  $danger: #BF0D3D
+);
 .download {
   background-image: url("imgs/top.png");
   height: 100vh;
@@ -22,9 +24,6 @@ $danger: #BF0D3D;
 .textstyle {
   font-size: .5rem;
 }
-
-
-
 
 body {
     margin: 0;
