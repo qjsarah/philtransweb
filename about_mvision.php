@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="main.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-
 <body>
    <section class="d-flex align-items-center text-white" 
    style="background-image: url('images/about_background.png'); 
