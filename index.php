@@ -16,11 +16,11 @@
     <?php include 'navbar.php'; ?>
     <section id="#">
       <?php include 'download.php'; ?>
-    </section>
-    <section id="about">
+    </div>
+    <div id="about">
       <?php include 'about_mvision.php'; ?>
-    </section>
-    <section id="services">
+    </div>
+    <div id="services">
       <?php include 'main/services.php'; ?>
     </section>
     <section id="testimonial">
