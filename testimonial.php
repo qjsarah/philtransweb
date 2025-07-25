@@ -11,7 +11,7 @@
             <h5>What our Client Says</h5>
             <h4 class="fw-bold">TESTIMONIALS</h4>
         </div>
-        <div class="owl-carousel owl-theme py-5 align-items-center justify-content-center mt-5 container">
+        <div class="owl-carousel owl-theme py-5 justify-content-center mt-5 my-auto container">
             ${testimonials.map(test => `
             <div class="item text-center p-4 d-flex flex-column mt-5">
                 <div class="img-area bg-light">
@@ -33,7 +33,7 @@
     $('.owl-carousel').owlCarousel({
         rtl: false,
         loop: true,
-        margin: 50,
+        margin: -50,
         center: true,
         smartSpeed: 1000,
         autoplay: true,
@@ -41,13 +41,16 @@
         autoplayHoverPause: true,
         responsive: {
             0: {
-                items: 1
+                items: 1,
+                nav: false
             },
             600: {
-                items: 2
+                items: 2,
+                nav: false
             },
             960: {
-                items: 3
+                items: 3,
+                nav: false
             }
         }
     });
