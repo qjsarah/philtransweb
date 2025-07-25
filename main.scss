@@ -1,5 +1,5 @@
 $secondary: #000066; 
-$warning: #BF0D3D;
+$danger: #BF0D3D;
 
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 .download {
@@ -142,4 +142,30 @@ body {
       opacity: 1;
     }
   }
+}
+//TESTIMONIALS  
+.owl-carousel .owl-item {
+  opacity: 0.3;
+  transition: opacity 0.1s ease, transform 0.5s ease-in-out;
+  transform: scale(.9);
+  box-shadow: 0 4px 10px $danger;
+  overflow: visible;
+}
+
+.owl-carousel .owl-item.center {
+  opacity: 1;
+  transform: scale(1);
+  border: 20px solid $danger;
+  box-shadow: none;
+}
+.img-area {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: -60px;
+  left: 35%;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  overflow: visible;
 }
