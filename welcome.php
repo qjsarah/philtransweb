@@ -1,5 +1,5 @@
 <section class="mt-5">
-    <div class="d-flex justify-content-center gap-3">
+    <div class="d-flex flex-column flex-lg-row justify-content-center gap-3">
         <img src="imgs/ads1.png" alt="">
         <img src="imgs/ads2.png" alt="">
     </div>

@@ -157,6 +157,27 @@ body {
       opacity: 1;
     }
   }
+  .custom-toggler div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+
+  /* Animate to X */
+  .navbar-toggler:not(.collapsed) .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .navbar-toggler:not(.collapsed) .bar2 {
+    opacity: 0;
+  }
+
+  .navbar-toggler:not(.collapsed) .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  
 }
 //TESTIMONIALS  
 .owl-carousel .owl-item {
@@ -182,4 +203,19 @@ body {
   border-radius: 50%;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
   overflow: visible;
+}
+.mobile {
+  display: none;
+}
+.desktop {
+  display: block;
+}
+
+@media (max-width: 864px){
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
 }
