@@ -13,7 +13,7 @@
   <script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 </head>
 
-<body>
+<body class="download ">
     <?php include 'navbar.php'; ?>
     <section id="#">
       <?php include 'download.php'; 

@@ -11987,13 +11987,16 @@ textarea.form-control-lg {
   padding-top: 10%;
 }
 
-.h1style {
-  padding-top: 5%;
-  font-size: 5rem;
+.h1style h1, .h1style .h1 {
+  font-size: 3rem;
+}
+
+.mobile {
+  display: none;
 }
 
 .textstyle {
-  font-size: 0.5rem;
+  font-size: .5rem;
 }
 
 body {
