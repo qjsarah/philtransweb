@@ -2,16 +2,17 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
 <body>
-  <div class="text-end mt-5 pt-5 me-5 pt-2 fw-bold fs-1">
-        ABOUT US
-  </div>
-   <section class="d-flex align-items-center text-white" 
+
+   <section class="mt-5 pt-5 text-white" 
    style="background-image: url('images/about_background.png'); 
    background-size: contain; 
    background-position: center; 
    background-repeat: no-repeat;
    height: 1000px;">
-        <div class="col-lg-6 ms-5">
+     <div class="text-end mt-4 me-5 fw-bold fs-1">
+        ABOUT US
+    </div>
+        <div class="col-lg-6 ms-5 mt-5 pt-5">
           <h2 class="fw-bold">PTAS: REVOLUTIONIZING RIDES AND REDEFINING THE TRYCICLE INDUSTRY</h2>
           <p class="mt-4 fs-3">
             In the ever-evolving landscape of transportation, PTAS emerges as more than just another app. 
