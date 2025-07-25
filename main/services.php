@@ -10,7 +10,8 @@
 <body>
     <section class="services pb-4">
         <h4 class="text-white text-center pt-5">SERVICES</h4>
-        <img src="../img/Service_img.png" alt="Service Image" class=" py-3 mx-auto d-block">
+        <img src="../img/Service_img.png" alt="Service Image" class="w-75 img-fluid py-3 mx-auto d-block">
+
         <div class="services-card w-75 p-3 mx-auto d-block text-white rounded my-3">
             <h3>BOOKING PLATFORM POWERED BY TECHNOLOGY:</h3>
             <p>Our innovative platform leverages the power of technology to provide an intuitive and seamless booking experience. Passengers can easily navigate through the application, selecting their desired pickup and drop-off locations with just a few taps on their smartphones or devices. Our system then efficiently matches them with available tricycle drivers in their vicinity, ensuring prompt and reliable service.</p>
@@ -27,10 +28,10 @@
         </div>
     </section>
 
-<section class="contact mt-5 text-center text-white">
+<section class="contact text-center text-white">
     <div class="container py-5">
-        <h5 class="pt-3 fs-3">Contact us</h5>
-        
+        <h5 class="fs-3">Contact us</h5>
+        <p> </p>
         <!-- Wrapper to center form -->
         <div class="row justify-content-center">
             <form class="col-md-8 mt-4">
@@ -56,32 +57,56 @@
                 </div>
 
                 <!-- Submit Button -->
-                <div class="form-group row">
-                <div class="col text-center">
+                <div class="col text-end">
                     <button type="submit" class="contact_button px-3 py-2 rounded text-white">Send Message</button>
-                </div>
                 </div>
             </form>
         </div>
     </div>
         
-        <div class="d-flex text-center justify-content-around ">
-
-                <div class="">
-                    <img src="../img/message.png" alt="" class="contact_info p-5 rounded-circle">
-                </div>
-                
-                <div class="rounded">
-                    <img src="../img/web.png" alt="">
-                </div>
-                
-                <div class="rounded ">
-                    <img src="../img/location.png" alt="">
-                </div>
+<div class="d-flex w-75 flex-column flex-md-row text-center justify-content-md-between mx-auto">
+    <!-- Contact Info (Email/Phone) -->
+    <div class="py-4">
+        <div class="contact_info d-flex justify-content-center align-items-center mx-auto mb-3">
+            <img src="../img/message.png" alt="" class="icon-img">
         </div>
+        <p>info@philtransinc.com</p>
+        <p>+63 917 501 0018</p>
+    </div>
 
+    <!-- Location -->
+    <div class="py-4 text-center">
+        <div class="contact_info d-flex justify-content-center align-items-center mx-auto mb-3">
+            <img src="../img/location.png" alt="" class="icon-img">
+        </div>
+        <p class="w-50 w-md-50 mx-auto">
+            D-3 2F Plaza Victoria, Santo Rosario St., Sto Domingo, Angeles City 2009 Pampanga Philippines
+        </p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="py-4">
+        <div class="contact_info d-flex justify-content-center align-items-center mx-auto mb-3">
+            <img src="../img/web.png" alt="" class="icon-img">
+        </div>
+        <div class="contact_nav d-flex flex-column">
+            <a href="">About us</a>
+            <a href="">Copyright</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Terms and Condition</a>
+            <a href="">FAQs</a>
+        </div>
+    </div>
+</div>
 </section>
 
+<footer class="text-center text-white  ">
+    <div class="w-75  d-flex flex-column flex-md-row text-center justify-content-md-between mx-auto">
+        
+        <p>© 2025 PhilTransInc. All Rights Reserved</p>
+        <p>Designed & Developed By BB 88 Advertising and Digital Solutions Inc.</p>
+    </div>
+</footer>
 
 </body>
 </html>

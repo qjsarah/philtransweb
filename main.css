@@ -12007,12 +12007,10 @@ body {
 }
 
 .contact {
-  height: 100vh;
+  margin-top: 200px;
   width: 100%;
-  background-image: url("img/Contact_BG.png");
-  background-repeat: no-repeat;
-  background-size: cover; /* Ensures the image covers full width/height */
-  overflow-x: hidden;
+  height: auto;
+  background-color: #BF0D3D;
 }
 
 .contact_button {
@@ -12030,15 +12028,35 @@ body {
 }
 
 .contact_info {
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  border-radius: 50%;
   transition: 0.5s;
-  font-size: 5rem;
-  border-color: aliceblue;
-  border-style: solid;
+  background-color: transparent;
 }
 
 .contact_info:hover {
   transition: 0.5s;
   box-shadow: 5px 5px;
+}
+
+.icon-img {
+  width: 50%;
+  height: auto;
+}
+
+.contact_nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.contact_nav a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #BF0D3D;
 }
 
 .navbar {
