@@ -18,7 +18,7 @@
       <?php include 'download.php'; ?>
     </section>
     <section id="about">
-      <?php include 'src/about.php'; ?>
+      <?php include 'about_mvision.php'; ?>
     </section>
     <section id="services">
       <?php include 'main/services.php'; ?>
