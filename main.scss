@@ -27,34 +27,6 @@ $danger: #BF0D3D;
 .textstyle {
   font-size: 15px;
 }
-// Mobile
-@media (max-width: 986px) {
-
-  .h1style h1 {
-    font-size: 4rem;
-    text-align: center;
-    margin-top: 5%;
-  }
-  .icons{
-    margin-top: 5%;
-  }
-  .desktop {
-    display: none;
-  }
-  .download{
-    background-color: $danger;
-  }
-  .mobile {
-    display: block !important;
-    text-align: center;
-  }
-  .downloadbg {
-    background-color: #BF0D3D;
-    width: 100vw;
-    height: 100%;
-    overflow: hidden;
-  }
-}
 
 body {
     margin: 0;
@@ -191,7 +163,6 @@ body {
   .custom-toggler div {
     width: 25px;
     height: 3px;
-    background-color: white;
     margin: 5px 0;
     transition: 0.4s;
   }
@@ -241,8 +212,36 @@ body {
 .desktop {
   display: block;
 }
+// MEDIA QUERIES
+@media (max-width: 986px) {
+  .h1style h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 5%;
+  }
+  .icons{
+    margin-top: 5%;
+  }
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block !important;
+    text-align: center;
+  }
+  .downloadbg {
+    background-color: #BF0D3D;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+  }
+    .download {
+    background-image: none;
+  }
+}
 
 @media (max-width: 864px){
+
   .desktop {
     display: none;
   }
