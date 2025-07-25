@@ -133,6 +133,7 @@ body {
   position: relative;
   -webkit-transition: background-color 0.4s ease;
   transition: background-color 0.4s ease;
+  /* Animate to X */
 }
 
 .navbar .nav-item {
@@ -209,6 +210,22 @@ body {
           transform: scale(1);
   opacity: 1;
 }
+.navbar .custom-toggler div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+.navbar .navbar-toggler:not(.collapsed) .bar1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.navbar .navbar-toggler:not(.collapsed) .bar2 {
+  opacity: 0;
+}
+.navbar .navbar-toggler:not(.collapsed) .bar3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
 
 .owl-carousel .owl-item {
   opacity: 0.3;
@@ -243,4 +260,3 @@ body {
           box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
   overflow: visible;
 }
-/*# sourceMappingURL=main.css.map */
