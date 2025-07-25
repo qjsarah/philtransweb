@@ -15,12 +15,43 @@ $danger: #BF0D3D;
   padding-top: 10%;
 }
 
-.h1style {
-  padding-top: 5%;
-  font-size: 5rem;
+.h1style h1{
+  font-size: 3rem;
+}
+
+.mobile {
+  display: none;
 }
 .textstyle {
-  font-size: .5rem;
+  font-size: 15px;
+}
+// Mobile
+@media (max-width: 730px) {
+
+  .h1style h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 5%;
+  }
+  .icons{
+    margin-top: 5%;
+  }
+  .desktop {
+    display: none;
+  }
+  .download{
+    background-image: none;
+  }
+  .mobile {
+    display: block !important;
+    text-align: center;
+  }
+  .downloadbg {
+    background-color: #BF0D3D;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 
