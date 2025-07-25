@@ -3,15 +3,15 @@
 
 <body>
    <section class="d-flex align-items-center text-white" 
-   style="background-image: url('../images/about_background.png'); 
+   style="background-image: url('images/about_background.png'); 
    background-size: contain; 
    background-position: center; 
    background-repeat: no-repeat;
    height: 1000px;">
    
-<div class="position-absolute top-0 end-0 mt-4 me-5 pt-2 fw-bold fs-1">
+<!--<div class="position-absolute top-0 end-0 mt-4 me-5 pt-2 fw-bold fs-1">
       ABOUT US
-</div>
+</div>-->
         <div class="col-lg-6 ms-5">
           <h2 class="fw-bold">PTAS: REVOLUTIONIZING RIDES AND REDEFINING THE TRYCICLE INDUSTRY</h2>
           <p class="mt-5 fs-3">
