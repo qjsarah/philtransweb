@@ -1,12 +1,19 @@
-<html lang="en" data-bs-theme="light">
+<html lang="en">
 <head>
   <title>Philtrans App</title>
 </head>
 <body class="download ">
     <?php include 'components/navbar.php'; ?>
     <section id="#">
-      <?php include 'components/download.php'; 
-            include 'components/welcome.php'; ?>
+      <?php include 'components/download.php'; ?>
+    </section>
+
+    <section id="#">
+      <?php include 'components/ads/ads_1.php';?>
+    </section>
+
+    <section id="#">
+      <?php include 'components/welcome.php'; ?>
     </section>
 
     <section id="about">
@@ -21,6 +28,10 @@
       <?php include 'components/services.php'; ?>
     </section>
     
+    <section id="#">
+      <?php include 'components/ads/ads_1.php';?>
+    </section>
+
     <section id="testimonial">
       <?php include 'components/testimonial.php'; ?>
     </section>

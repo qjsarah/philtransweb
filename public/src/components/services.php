@@ -1,5 +1,5 @@
-<section class="services pb-4">
-    <h4 class="text-white text-center pt-5">SERVICES</h4>
+<section class="services pb-5">
+    <h4 class="text-white text-center pt-5 ">SERVICES</h4>
     <img src="../../public/main/images/services_section/Service_img.png" alt="Service Image" class="w-75 img-fluid py-3 mx-auto d-block">
 
     <div class="services-card w-75 p-3 mx-auto d-block text-white rounded my-3">

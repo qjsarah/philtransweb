@@ -39,8 +39,10 @@
             <div class="contact_info d-flex justify-content-center align-items-center mx-auto mb-3">
                 <img src="../../public/main/images/contact_section/message.png" alt="" class="icon-img">
             </div>
-            <p>info@philtransinc.com</p>
-            <p>+63 917 501 0018</p>
+            <div class="contact_nav d-flex flex-column">
+                <a href="">info@philtransinc.com</a>
+                <a href="">+63 917 501 0018</a>
+            </div>
         </div>
 
         <!-- Location -->

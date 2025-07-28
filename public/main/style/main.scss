@@ -96,7 +96,7 @@ body {
   color: white;
 }
 
-.contact_nav a:hover{
+.contact_nav a:hover, .contact_nav p:hover{
   text-decoration:underline;
 }
 
@@ -200,13 +200,13 @@ footer{
 .owl-carousel .owl-item {
   opacity: 0.3;
   transition: opacity 0.1s ease, transform 0.5s ease-in-out;
-  transform: scale(.8);
+  transform: scale(.7);
   box-shadow: 0 4px 10px $danger;
 }
 
 .owl-carousel .owl-item.center {
   opacity: 1;
-  transform: scale(.9);
+  transform: scale(.8);
   border: 20px solid $danger;
   box-shadow: none;
 }
@@ -246,7 +246,8 @@ footer{
   .downloadbg {
     background-color: #BF0D3D;
     width: 100vw;
-    height: auto;
+    height: 100%;
+    overflow: hidden;
   }
     .download {
     background-image: none;
