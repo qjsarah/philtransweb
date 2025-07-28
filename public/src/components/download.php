@@ -4,7 +4,7 @@
 
     <!-- Text & Buttons Column -->
     <div class="h1style mb-4 mb-md-0 px-5">
-      <h1 class="fw-bold text-white mb-3 display-1">DOWNLOAD OUR APP <span class="text-warning">NOW!</span></h1>
+      <h1 class="fw-bold text-white mb-3 display-3">DOWNLOAD OUR APP <span class="text-warning">NOW!</span></h1>
       <p class="desktop textstyle text-white mb-4 fs-3">Download the Philippine Trans App System today and experience transportation like never before. Whether you're traveling for business or pleasure, our app makes getting around the Philippines easier, safer, and more convenient than ever before.</p>  
 
       <div class="icons d-flex gap-5 flex-md-row flex-sm-row flex-lg-row flex-column justify-content-center justify-content-md-center justify-content-lg-start">

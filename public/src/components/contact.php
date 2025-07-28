@@ -1,6 +1,6 @@
 <section class="contact text-center text-white">
     <div class="container py-5">
-        <h5 class="fs-3">Contact us</h5>
+        <h5 class="display-5 fw-bold">Contact us</h5>
         <p> </p>
         <!-- Wrapper to center form -->
         <div class="row justify-content-center">

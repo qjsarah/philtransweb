@@ -1,10 +1,10 @@
-<section class="text-white my-5" style="background-color: #BF0D3D; height: 70vh;">
+<section class="text-white my-5" style="background-color: #BF0D3D; height: auto;">
   <!-- Desktop Layout: Image Right, Text Left -->
   <div class="container py-5 d-none d-lg-block">
     <div class="row align-items-center ">
       <!-- Left Column (Text Content) -->
       <div class="col-lg-6 text-start">
-        <h1 class="fw-bold display-3">ABOUT US</h1>
+        <h1 class="fw-bold display-5">ABOUT US</h1>
         <h2 class="fw-semibold mb-3 mt-4">
           PTAS: REVOLUTIONIZING RIDES AND REDEFINING THE TRICYCLE INDUSTRY
         </h2>

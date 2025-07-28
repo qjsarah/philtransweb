@@ -29,7 +29,7 @@
     </section>
     
     <section id="#">
-      <?php include 'components/ads/ads_1.php';?>
+      <?php include 'components/ads/ads_2.php';?>
     </section>
 
     <section id="testimonial">
