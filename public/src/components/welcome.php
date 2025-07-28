@@ -4,7 +4,7 @@
         <img src="imgs/ads2.png" alt="">
     </div>
     <div class="container mt-5 pt-5 d-flex flex-column flex-lg-row justify-content-between gap-5">
-        <img src="imgs/welcome-img.png" alt="">
+        <img src="../../public/main/images/intro_section/welcome_img.png" alt="">
         <div class="my-5 text-danger">
             <h4 class=" fw-bold display-5"> Welcome to <span class="text-secondary">Philippine Transportation </span> App System</h4>
             <p>Philippine Transportation App System PTAS breaks the mold of traditional transportation apps. They're not just about getting you from point A to point B; they're shaking up the transportation industry with a people-centric approach.</p>

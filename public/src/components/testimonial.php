@@ -2,11 +2,11 @@
 <div id="testimonial" class="">
 </div>
 
-<script src="scripts/data.js"></script>
+<script src="../../public/main/scripts/data.js"></script>
 <script>
     const testimonialDiv = document.getElementById('testimonial');
     testimonialDiv.innerHTML = `
-    <div class="vh-100 mt-5">
+    <div class="vh-80 mt-5">
         <div class="text-danger text-center my-4">
             <h5>What our Client Says</h5>
             <h4 class="fw-bold">TESTIMONIALS</h4>
@@ -33,7 +33,7 @@
     $('.owl-carousel').owlCarousel({
         rtl: false,
         loop: true,
-        margin: -50,
+        margin: 20,
         center: true,
         smartSpeed: 1000,
         autoplay: true,

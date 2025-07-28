@@ -11975,7 +11975,7 @@ textarea.form-control-lg {
   }
 }
 .download {
-  background-image: url("imgs/top.png");
+  background-image: url("../images/nav_section/top_background.png");
   height: 100vh;
   width: 100%;
   background-repeat: no-repeat;
