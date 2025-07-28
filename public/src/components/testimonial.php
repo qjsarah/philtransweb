@@ -33,7 +33,7 @@
     $('.owl-carousel').owlCarousel({
         rtl: false,
         loop: true,
-        margin: 20,
+        margin: 30,
         center: true,
         smartSpeed: 1000,
         autoplay: true,

@@ -12159,13 +12159,13 @@ footer {
 .owl-carousel .owl-item {
   opacity: 0.3;
   transition: opacity 0.1s ease, transform 0.5s ease-in-out;
-  transform: scale(0.7);
+  transform: scale(0.8);
   box-shadow: 0 4px 10px #BF0D3D;
 }
 
 .owl-carousel .owl-item.center {
   opacity: 1;
-  transform: scale(0.8);
+  transform: scale(0.9);
   border: 20px solid #BF0D3D;
   box-shadow: none;
 }
@@ -12223,4 +12223,4 @@ footer {
   .mobile {
     display: block;
   }
-}/*# sourceMappingURL=main.css.map */
+}
