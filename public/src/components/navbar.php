@@ -1,17 +1,3 @@
-<!-- My Meta links and Scripts -->
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../../public/main/style/main.css">
-<link rel="stylesheet" href="../../public/node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="../../public/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
-<script src="../../public/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../../public/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-<script src="../../public/main/scripts/bootstrap.bundle.min.js"></script>
-<script src="../../public/main/scripts/function.js"></script>
-<script src="../../public/main/scripts/data.js"></script>
-
 <!-- Navbar Desktop Section -->
 <div class="container position-relative mb-3 desktop">
     <nav class="navbar navbar-expand-lg justify-content-center fw-bold">
@@ -37,7 +23,7 @@
 
 <!-- Navbar Mobile Version -->
 <div class="mb-2 mobile">
-  <nav class="navbar navbar-expand-lg justify-content-between fw-bold">
+  <nav class="navbar navbar-expand-lg justify-content-between fw-bold fixed-top" id="mainNavbar">
     <a class="navbar-brand" href="#">
       <img src="../../public/main/images/nav_section/logo.png" class="logo mx-auto d-block" alt="logo">
     </a>
@@ -46,7 +32,7 @@
         <div class="bar2 bg-secondary"></div>
         <div class="bar3 bg-secondary"></div>
     </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse">
         <ul class="navbar-nav text-end" id="navBar">
           <li class="nav-item"><a class="nav-link  text-secondary" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link  text-secondary" href="#services">Services</a></li>
@@ -56,3 +42,16 @@
       </div>
     </nav>
 </div>
+<script>
+  const logo = document.getElementById('logoWrapper');
+  const navBar = document.getElementById('navBar');
+
+  logo.addEventListener('mouseenter', () => {
+      navBar.classList.add('show-nav');
+  });
+
+  navBar.addEventListener('mouseleave', () => {
+      navBar.classList.remove('show-nav');
+  });
+  let lastScrollTop = 0;
+</script>
