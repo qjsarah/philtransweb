@@ -11987,10 +11987,6 @@ textarea.form-control-lg {
   padding-top: 10%;
 }
 
-.h1style h1 {
-  font-size: 3rem;
-}
-
 .mobile {
   display: none;
 }
@@ -12192,7 +12188,6 @@ footer {
 
 @media (max-width: 986px) {
   .h1style h1 {
-    font-size: 4rem;
     text-align: center;
     margin-top: 5%;
   }
