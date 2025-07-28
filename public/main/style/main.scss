@@ -174,16 +174,7 @@ footer{
       opacity: 1;
     }
   }
-  #mainNavbar.hide {
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  #mainNavbar.show {
-    transform: translateY(0);
-    transition: transform 0.3s ease-in-out;
-  }
-
+  
   .custom-toggler div {
     width: 25px;
     height: 3px;
