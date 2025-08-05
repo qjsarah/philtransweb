@@ -7,11 +7,11 @@
     const testimonialDiv = document.getElementById('testimonial');
     testimonialDiv.innerHTML = `
     <div class="vh-80 mt-5">
-        <div class="text-danger text-center my-4">
+        <div class="textimonial text-danger text-center my-4">
             <h5>What our Client Says</h5>
-            <h4 class="fw-bold display-5">TESTIMONIALS</h4>
+            <h4 class="testimonial1 fw-bold display-5">TESTIMONIALS</h4>
         </div>
-        <div class="owl-carousel owl-theme py-5 justify-content-center mt-5 my-auto container">
+        <div class="cardtest owl-carousel owl-theme py-5 justify-content-center mt-5 my-auto container">
             ${testimonials.map(test => `
             <div class="item text-center p-4 d-flex flex-column mt-5">
                 <div class="img-area bg-light">

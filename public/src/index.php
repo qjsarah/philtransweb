@@ -1,3 +1,12 @@
+<?php session_start(); ?>
+<?php if (isset($_SESSION['user_id'])): ?>
+  <div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+    <a href="/ojt/philtransweb/public/src/backend/logout.php" class="btn btn-danger">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+  </div>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +21,12 @@
   <script src="../../public/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="../../public/main/scripts/bootstrap.bundle.min.js"></script>
   <script src="../../public/main/scripts/data.js"></script>
+  <script src="backend/script.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
+
 </head>
 <body class="download ">
+
     <?php include 'components/navbar.php'; ?>
     <section id="#">
       <?php include 'components/download.php'; ?>
@@ -54,5 +67,11 @@
     <section id="footer">
       <?php include 'components/footer.php'; ?>
     </section>
+    
+    <!-- In your HTML head -->
+<!-- Before your custom JS, at the bottom -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+    <script src="../../public/main/scripts/adscropper.js"></script>
 </body>
 </html>

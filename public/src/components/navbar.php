@@ -32,7 +32,7 @@
         <div class="bar2 bg-secondary"></div>
         <div class="bar3 bg-secondary"></div>
     </button>
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav text-end" id="navBar">
           <li class="nav-item"><a class="nav-link  text-secondary" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link  text-secondary" href="#services">Services</a></li>

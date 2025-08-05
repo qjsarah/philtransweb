@@ -1,4 +1,4 @@
-<section class="contact text-center text-white">
+<section class="contactbg contact text-center text-white">
     <div class="container py-5">
         <h5 class="display-5 fw-bold">Contact us</h5>
         <p> </p>
@@ -35,7 +35,7 @@
     </div> 
     <div class="d-flex w-75 flex-column flex-md-row text-center justify-content-md-between mx-auto">
         <!-- Contact Info (Email/Phone) -->
-        <div class="py-4">
+        <div class="iconleft py-4">
             <div class="contact_info d-flex justify-content-center align-items-center mx-auto mb-3">
                 <img src="../../public/main/images/contact_section/message.png" alt="" class="icon-img">
             </div>
@@ -46,7 +46,7 @@
         </div>
 
         <!-- Location -->
-        <div class="py-4 text-center">
+        <div class="iconcen py-4 text-center">
             <div class="contact_info d-flex justify-content-center align-items-center mx-auto mb-3">
                 <img src="../../public/main/images/contact_section/location.png" alt="" class="icon-img">
             </div>
@@ -56,7 +56,7 @@
         </div>
 
         <!-- Navigation Links -->
-        <div class="py-4">
+        <div class="iconright py-4">
             <div class="contact_info d-flex justify-content-center align-items-center mx-auto mb-3">
                 <img src="../../public/main/images/contact_section/web.png" alt="" class="icon-img">
             </div>

@@ -11983,15 +11983,158 @@ textarea.form-control-lg {
 }
 
 .person1 {
-  padding-top: 10%;
+  animation: appearRight 1.5s ease-in-out;
+}
+
+.h1main {
+  animation: appear 1s ease-in-out forwards;
 }
 
 .mobile {
   display: none;
 }
 
+.icons {
+  animation: appear 1.5s ease-in-out forwards;
+}
+
 .textstyle {
   font-size: 15px;
+  animation: appear 1.5s ease-in-out forwards;
+}
+
+.ad1 {
+  animation: appearUp 1.5s ease-in-out forwards;
+}
+
+.welcome {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.phone1 {
+  animation: float 2s infinite ease-in-out;
+}
+
+.mission {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.vision {
+  animation: appearRight linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.about-left {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.about-right {
+  animation: appearRight linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.ad2-1 {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.ad2-2 {
+  animation: appearRight linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.servicetext {
+  animation: fadeIn linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.bgservice {
+  animation: appearUp linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.card1 {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.card2 {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.card3 {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 30%;
+}
+
+.ad3 {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.ad3-2 {
+  animation: appearRight linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.textimonial {
+  animation: fadeIn linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.testimonial1 {
+  animation: fadeIn linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.cardtest {
+  animation: fadeIn linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.contactbg {
+  animation: fadeIn linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 50%;
+}
+
+.iconleft {
+  animation: appearUp 0.5s linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 30%;
+}
+
+.iconcen {
+  animation: appearUp 1s linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 30%;
+}
+
+.iconright {
+  animation: appearUp 1s linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 30%;
 }
 
 body {
@@ -12080,6 +12223,7 @@ footer {
   max-width: 960px;
   position: relative;
   transition: background-color 0.4s ease;
+  animation: float 2s infinite ease-in-out;
   /* Animate to X */
 }
 .navbar .nav-item {
@@ -12218,3 +12362,72 @@ footer {
     display: block;
   }
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Keyframes for slight zoom-in effect */
+@keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Sliding Animation */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes appearRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes appearDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes appearUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  } /* Gentle floating effect */
+}/*# sourceMappingURL=main.css.map */
