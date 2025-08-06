@@ -19,60 +19,66 @@ while ($row = $result->fetch_assoc()) {
 
 <!-- Download Section -->
 <section class="downloadbg">
+   
   <div class="d-flex justify-content-center align-items-start text-center text-md-start flex-column flex-lg-row downloadbg">
 
     <!-- Text & Buttons Column -->
     <div class="mb-4 mb-md-0 px-5">
-
-      <!-- DOWNLOAD1 DISPLAY -->
-      <?php if (isset($_SESSION['user_id'])): ?>
-        <div id="download1-display">
-          <h1 class="h1main fw-bold text-white mb-3 display-3">
-            <?php echo htmlspecialchars($content['download1']); ?>
-          </h1>
-        </div>
-
-        <!-- DOWNLOAD1 FORM -->
-        <form id="download1-form" method="POST" action="backend/savecms.php" style="display: none;">
-          <textarea name="download1" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['download1']); ?></textarea>
-          <!-- Buttons are shared and placed after both forms -->
-        </form>
-      <?php else: ?>
+  <!-- Edit Button -->
+  <div class="text-start mb-3 h1main">
+    <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll(this)" data-modal-target=".editContentModal">Edit</button>
+  </div>
+    <!-- DISPLAY -->
+    <?php if (isset($_SESSION['user_id'])): ?>
+      <div id="download1-display">
         <h1 class="h1main fw-bold text-white mb-3 display-3">
           <?php echo htmlspecialchars($content['download1']); ?>
         </h1>
-      <?php endif; ?>
-
-      <!-- PARAGRAPH1 DISPLAY -->
-      <?php if (isset($_SESSION['user_id'])): ?>
         <div id="paragraph1-display">
           <p class="desktop textstyle text-white mb-1 fs-3">
             <?php echo htmlspecialchars($content['paragraph1']); ?>
           </p>
         </div>
+      </div>
 
-        <!-- PARAGRAPH1 FORM -->
-        <form id="paragraph1-form" method="POST" action="backend/savecms.php" style="display: none;">
-          <textarea name="paragraph1" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph1']); ?></textarea>
-        </form>
+      <!-- DOWNLOAD1 FORM -->
+      <div class="modal fade editContentModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Edit Content</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="download1-form" method="POST" action="backend/savecms.php">
+                <textarea name="download1" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['download1']); ?></textarea>
+                <textarea name="paragraph1" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph1']); ?></textarea>
+                <div class="mt-5 me-5 w-100 mx-auto">
+                  <img src="../main/images/download_section/<?php echo htmlspecialchars($content['person1'] ?? 'intro_img.png')?>" alt="Person" class="img-fluid current-cms-img" data-cms-key="person1">
 
-        <!-- SHARED SAVE/CANCEL BUTTONS -->
-        <div id="edit-buttons" class="text-center" style="display: none;">
-          <button type="submit" form="download1-form" class="btn btn-success mb-2">Save Changes</button>
-          <button type="submit" form="paragraph1-form" class="btn btn-success mb-2 ms-2">Save Paragraph</button>
-          <button type="button" class="btn btn-secondary mb-2 ms-2" onclick="toggleEditAll()">Cancel</button>
+                  <?php if (isset($_SESSION['user_id'])): ?>
+                      <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="person1" accept="image/*">
+                  <?php endif; ?>
+                </div>
+                <div id="edit-buttons" class="text-center modal-footer">
+                  <button type="submit" form="download1-form" class="btn btn-success mb-2">Save</button>
+                  <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </form>
+              
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Edit Button -->
-        <div class="text-start mb-3">
-          <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll()">Edit</button>
-        </div>
-
-      <?php else: ?>
-        <p class="desktop textstyle text-white mb-4 fs-3">
-          <?php echo htmlspecialchars($content['paragraph1']); ?>
-        </p>
-      <?php endif; ?>
+    <?php else: ?>
+      <h1 class="h1main fw-bold text-white mb-3 display-3">
+        <?php echo htmlspecialchars($content['download1']); ?>
+      </h1>
+      <p class="desktop textstyle text-white mb-4 fs-3">
+        <?php echo htmlspecialchars($content['paragraph1']); ?>
+      </p>
+    <?php endif; ?>
 
       <!-- Download Icons -->
       <div class="icons d-flex gap-5 flex-md-row flex-sm-row flex-lg-row flex-column justify-content-center justify-content-md-center justify-content-lg-start">
@@ -85,10 +91,6 @@ while ($row = $result->fetch_assoc()) {
     <div class="person1 text-center mt-5 me-5 w-100 mx-auto">
       <img src="../main/images/download_section/<?php echo htmlspecialchars($content['person1'] ?? 'intro_img.png')?>" 
       alt="Person" class="img-fluid current-cms-img" data-cms-key="person1">
-
-      <?php if (isset($_SESSION['user_id'])): ?>
-          <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="person1" accept="image/*">
-      <?php endif; ?>
     </div>
 
     

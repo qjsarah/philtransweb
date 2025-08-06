@@ -2,7 +2,7 @@
 include 'backend/config.php'; // Ensure the path is correct
 
 // These are the CMS keys you want to fetch from the 'download' table
-$keys = ['aboutus', 'PTAS', 'paragraph4'];
+$keys = ['aboutus', 'PTAS', 'paragraph4', 'tricycle'];
 
 // Create placeholders for the prepared statement
 $placeholders = implode(',', array_fill(0, count($keys), '?'));
@@ -24,49 +24,58 @@ while ($row = $result->fetch_assoc()) {
 ?>
 
 <section class="text-white my-5" style="background-color: #BF0D3D; height: auto; animation: fadeIn linear; animation-timeline: view(); animation-range: entry 0 cover 50%;">
-  <!-- Desktop Layout: Image Right, Text Left -->
-  <div class="container py-5 d-flex flex-column flex-lg-row w-100 justify-content-between">
-      <div class="row align-items-center">
-    <!-- Left Column (Text Content) -->
-        <div class="about-left text-start w-100">
+            <!-- DISPLAY -->
+
           <?php if (isset($_SESSION['user_id'])): ?>
-            <!-- Read-only content (visible when not editing) -->
-            <div id="aboutus-view">
-              <h1 class="fw-bold display-5"><?php echo htmlspecialchars($content['aboutus']); ?></h1>
-              <h2 class="fw-semibold mb-3 mt-4"><?php echo htmlspecialchars($content['PTAS']); ?></h2>
-              <p class="fs-5"><?php echo htmlspecialchars($content['paragraph4']); ?></p>
-              <!-- Edit Button -->
-              <div class="text-center">
-                <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAboutUs()">Edit</button>
+            
+            <div class="d-flex flex-column flex-lg-row w-100 justify-content-between py-5 container">
+              <div id="aboutus-view" class="col-lg-6 about-left">
+                <h1 class="fw-bold display-5"><?php echo htmlspecialchars($content['aboutus']); ?></h1>
+                <h2 class="fw-semibold mb-3 mt-4"><?php echo htmlspecialchars($content['PTAS']); ?></h2>
+                <p class="fs-5"><?php echo htmlspecialchars($content['paragraph4']); ?></p>
+              </div>
+
+              <div class="about-right col-lg-6 text-center mt-5">
+                <img src="../main/images/about_section/<?php echo htmlspecialchars($content['tricycle'] ?? 'tricycle.png')?>" alt="Tricycle" class="img-fluid w-75 current-cms-img" data-cms-key="tricycle" >
               </div>
             </div>
-
-            <form id="aboutus-form" method="POST" action="backend/savecms.php" style="display: none;">
-              <!-- Editable Fields -->
-              <textarea name="aboutus" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['aboutus']); ?></textarea>
-              <textarea name="PTAS" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['PTAS']); ?></textarea>
-              <textarea name="paragraph4" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph4']); ?></textarea>
-
-              <div id="aboutus-edit-buttons" class="text-center">
-              <!-- SAVE BOTAN-->
-                <button type="submit" form="aboutus-form" class="btn btn-success mb-2">Save Changes</button>
-                <button type="button" class="btn btn-secondary mb-2 ms-2" onclick="toggleEditAboutUs()">Cancel</button>
+            <div class="text-center">
+                <button type="button" class="btn btn-warning mb-5" onclick="toggleEditAll(this)" data-modal-target=".aboutContent">Edit</button>
+            </div>
+            <div class="modal fade aboutContent" tabindex="-1">
+              <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title">Edit Content</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form id="aboutus-form" method="POST" action="backend/savecms.php">
+                      <!-- Editable Fields -->
+                      <textarea name="aboutus" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['aboutus']); ?></textarea>
+                      <textarea name="PTAS" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['PTAS']); ?></textarea>
+                      <textarea name="paragraph4" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph4']); ?></textarea>
+                      <div class="about-right col-lg-6 text-center mt-5">
+                        <img src="../main/images/about_section/<?php echo htmlspecialchars($content['tricycle'] ?? 'tricycle.png')?>" alt="Tricycle" class="img-fluid w-75 current-cms-img" data-cms-key="tricycle" >
+                      <?php if (isset($_SESSION['user_id'])): ?>
+                          <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="tricycle" accept="image/*">
+                      <?php endif; ?>
+                      <div class="text-center modal-footer">
+                      <!-- SAVE BOTAN-->
+                        <button type="submit" form="download1-form" class="btn btn-success mb-2">Save</button>
+                        <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
-            </form>
-
+            </div>
+      
           <?php else: ?>
             <h1 class="fw-bold display-5"><?php echo htmlspecialchars($content['aboutus']); ?></h1>
             <h2 class="fw-semibold mb-3 mt-4"><?php echo htmlspecialchars($content['PTAS']); ?></h2>
             <p class="textstyle text-white mb-4 fs-3"><?php echo htmlspecialchars($content['paragraph4']); ?></p>
           <?php endif; ?>
-        </div>
-      </div>
-      <!-- Right Column (Image) -->
-      <div class="about-right col-lg-6 text-center mt-5">
-        <img src="../../public/main/images/about_section/desktop_trycicle.png" alt="Tricycle" class="img-fluid w-75" >
-      </div>
-    </div>
-  </div>
 
   <!-- Mobile & Tablet
   <div class="text-center py-4 d-lg-none">
@@ -93,4 +102,4 @@ while ($row = $result->fetch_assoc()) {
       </div>
     </div>
   </div> -->
-</section>
+</section>  

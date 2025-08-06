@@ -1,19 +1,14 @@
-function toggleEditAll() {
-  const downloadDisplay = document.getElementById('download1-display');
-  const downloadForm = document.getElementById('download1-form');
-  const paragraphDisplay = document.getElementById('paragraph1-display');
-  const paragraphForm = document.getElementById('paragraph1-form');
-  const editButtons = document.getElementById('edit-buttons');
+function toggleEditAll(button) {
+  const targetSelector = button.getAttribute('data-modal-target');
+  const modalElement = document.querySelector(targetSelector);
 
-  const isEditing = downloadForm.style.display === 'block';
+  if (!modalElement) {
+    console.error('Modal not found:', targetSelector);
+    return;
+  }
 
-  downloadDisplay.style.display = isEditing ? 'block' : 'none';
-  downloadForm.style.display = isEditing ? 'none' : 'block';
-
-  paragraphDisplay.style.display = isEditing ? 'block' : 'none';
-  paragraphForm.style.display = isEditing ? 'none' : 'block';
-
-  editButtons.style.display = isEditing ? 'none' : 'block';
+  const modalInstance = new bootstrap.Modal(modalElement);
+  modalInstance.show();
 }
 
 function toggleEditAboutUs() {

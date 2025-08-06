@@ -9,8 +9,13 @@ const croppedImageField = document.getElementById('croppedImageField');
 const cropSizes = {
   ads1: { width: 666, height: 182 },
   ads2: { width: 666, height: 182 },
-  person1: { width: 570, height: 617 }, // change this to your desired size
-  // Add more as needed
+  person1: { width: 570, height: 617 },
+  mission_image: {width: 441, height: 411},
+  vision_image: {width: 406, height: 411}, 
+  ads3: {width: 513, height: 484},
+  ads4: {width: 513, height: 484},
+  phone_image: {width: 602, height: 683},
+  tricycle: {width: 872, height: 649}
 };
 
 // Bind all file inputs
@@ -30,6 +35,7 @@ document.querySelectorAll('.cms-image-input').forEach(input => {
     reader.onload = () => {
       cropperTarget.src = reader.result;
       cropModal.style.display = 'block';
+      // new bootstrap.Modal(cropModal).show();
 
       if (cropper) cropper.destroy();
 
@@ -55,14 +61,15 @@ function cropAndUpload() {
     const formData = new FormData();
     formData.append("cms_key", currentCmsKey);
     formData.append("cms_image", blob, "cropped.png");
-    console.log(currentCmsKey);
+    console.log(blob);
     fetch("backend/savecms.php", {
       method: "POST",
       body: formData
     })
     .then(response => {
       if (response.ok) {
-        window.location.href = "index.php";
+        alert("Upload Success.");
+        // window.location.href = "index.php";
       } else {
         alert("Upload failed.");
       }

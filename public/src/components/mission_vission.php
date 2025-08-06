@@ -1,7 +1,7 @@
 <?php
 include 'backend/config.php';
 
-$keys = ['mission', 'vision', 'paragraph5', 'paragraph6', 'mission.png', 'vision.png'];
+$keys = ['mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads3', 'ads4'];
 $placeholders = implode(',', array_fill(0, count($keys), '?'));
 $sql = "SELECT key_name, content FROM missionvision WHERE key_name IN ($placeholders)";
 $stmt = $conn->prepare($sql);
@@ -21,19 +21,43 @@ while ($row = $result->fetch_assoc()) {
   <?php if (isset($_SESSION['user_id'])): ?>
     <!-- View Mode (Logged In) -->
     <div id="mv-view">
-      <div class="mission row align-items-center">
-        <div class="col-md-5 text-center mb-5 d-none d-lg-block">
-          <img src="../../public/main/images/mission_and_vission_section/mission.png" alt="Mission Image" class="img-fluid" style="max-width: 350px;">
-        </div>
-        <div class="col-12 col-lg-7 text-start">
-          <h1 class="text-danger fw-bold display-4"><?php echo htmlspecialchars($content['mission']); ?></h1>
-          <p class="mt-4 fs-4"><?php echo htmlspecialchars($content['paragraph5']); ?></p>
-        </div>
-      </div>
+      <div class="mission d-flex align-items-start gap-3">
+  <div class="col-md-5 text-center mb-5 d-none d-lg-block">
+    <!-- CMS Image -->
+    <img src="../main/images/mission_and_vission_section/<?php echo htmlspecialchars($content['mission_image'] ?? 'mission.png')?>"
+      alt="Mission Image" class="img-fluid current-cms-img" style="max-width: 350px;"
+      data-cms-key="mission_image">
+
+    <?php if (isset($_SESSION['user_id'])): ?>
+      <!-- File input directly under image -->
+      <input type="file"
+             class="form-control mt-3 cms-image-input"
+             data-cms-key="mission_image" accept="image/*"
+             style="max-width: 350px; margin: 0 auto;">
+    <?php endif; ?>
+  </div>
+
+  <!-- Text and Content -->
+  <div class="col-12 col-lg-7 text-start">
+    <h1 class="text-danger fw-bold display-4"><?php echo htmlspecialchars($content['mission']); ?></h1>
+    <p class="mt-4 fs-4"><?php echo htmlspecialchars($content['paragraph5']); ?></p>
+  </div>
+</div>
+
 
       <div class="vision row align-items-center flex-lg-row-reverse mt-5 mb-5">
         <div class="col-md-5 text-center mb-5 mb-md-0 d-none d-lg-block">
-          <img src="../../public/main/images/mission_and_vission_section/vision.png" alt="Vision Image" class="img-fluid" style="max-width: 350px;">
+          <img src="../main/images/mission_and_vission_section/<?php echo htmlspecialchars($content['vision_image'] ?? 'vision.png')?>"
+              alt="Mission Image" class="img-fluid current-cms-img" style="max-width: 350px;"
+              data-cms-key="vision_image">
+
+            <?php if (isset($_SESSION['user_id'])): ?>
+              <!-- File input directly under the image -->
+              <input type="file"
+                    class="form-control mt-3 cms-image-input"
+                    data-cms-key="vision_image" accept="image/*"
+                    style="max-width: 350px; margin: 0 auto;">
+            <?php endif; ?>
         </div>
         <div class="col-12 col-lg-7 text-end">
           <h1 class="text-danger fw-bold display-4"><?php echo htmlspecialchars($content['vision']); ?></h1>
@@ -89,10 +113,17 @@ while ($row = $result->fetch_assoc()) {
   <!-- Ads -->
   <div class="row justify-content-center align-items-center gap-3 pb-5">
     <div class="col-7 col-md-5 col-lg-4 text-center">
-      <img src="../../public/main/images/ads_section/rural.png" alt="Rural" class="ad2-1 img-fluid" style="width:100%; max-width: 400px;">
+      <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads3'] ?? 'ads.jpg'); ?>" alt="Rural" class="ad2-1 img-fluid current-cms-img" data-cms-key="ads3" style="width:100%; max-width: 400px;">
+      <?php if (isset($_SESSION['user_id'])): ?>
+          <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="ads3" accept="image/*">
+        <?php endif; ?>
     </div>
+    
     <div class="col-7 col-md-5 col-lg-4 text-center">
-      <img src="../../public/main/images/ads_section/greenhouse.png" alt="Greenhouse" class="ad2-2 img-fluid" style="width:100%; max-width: 400px;">
+      <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads4'] ?? 'ads.jpg'); ?>" alt="Greenhouse" class="ad2-2 img-fluid" style="width:100%; max-width: 400px;">
+      <?php if (isset($_SESSION['user_id'])): ?>
+          <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="ads4" accept="image/*">
+        <?php endif; ?>
     </div>
   </div>
 </section>
