@@ -10,7 +10,10 @@ const imageBase64 = sessionStorage.getItem('tempImage');
     ads3: {width: 513, height: 484},
     ads4: {width: 513, height: 484},
     phone_image: {width: 602, height: 683},
-    tricycle: {width: 872, height: 649}
+    tricycle: {width: 872, height: 649},
+    services_image: {width: 1182, height: 445},
+    ads5: { width: 666, height: 182 },
+    ads6: { width: 666, height: 182 },
   };
 
   if (!imageBase64 || !cmsKey || !cropSizes[cmsKey]) {

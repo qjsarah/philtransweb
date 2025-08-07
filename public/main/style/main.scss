@@ -346,13 +346,17 @@ footer{
 .owl-carousel .owl-item {
   opacity: 0.3;
   transition: opacity 0.1s ease, transform 0.5s ease-in-out;
-  transform: scale(.7);
+  transform: scale(.9);
   box-shadow: 0 4px 10px $danger;
 }
+.owl-stage {
+  padding-top: 8%;
+  padding-bottom: 8%;
 
+}
 .owl-carousel .owl-item.center {
   opacity: 1;
-  transform: scale(.8);
+  transform: scale(1.1);
   border: 20px solid $danger;
   box-shadow: none;
 }
@@ -373,6 +377,11 @@ footer{
 .desktop {
   display: block;
 }
+
+#editCardModal {
+  z-index: 1085 !important;
+}
+
 // //MODAL
 // .modal-backdrop {
 //   z-index: -1;

@@ -12298,13 +12298,18 @@ footer {
 .owl-carousel .owl-item {
   opacity: 0.3;
   transition: opacity 0.1s ease, transform 0.5s ease-in-out;
-  transform: scale(0.7);
+  transform: scale(0.9);
   box-shadow: 0 4px 10px #BF0D3D;
+}
+
+.owl-stage {
+  padding-top: 8%;
+  padding-bottom: 8%;
 }
 
 .owl-carousel .owl-item.center {
   opacity: 1;
-  transform: scale(0.8);
+  transform: scale(1.1);
   border: 20px solid #BF0D3D;
   box-shadow: none;
 }
@@ -12327,6 +12332,10 @@ footer {
 
 .desktop {
   display: block;
+}
+
+#editCardModal {
+  z-index: 1085 !important;
 }
 
 @media (max-width: 986px) {
@@ -12430,4 +12439,4 @@ footer {
   50% {
     transform: translateY(-8px);
   } /* Gentle floating effect */
-}
+}/*# sourceMappingURL=main.css.map */
