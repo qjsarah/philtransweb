@@ -15,7 +15,7 @@ const imageBase64 = sessionStorage.getItem('tempImage');
 
   if (!imageBase64 || !cmsKey || !cropSizes[cmsKey]) {
     alert("Missing image or CMS key.");
-    window.location.href = "index.php";
+    window.location.href = "../index.php";
   }
 
   const cropSize = cropSizes[cmsKey];
@@ -41,7 +41,7 @@ const imageBase64 = sessionStorage.getItem('tempImage');
       formData.append("cms_key", cmsKey);
       formData.append("cms_image", blob, "cropped.png");
 
-      fetch("backend/savecms.php", {
+      fetch("../backend/savecms.php", {
         method: "POST",
         body: formData
       })
@@ -50,7 +50,7 @@ const imageBase64 = sessionStorage.getItem('tempImage');
           alert("Upload success!");
           sessionStorage.removeItem("tempImage");
           sessionStorage.removeItem("cmsKey");
-          window.location.href = "index.php";
+          window.history.back();
         } else {
           alert("Upload failed.");
         }

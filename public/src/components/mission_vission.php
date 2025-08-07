@@ -145,7 +145,7 @@ while ($row = $result->fetch_assoc()) {
                 <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="ads3" accept="image/*">
               </div>
               <div class="d-flex justify-content-center align-items-center">
-                <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads3'] ?? 'rural.png'); ?>" alt="Rural" class="img-fluid current-cms-img col-md-6 mx-auto" data-cms-key="ads3" style="width:100%; max-width: 200px;">
+                <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads4'] ?? 'greenhouse.png'); ?>" alt="Rural" class="img-fluid current-cms-img col-md-6 mx-auto" data-cms-key="ad4" style="width:100%; max-width: 200px;">
                 <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="ads4" accept="image/*">
               </div>
               <?php endif; ?>

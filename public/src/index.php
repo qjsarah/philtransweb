@@ -82,7 +82,7 @@
       sessionStorage.setItem('cmsKey', cmsKey);
 
       // Redirect to cropping page with cms_key in URL (optional, just for clarity)
-      window.location.href = `imagecropper.php?cms_key=${cmsKey}`;
+      window.location.href = `components/imagecropper.php?cms_key=${cmsKey}`;
     };
     reader.readAsDataURL(file);
   });
