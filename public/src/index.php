@@ -23,8 +23,6 @@
   <script src="backend/script.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
-
-
 </head>
 <body class="download">
 
@@ -61,9 +59,7 @@
     </section>
 
     <section id="footer">
-      <?php include 'components/footer.php'; 
-      
-    include 'components/imagecropper.php';?>
+      <?php include 'components/footer.php'; ?>
     </section>
     
   <script src="../../public/main/scripts/bootstrap.bundle.min.js"></script> 
@@ -72,6 +68,25 @@
     $(document).on('show.bs.modal', '.modal', function () {
       $(this).appendTo('body');
     });
+    document.querySelectorAll('.cms-image-input').forEach(input => {
+  input.addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const cmsKey = this.getAttribute('data-cms-key');
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      // Save base64 image and cmsKey to sessionStorage
+      sessionStorage.setItem('tempImage', reader.result);
+      sessionStorage.setItem('cmsKey', cmsKey);
+
+      // Redirect to cropping page with cms_key in URL (optional, just for clarity)
+      window.location.href = `imagecropper.php?cms_key=${cmsKey}`;
+    };
+    reader.readAsDataURL(file);
+  });
+});
   </script>
 </body>
 </html>

@@ -55,8 +55,9 @@ while ($row = $result->fetch_assoc()) {
                       <textarea name="aboutus" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['aboutus'] ?? "ABOUT US"); ?></textarea>
                       <textarea name="PTAS" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['PTAS'] ?? "PTAS: REVOLUTIONIZING RIDES AND REDEFINING THE TRICYCLE INDUSTRY"); ?></textarea>
                       <textarea name="paragraph4" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph4'] ?? "In the ever-evolving landscape of transportation, PTAS emerges as more than just another app. It shatters the mold of traditional ride-hailing services, offering a revolutionary approach centered around the very people who keep the tricycle industry moving – the drivers. PTAS transcends the mere act of getting you from point A to point B; it's a catalyst for positive change, empowering drivers, enhancing passenger experiences."); ?></textarea>
-                      <div class="about-right col-lg-6 text-center mt-5">
+                      <div class="col-lg-6 text-center mt-5">
                         <img src="../main/images/about_section/<?php echo htmlspecialchars($content['tricycle'] ?? 'trycicle.png')?>" alt="Tricycle" class="img-fluid w-75 current-cms-img" data-cms-key="tricycle" >
+                      </div>
                       <?php if (isset($_SESSION['user_id'])): ?>
                           <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="tricycle" accept="image/*">
                       <?php endif; ?>

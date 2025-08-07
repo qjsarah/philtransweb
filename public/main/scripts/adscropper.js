@@ -1,82 +1,63 @@
-let cropper;
-let currentCmsKey = '';
-const cropModal = document.getElementById('cropModal');
-const cropperTarget = document.getElementById('cropperTarget');
-const cmsKeyField = document.getElementById('cmsKeyField');
-const croppedImageField = document.getElementById('croppedImageField');
+const imageBase64 = sessionStorage.getItem('tempImage');
+  const cmsKey = sessionStorage.getItem('cmsKey');
 
-// Sizes
-const cropSizes = {
-  ads1: { width: 666, height: 182 },
-  ads2: { width: 666, height: 182 },
-  person1: { width: 570, height: 617 },
-  mission_image: {width: 441, height: 411},
-  vision_image: {width: 406, height: 411}, 
-  ads3: {width: 513, height: 484},
-  ads4: {width: 513, height: 484},
-  phone_image: {width: 602, height: 683},
-  tricycle: {width: 872, height: 649}
-};
+  const cropSizes = {
+    ads1: { width: 666, height: 182 },
+    ads2: { width: 666, height: 182 },
+    person1: { width: 570, height: 617 },
+    mission_image: {width: 441, height: 411},
+    vision_image: {width: 406, height: 411}, 
+    ads3: {width: 513, height: 484},
+    ads4: {width: 513, height: 484},
+    phone_image: {width: 602, height: 683},
+    tricycle: {width: 872, height: 649}
+  };
 
-// Bind all file inputs
-document.querySelectorAll('.cms-image-input').forEach(input => {
-  input.addEventListener('change', function (e) {
-    const file = e.target.files[0];
-    if (!file) return;
+  if (!imageBase64 || !cmsKey || !cropSizes[cmsKey]) {
+    alert("Missing image or CMS key.");
+    window.location.href = "index.php";
+  }
 
-    currentCmsKey = e.target.getAttribute('data-cms-key');
-    const cropSize = cropSizes[currentCmsKey];
-    if (!cropSize) {
-      alert("No crop size defined for " + currentCmsKey);
-      return;
-    }
+  const cropSize = cropSizes[cmsKey];
+  const cropperTarget = document.getElementById('cropperTarget');
+  let cropper;
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      cropperTarget.src = reader.result;
-      cropModal.style.display = 'block';
-      // new bootstrap.Modal(cropModal).show();
+  cropperTarget.src = imageBase64;
 
-      if (cropper) cropper.destroy();
-
-      cropper = new Cropper(cropperTarget, {
-        aspectRatio: cropSize.width / cropSize.height,
-        viewMode: 1,
-        autoCropArea: 1
-      });
-    };
-    reader.readAsDataURL(file);
-  });
-});
-
-
-function cropAndUpload() {
-  if (!cropper || !currentCmsKey || !cropSizes[currentCmsKey]) return;
-
-  const { width, height } = cropSizes[currentCmsKey];
-
-  const canvas = cropper.getCroppedCanvas({ width, height });
-
-  canvas.toBlob(blob => {
-    const formData = new FormData();
-    formData.append("cms_key", currentCmsKey);
-    formData.append("cms_image", blob, "cropped.png");
-    console.log(blob);
-    fetch("backend/savecms.php", {
-      method: "POST",
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        alert("Upload Success.");
-        // window.location.href = "index.php";
-      } else {
-        alert("Upload failed.");
-      }
-    })
-    .catch(error => {
-      console.error("Error uploading image:", error);
-      alert("Upload error.");
+  cropperTarget.onload = () => {
+    cropper = new Cropper(cropperTarget, {
+      aspectRatio: cropSize.width / cropSize.height,
+      viewMode: 1,
+      autoCropArea: 1
     });
-  }, "image/png");
-}
+  };
+
+  function cropAndUpload() {
+    const { width, height } = cropSize;
+    const canvas = cropper.getCroppedCanvas({ width, height });
+
+    canvas.toBlob(blob => {
+      const formData = new FormData();
+      formData.append("cms_key", cmsKey);
+      formData.append("cms_image", blob, "cropped.png");
+
+      fetch("backend/savecms.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => {
+        if (res.ok) {
+          alert("Upload success!");
+          sessionStorage.removeItem("tempImage");
+          sessionStorage.removeItem("cmsKey");
+          window.location.href = "index.php";
+        } else {
+          alert("Upload failed.");
+        }
+      })
+      .catch(err => {
+        console.error("Upload error", err);
+        alert("Something went wrong.");
+      });
+    }, "image/png");
+  }
