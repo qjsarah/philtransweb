@@ -22,21 +22,21 @@ while ($row = $result->fetch_assoc()) {
    
   <div class="d-flex justify-content-center align-items-start text-center text-md-start flex-column flex-lg-row downloadbg">
 
-    <!-- Text & Buttons Column -->
-    <div class="mb-4 mb-md-0 px-5">
-  <!-- Edit Button -->
-  <div class="text-start mb-3 h1main">
-    <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll(this)" data-modal-target=".editContentModal">Edit</button>
-  </div>
+  <!-- Text & Buttons Column -->
+  <div class="mb-4 mb-md-0 px-5">
     <!-- DISPLAY -->
     <?php if (isset($_SESSION['user_id'])): ?>
+      <!-- Edit Button -->
+      <div class="text-start mb-3 h1main">
+       <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll(this)" data-modal-target=".editContentModal">Edit</button>
+      </div>
       <div id="download1-display">
         <h1 class="h1main fw-bold text-white mb-3 display-3">
-          <?php echo htmlspecialchars($content['download1']); ?>
+          <?php echo htmlspecialchars($content['download1']  ?? 'DOWNLOAD OUR APP NOW!'); ?>
         </h1>
         <div id="paragraph1-display">
-          <p class="desktop textstyle text-white mb-1 fs-3">
-            <?php echo htmlspecialchars($content['paragraph1']); ?>
+          <p class="desktop textstyle text-white mb-1 fs-4">
+            <?php echo htmlspecialchars($content['paragraph1'] ?? "Download the Philippine Trans App System today and experience transportation like never before. Whether you're traveling for business or pleasure, our app makes getting around the Philippines easier, safer, and more convenient than ever before. "); ?>
           </p>
         </div>
       </div>
@@ -51,8 +51,8 @@ while ($row = $result->fetch_assoc()) {
             </div>
             <div class="modal-body">
               <form id="download1-form" method="POST" action="backend/savecms.php">
-                <textarea name="download1" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['download1']); ?></textarea>
-                <textarea name="paragraph1" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph1']); ?></textarea>
+                <textarea name="download1" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['download1']??'DOWNLOAD OUR APP NOW!'); ?></textarea>
+                <textarea name="paragraph1" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph1']??"Download the Philippine Trans App System today and experience transportation like never before. Whether you're traveling for business or pleasure, our app makes getting around the Philippines easier, safer, and more convenient than ever before. "); ?></textarea>
                 <div class="mt-5 me-5 w-100 mx-auto">
                   <img src="../main/images/download_section/<?php echo htmlspecialchars($content['person1'] ?? 'intro_img.png')?>" alt="Person" class="img-fluid current-cms-img" data-cms-key="person1">
 
@@ -65,7 +65,6 @@ while ($row = $result->fetch_assoc()) {
                   <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </form>
-              
             </div>
           </div>
         </div>
@@ -73,10 +72,10 @@ while ($row = $result->fetch_assoc()) {
 
     <?php else: ?>
       <h1 class="h1main fw-bold text-white mb-3 display-3">
-        <?php echo htmlspecialchars($content['download1']); ?>
+        <?php echo htmlspecialchars($content['download1'] ??'DOWNLOAD OUR APP NOW!'); ?>
       </h1>
-      <p class="desktop textstyle text-white mb-4 fs-3">
-        <?php echo htmlspecialchars($content['paragraph1']); ?>
+      <p class="desktop textstyle text-white mb-4 fs-4">
+        <?php echo htmlspecialchars($content['paragraph1']??"Download the Philippine Trans App System today and experience transportation like never before. Whether you're traveling for business or pleasure, our app makes getting around the Philippines easier, safer, and more convenient than ever before. "); ?>
       </p>
     <?php endif; ?>
 
@@ -96,7 +95,7 @@ while ($row = $result->fetch_assoc()) {
     
 
     <!-- Mobile Text -->
-    <p class="mobile textstyle text-white mb-4 fs-3 w-75 mx-auto">
+    <p class="mobile textstyle text-white mb-4 fs-4 w-75 mx-auto">
       Download the Philippine Trans App System today and experience transportation like never before. Whether you're traveling for business or pleasure, our app makes getting around the Philippines easier, safer, and more convenient than ever before.
     </p>
   </div>

@@ -30,13 +30,13 @@ while ($row = $result->fetch_assoc()) {
             
             <div class="d-flex flex-column flex-lg-row w-100 justify-content-between py-5 container">
               <div id="aboutus-view" class="col-lg-6 about-left">
-                <h1 class="fw-bold display-5"><?php echo htmlspecialchars($content['aboutus']); ?></h1>
-                <h2 class="fw-semibold mb-3 mt-4"><?php echo htmlspecialchars($content['PTAS']); ?></h2>
-                <p class="fs-5"><?php echo htmlspecialchars($content['paragraph4']); ?></p>
+                <h1 class="fw-bold display-5"><?php echo htmlspecialchars($content['aboutus'] ?? "ABOUT US"); ?></h1>
+                <h2 class="fw-semibold mb-3 mt-4"><?php echo htmlspecialchars($content['PTAS'] ?? "PTAS: REVOLUTIONIZING RIDES AND REDEFINING THE TRICYCLE INDUSTRY"); ?></h2>
+                <p class="fs-5"><?php echo htmlspecialchars($content['paragraph4'] ?? "In the ever-evolving landscape of transportation, PTAS emerges as more than just another app. It shatters the mold of traditional ride-hailing services, offering a revolutionary approach centered around the very people who keep the tricycle industry moving – the drivers. PTAS transcends the mere act of getting you from point A to point B; it's a catalyst for positive change, empowering drivers, enhancing passenger experiences."); ?></p>
               </div>
 
               <div class="about-right col-lg-6 text-center mt-5">
-                <img src="../main/images/about_section/<?php echo htmlspecialchars($content['tricycle'] ?? 'tricycle.png')?>" alt="Tricycle" class="img-fluid w-75 current-cms-img" data-cms-key="tricycle" >
+                <img src="../main/images/about_section/<?php echo htmlspecialchars($content['tricycle'] ?? 'desktop_trycicle.png')?>" alt="Tricycle" class="img-fluid w-75 current-cms-img" data-cms-key="tricycle" >
               </div>
             </div>
             <div class="text-center">
@@ -52,11 +52,11 @@ while ($row = $result->fetch_assoc()) {
                   <div class="modal-body">
                     <form id="aboutus-form" method="POST" action="backend/savecms.php">
                       <!-- Editable Fields -->
-                      <textarea name="aboutus" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['aboutus']); ?></textarea>
-                      <textarea name="PTAS" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['PTAS']); ?></textarea>
-                      <textarea name="paragraph4" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph4']); ?></textarea>
+                      <textarea name="aboutus" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['aboutus'] ?? "ABOUT US"); ?></textarea>
+                      <textarea name="PTAS" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['PTAS'] ?? "PTAS: REVOLUTIONIZING RIDES AND REDEFINING THE TRICYCLE INDUSTRY"); ?></textarea>
+                      <textarea name="paragraph4" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph4'] ?? "In the ever-evolving landscape of transportation, PTAS emerges as more than just another app. It shatters the mold of traditional ride-hailing services, offering a revolutionary approach centered around the very people who keep the tricycle industry moving – the drivers. PTAS transcends the mere act of getting you from point A to point B; it's a catalyst for positive change, empowering drivers, enhancing passenger experiences."); ?></textarea>
                       <div class="about-right col-lg-6 text-center mt-5">
-                        <img src="../main/images/about_section/<?php echo htmlspecialchars($content['tricycle'] ?? 'tricycle.png')?>" alt="Tricycle" class="img-fluid w-75 current-cms-img" data-cms-key="tricycle" >
+                        <img src="../main/images/about_section/<?php echo htmlspecialchars($content['tricycle'] ?? 'trycicle.png')?>" alt="Tricycle" class="img-fluid w-75 current-cms-img" data-cms-key="tricycle" >
                       <?php if (isset($_SESSION['user_id'])): ?>
                           <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="tricycle" accept="image/*">
                       <?php endif; ?>
@@ -72,9 +72,17 @@ while ($row = $result->fetch_assoc()) {
             </div>
       
           <?php else: ?>
-            <h1 class="fw-bold display-5"><?php echo htmlspecialchars($content['aboutus']); ?></h1>
-            <h2 class="fw-semibold mb-3 mt-4"><?php echo htmlspecialchars($content['PTAS']); ?></h2>
-            <p class="textstyle text-white mb-4 fs-3"><?php echo htmlspecialchars($content['paragraph4']); ?></p>
+            <div class="d-flex flex-column flex-lg-row w-100 justify-content-between py-5 container">
+              <div id="aboutus-view" class="col-lg-6 about-left">
+                <h1 class="fw-bold display-5"><?php echo htmlspecialchars($content['aboutus']  ?? "ABOUT US"); ?></h1>
+                <h2 class="fw-semibold  fs-4 mb-3 mt-4"><?php echo htmlspecialchars($content['PTAS'] ?? "PTAS: REVOLUTIONIZING RIDES AND REDEFINING THE TRICYCLE INDUSTRY"); ?></h2>
+                <p class="fs-5"><?php echo htmlspecialchars($content['paragraph4'] ?? "In the ever-evolving landscape of transportation, PTAS emerges as more than just another app. It shatters the mold of traditional ride-hailing services, offering a revolutionary approach centered around the very people who keep the tricycle industry moving – the drivers. PTAS transcends the mere act of getting you from point A to point B; it's a catalyst for positive change, empowering drivers, enhancing passenger experiences."); ?></p>
+              </div>
+
+              <div class="about-right col-lg-6 text-center mt-5">
+                <img src="../main/images/about_section/<?php echo htmlspecialchars($content['tricycle'] ?? 'desktop_trycicle.png')?>" alt="Tricycle" class="img-fluid w-75 current-cms-img" data-cms-key="tricycle" >
+              </div>
+            </div>
           <?php endif; ?>
 
   <!-- Mobile & Tablet

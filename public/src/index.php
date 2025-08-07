@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php if (isset($_SESSION['user_id'])): ?>
   <div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
-    <a href="/ojt/philtransweb/public/src/backend/logout.php" class="btn btn-danger">
+    <a href="backend/logout.php" class="btn btn-danger">
       <i class="fas fa-sign-out-alt"></i> Logout
     </a>
   </div>
@@ -67,5 +67,11 @@
     </section>
     
   <script src="../../public/main/scripts/bootstrap.bundle.min.js"></script> 
+  <script> //for modal backdrop kase grabe na un source: https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-background
+  //BAWAL ITAAS PLEASE
+    $(document).on('show.bs.modal', '.modal', function () {
+      $(this).appendTo('body');
+    });
+  </script>
 </body>
 </html>

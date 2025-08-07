@@ -10,7 +10,6 @@ function toggleEditAll(button) {
   const modalInstance = new bootstrap.Modal(modalElement);
   modalInstance.show();
 }
-
 function toggleEditAboutUs() {
   const aboutDisplay = document.getElementById  ('aboutus-view')
   const aboutusForm = document.getElementById('aboutus-form');
