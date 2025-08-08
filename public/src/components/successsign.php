@@ -11,32 +11,55 @@ if (isset($_SESSION["user_id"])) {
 <html lang="en">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!--Include these links -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <!--Include these links -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
-<body>
-    <div class="bg"></div>
-    <div class="bg bg2"></div>
+<body class="text-white" style="background-color: #BF0D3D;">
+
     <div class="container d-flex align-items-center justify-content-center min-vh-100 fade-in">
-        <div class="row w-100 justify-content-center">
-            <div class="col-md-8 col-lg-6 col-xl-5">
-                <div class="card shadow-lg border-0 rounded-4">
-                    <div class="card-header bg-dark text-white text-center rounded-top-4 py-4">
-                        <h4 class="card-title fw-bold mb-0">Sign up succesfull!</h4>
+        <div class="row w-100 justify-content-center" style="max-width: 600px;">
+            <div class="col-12">
+
+                <!-- Logo centered above card -->
+                <div class="text-center mb-3">
+                    <img src="../../main/images/successsign_section/philtranslogo.png" alt="Philtrans Logo"
+                        class="img-fluid"
+                        style="max-height: 80px;">
+                </div>
+
+                <div class="card shadow-lg border-0 rounded-5"
+                    style="background-color: #ffffff; border-radius: 25px; box-shadow: 0 0 10px #BF0D3D;">
+
+                    <!-- Card Header -->
+                    <div class="card-header text-center rounded-top-4 py-3"
+                        style="background-color: #ffffff; color:#BF0D3D;">
+                        <h4 class="card-title fw-bold mb-0">Sign Up Successful!</h4>
                     </div>
-                    <h2 class="text-center rounded-top-4 py-4">You have successfully signed up!</h2>
-                    <h3 class="text-center py-1">Kindly check your email for account confirmation.</h3>
-                    <div class="card-footer text-center">
-                        <small>Already have an account? <a href="login.php">Login</a></small>
+
+                    <!-- Card Body -->
+                    <div class="card-body text-center px-4 py-4" style="color: #BF0D3D;">
+                        <h2 class="fw-bold mb-3">You have successfully signed up!</h2>
+                        <h5 class="mb-4" style="color: #464646;">Kindly check your email for account confirmation.</h5>
                     </div>
+
+                    <!-- Card Footer -->
+                    <div class="card-footer text-center bg-white rounded-bottom-4"
+                        style="border-top: 3px solid #BF0D3D;">
+                        <small style="color: #464646;">Already have an account?
+                            <a href="login.php"
+                                style="color: #BF0D3D; font-weight: 600; text-decoration: underline;">Login</a>
+                        </small>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 
 </html>
