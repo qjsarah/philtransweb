@@ -1,11 +1,5 @@
 <?php session_start(); ?>
-<?php if (isset($_SESSION['user_id'])): ?>
-  <div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
-    <a href="backend/logout.php" class="btn btn-danger">
-      <i class="fas fa-sign-out-alt"></i> Logout
-    </a>
-  </div>
-<?php endif; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,11 +23,12 @@
   <div class="sticky-top pt-2">
     <?php include 'components/navbar.php'; ?>
   </div>
-
     <section id="#" class="mb-5 pb-1">
+      
       <?php 
         include 'components/download.php'; 
       ?>
+      
     </section>
     <section id="#">
       <?php 

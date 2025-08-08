@@ -31,10 +31,15 @@ while ($row = $result->fetch_assoc()) {
   <div class="mb-4 mb-md-0 px-5">
     <?php if (isset($_SESSION['user_id'])): ?>
       <!-- Edit Button -->
+          <div>
+      <a href="backend/logout.php" class="h1main mt-3 btn btn-danger">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </div>
       <div class="text-start mb-3 h1main">
         <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll(this)" data-modal-target=".editContentModal">Edit</button>
       </div>
-
+ 
       <!-- Display Content -->
       <div id="download1-display">
         <h1 class="h1main fw-bold text-white mb-3 display-3">
@@ -52,18 +57,21 @@ while ($row = $result->fetch_assoc()) {
         <div class="modal-dialog modal-xl modal-dialog-scrollable">
           <div class="modal-content" style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.85); border-radius: 1rem;">
             <div class="modal-header border-bottom-0">
+              
               <h3 class="modal-title text-primary fw-bold">Edit Content</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <!-- Background Color Picker -->
+              <div class="px-4">
+                <label for="download_bg_color" class="form-label fw-bold text-secondary ">Background Color</label>
+                <input type="color" class="form-control form-control-color mb-3" id="download_bg_color" name="download_bg_color" value="<?php echo htmlspecialchars($content['download_bg_color'] ?? '#1a1a1a'); ?>">
+              </div>
               <form id="download1-form" method="POST" action="backend/savecms.php" enctype="multipart/form-data">
                 <textarea name="download1" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['download1']??'DOWNLOAD OUR APP NOW!'); ?></textarea>
                 <textarea name="paragraph1" class="form-control mb-3" rows="5"><?php echo htmlspecialchars($content['paragraph1']??"Download the Philippine Trans App System today..."); ?></textarea>
 
-                <!-- Background Color Picker -->
-                <label for="download_bg_color" class="form-label fw-bold text-secondary">Background Color</label>
-                <input type="color" class="form-control form-control-color mb-3" id="download_bg_color" name="download_bg_color" value="<?php echo htmlspecialchars($content['download_bg_color'] ?? '#1a1a1a'); ?>">
-
+               
                 <!-- Image Upload -->
                 <div class="me-5 w-50">
                   <img src="../main/images/download_section/<?php echo htmlspecialchars($content['person1'] ?? 'intro_img.png')?>" alt="Person" class="img-fluid current-cms-img w-50 mb-2" data-cms-key="person1">
@@ -96,6 +104,8 @@ while ($row = $result->fetch_assoc()) {
       <img src="../../public/main/images/download_section/apple.png" class="img-fluid mx-auto my-2 mx-lg-0" alt="Apple Store" style="max-width: 200px;">
       <img src="../../public/main/images/download_section/google.png" class="img-fluid mx-auto my-2 mx-lg-0" alt="Google Play" style="max-width: 200px;">
     </div>
+      
+
   </div>
 
   <!-- Right-side Image -->

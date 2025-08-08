@@ -43,14 +43,16 @@ $bgColor = htmlspecialchars($content['aboutus_bgcolor'] ?? '#BF0D3D');
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+              <div class="px-4">
+              <label for="aboutus_bgcolor" class="form-label mt-3">Background Color</label>
+              <input type="color" class="form-control form-control-color mb-3" id="aboutus_bgcolor" name="aboutus_bgcolor" value="<?= htmlspecialchars($content['aboutus_bgcolor'] ?? '#BF0D3D'); ?>">
+          </div>
             <form id="aboutus-form" method="POST" action="backend/savecms.php" enctype="multipart/form-data">
               <textarea name="aboutus" class="form-control mb-3" rows="2"><?= htmlspecialchars($content['aboutus'] ?? "ABOUT US"); ?></textarea>
               <textarea name="PTAS" class="form-control mb-3" rows="2"><?= htmlspecialchars($content['PTAS'] ?? "PTAS:..."); ?></textarea>
               <textarea name="paragraph4" class="form-control mb-3" rows="5"><?= htmlspecialchars($content['paragraph4'] ?? "..."); ?></textarea>
 
-              <label for="aboutus_bgcolor" class="form-label mt-3">Background Color</label>
-              <input type="color" class="form-control form-control-color mb-3" id="aboutus_bgcolor" name="aboutus_bgcolor"
-                     value="<?= htmlspecialchars($content['aboutus_bgcolor'] ?? '#BF0D3D'); ?>">
+
 
               <div class="col-lg-6 text-center mt-5">
                 <img src="../main/images/about_section/<?= htmlspecialchars($content['tricycle'] ?? 'desktop_trycicle.png') ?>" class="img-fluid w-75 current-cms-img">

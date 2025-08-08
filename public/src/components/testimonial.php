@@ -81,7 +81,7 @@ while ($row = $result->fetch_assoc()) {
                                     <td class="d-flex justify-content-between align-items-center gap-1">
                                         <form action="backend/delete_testimonial.php" method="POST" class="d-inline">   
                                             <input type="hidden" name="id" value="<?php echo $test['id']; ?>">
-                                            <button class="btn btn-danger my-auto" style="width:100px;">Delete</button>
+                                            <button class="btn btn-danger mb-3" style="width:100px;">Delete</button>
                                         </form>
                                         <div class="d-flex mb-3">
                                         <button class="btn btn-secondary edit-btn-testimonial" 
@@ -154,7 +154,7 @@ while ($row = $result->fetch_assoc()) {
         </div>
         <?php if (isset($_SESSION['user_id'])): ?>
             <div class="text-center">
-                        <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll(this)" data-modal-target=".testimonialContent">Edit</button>
+                        <button type="button" class="btn btn-warning " onclick="toggleEditAll(this)" data-modal-target=".testimonialContent">Edit</button>
                     </div>
         <?php endif; ?>
         `;

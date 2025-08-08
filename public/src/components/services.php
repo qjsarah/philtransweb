@@ -39,7 +39,7 @@ while ($row = $result->fetch_assoc()) {
         <?php endforeach; ?>
 
         <div class="text-center">
-            <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll(this)" data-modal-target=".serviceContent">Edit</button>
+            <button type="button" class="btn btn-warning mt-3 ad1" onclick="toggleEditAll(this)" data-modal-target=".serviceContent">Edit</button>
         </div>
 
         <div class="modal fade serviceContent" tabindex="-1" id="serviceModal">
@@ -49,8 +49,8 @@ while ($row = $result->fetch_assoc()) {
                         <h3 class="modal-title">Edit Content</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
                     <div class="modal-body">
+                        
                         <form id="all-form" method="POST" action="backend/savecms.php" enctype="multipart/form-data">
                             <textarea name="service_title" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['service_title'] ?? "SERVICES"); ?></textarea>
 
@@ -59,10 +59,7 @@ while ($row = $result->fetch_assoc()) {
                                 <input type="file" name="services_image" class="form-control mb-2 cms-image-input" data-cms-key="services_image" accept="image/*">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="services_bgcolor" class="form-label">Background Color</label>
-                                <input type="color" name="services_bgcolor" id="services_bgcolor" class="form-control form-control-color" value="<?php echo htmlspecialchars($content['services_bgcolor'] ?? '#000000'); ?>">
-                            </div>
+                           
 
                             <div id="edit-buttons" class="text-center modal-footer">
                                 <button type="submit" class="btn btn-success mb-2">Save</button>
@@ -90,7 +87,7 @@ while ($row = $result->fetch_assoc()) {
                                                 <input type="hidden" name="id" value="<?php echo $card['id']; ?>">
                                                 <button class="btn btn-danger" style="width:100px;">Delete</button>
                                             </form>
-                                            <div class="d-flex mb-3">
+                                            <div class="d-flex">
                                                 <button class="btn btn-secondary edit-btn" 
                                                     data-id="<?php echo $card['id']; ?>" 
                                                     data-title="<?php echo htmlspecialchars($card['title'], ENT_QUOTES); ?>" 
