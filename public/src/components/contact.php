@@ -13,18 +13,8 @@ if ($result && $row = $result->fetch_assoc()) {
 <section class="contactbg contact text-center text-white" style="background-color: <?= htmlspecialchars($contactBg) ?>;">
     <div class="container py-5">
         <h5 class="display-5 fw-bold">Contact us</h5>
-        <p></p>
-
-        <!-- Background Color Editor (only visible if logged in) -->
-        <?php if (isset($_SESSION['user_id'])): ?>
-        <form method="POST" action="backend/savecms.php" class="mb-4 d-flex justify-content-center align-items-center gap-2">
-            <label for="contact_bg" class="form-label mb-0">Background Color:</label>
-            <input type="color" id="contact_bg" name="contact_bg" value="<?= htmlspecialchars($contactBg) ?>" class="form-control form-control-color" style="width: 60px; height: 40px;">
-            <button type="submit" class="btn btn-light btn-sm">Save</button>
-        </form>
-        <?php endif; ?>
-
-        <!-- Contact Form -->
+        <p> </p>
+        <!-- Wrapper to center form -->
         <div class="row justify-content-center">
             <form class="col-md-8 mt-4">
                 <div class="form-group row mb-3">
@@ -75,7 +65,7 @@ if ($result && $row = $result->fetch_assoc()) {
                 <img src="../../public/main/images/contact_section/web.png" alt="" class="icon-img">
             </div>
             <div class="contact_nav d-flex flex-column">
-                <a href="#about">About us</a>
+                <a href="#about">About Us</a>
                 <a href="">Copyright</a>
                 <a href="">Privacy Policy</a>
                 <a href="">Terms and Condition</a>

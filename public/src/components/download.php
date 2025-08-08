@@ -77,9 +77,7 @@ while ($row = $result->fetch_assoc()) {
                   <img src="../main/images/download_section/<?php echo htmlspecialchars($content['person1'] ?? 'intro_img.png')?>" alt="Person" class="img-fluid current-cms-img w-50 mb-2" data-cms-key="person1">
                   <input type="file" class="form-control cms-image-input" data-cms-key="person1" name="person1" accept="image/*">
                 </div>
-
-                <!-- Submit Buttons -->
-                <div id="edit-buttons" class="text-center modal-footer border-top-0">
+                <div id="edit-buttons" class="text-center modal-footer">
                   <button type="submit" form="download1-form" class="btn btn-success mb-2">Save</button>
                   <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
                 </div>
@@ -119,26 +117,6 @@ while ($row = $result->fetch_assoc()) {
   </p>
 
 </section>
-
-<!-- Real-time color preview -->
 <script>
-  const colorPicker = document.getElementById("download_bg_color");
-  if (colorPicker) {
-    colorPicker.addEventListener("input", function () {
-      document.querySelector("section.downloadbg").style.backgroundColor = this.value;
-    });
-  }
-</script>
-
-<!-- JavaScript to add blur class to modal backdrop -->
-<script>
-  const modal = document.querySelector('.editContentModal');
-  if (modal) {
-    modal.addEventListener('shown.bs.modal', function () {
-      const backdrop = document.querySelector('.modal-backdrop');
-      if (backdrop) {
-        backdrop.classList.add('blur-backdrop');
-      }
-    });
-  }
+ 
 </script>

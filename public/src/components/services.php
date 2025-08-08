@@ -68,46 +68,48 @@ while ($row = $result->fetch_assoc()) {
                         </form>
 
                         <hr>
-                        <h5 class="mt-4">Service Cards</h5>
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th style="width: 160px;">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($cards as $card): ?>
+                        <!-- CRUD TABLE START -->
+                            <h5 class="mt-4">Service Cards</h5>
+                            <table class="table table-bordered table-striped">
+                                <thead>
                                     <tr>
-                                        <td><?php echo htmlspecialchars($card['title']); ?></td>
-                                        <td><?php echo htmlspecialchars($card['content']); ?></td>
-                                        <td class="d-flex justify-content-between align-items-center gap-1">
-                                            <form action="backend/delete_card.php" method="POST" class="d-inline">
-                                                <input type="hidden" name="id" value="<?php echo $card['id']; ?>">
-                                                <button class="btn btn-danger" style="width:100px;">Delete</button>
-                                            </form>
-                                            <div class="d-flex">
-                                                <button class="btn btn-secondary edit-btn" 
-                                                    data-id="<?php echo $card['id']; ?>" 
-                                                    data-title="<?php echo htmlspecialchars($card['title'], ENT_QUOTES); ?>" 
-                                                    data-content="<?php echo htmlspecialchars($card['content'], ENT_QUOTES); ?>" style="width:100px;">
-                                                    Edit
-                                                </button>
-                                            </div>
-                                        </td>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th style="width: 160px;">Actions</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-
-                        <?php include 'service_edit_modal.php'; ?>
-
-                        <div class="text-center">
-                            <button id="showAddCardForm" class="btn btn-success">
-                                Add New Card
-                            </button>
-                        </div>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($cards as $card): ?>
+                                        <tr>
+                                            <td><?php echo htmlspecialchars($card['title']); ?></td>
+                                            <td><?php echo htmlspecialchars($card['content']); ?></td>
+                                            <td class="d-flex justify-content-between align-items-center gap-1">
+                                                <form action="backend/delete_card.php" method="POST" class="d-inline">
+                                                    <input type="hidden" name="id" value="<?php echo $card['id']; ?>">
+                                                    <button class="d-flex btn btn-danger  mx-auto my-auto" style="width:100px;">Delete</button>
+                                                </form>
+                                                <div class="d-flex mb-3">
+                                                    <button class="btn btn-secondary edit-btn" 
+                                                        data-id="<?php echo $card['id']; ?>" 
+                                                        data-title="<?php echo htmlspecialchars($card['title'], ENT_QUOTES); ?>" 
+                                                        data-content="<?php echo htmlspecialchars($card['content'], ENT_QUOTES); ?>" style="width:100px;">
+                                                        Edit
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                            <?php
+                            include 'service_edit_modal.php';
+                            ?>
+                            <div class="text-center">
+                                <button id="showAddCardForm" class="btn btn-success">
+                                    Add New Card
+                                </button>
+                            </div>
+           
 
                         <div id="addCardForm" style="display: none;">
                             <hr>
