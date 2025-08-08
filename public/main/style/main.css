@@ -11974,12 +11974,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.download {
-  background-image: url("../images/nav_section/top_background.png");
-  width: auto;
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding-bottom: 5vh;
+.downloadbg {
+  background-color: #BF0D3D;
 }
 
 .person1 {
@@ -12116,25 +12112,25 @@ textarea.form-control-lg {
 .contactbg {
   animation: fadeIn linear;
   animation-timeline: view();
-  animation-range: entry 0 cover 50%;
+  animation-range: entry 0 cover 20%;
 }
 
 .iconleft {
   animation: appearUp 0.5s linear;
   animation-timeline: view();
-  animation-range: entry 0 cover 30%;
+  animation-range: entry 0 cover 20%;
 }
 
 .iconcen {
   animation: appearUp 1s linear;
   animation-timeline: view();
-  animation-range: entry 0 cover 30%;
+  animation-range: entry 0 cover 20%;
 }
 
 .iconright {
   animation: appearUp 1s linear;
   animation-timeline: view();
-  animation-range: entry 0 cover 30%;
+  animation-range: entry 0 cover 20%;
 }
 
 body {
@@ -12171,7 +12167,7 @@ body {
 
 .contact_button {
   transition: 0.3s;
-  background-color: #BF0D3D;
+  background-color: transparent;
   border-style: solid;
   border-color: white;
   border-width: thin;
@@ -12217,13 +12213,11 @@ footer {
 
 .navbar {
   background-color: transparent;
-  border-radius: 50px;
-  padding: 0.5rem 1rem;
   margin: 1rem auto;
-  max-width: 960px;
+  max-width: 100%;
   position: relative;
   transition: background-color 0.4s ease;
-  animation: float 2s infinite ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   /* Animate to X */
 }
 .navbar .nav-item {

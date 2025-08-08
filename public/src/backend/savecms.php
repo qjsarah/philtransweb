@@ -2,8 +2,9 @@
 session_start();
 include 'config.php';
 
-// Text fields
-$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6'];
+$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'contact_bg']; // ✅ Add 'contact_bg'
+
+
 
 foreach ($fields as $field) {
     if (isset($_POST[$field])) {
@@ -213,6 +214,16 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['services_image', '
                 $stmt->close();
             }
         }
+    }
+}
+// ✅ Update CFS table fields
+foreach ($fields as $field) {
+    if (isset($_POST[$field])) {
+        $content = $_POST[$field];
+        $stmt = $conn->prepare("UPDATE cfs SET content = ? WHERE key_name = ?");
+        $stmt->bind_param("ss", $content, $field);
+        $stmt->execute();
+        $stmt->close();
     }
 }
 

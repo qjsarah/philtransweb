@@ -25,11 +25,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 </head>
 <body class="download">
-
+  <div class="sticky-top">
     <?php include 'components/navbar.php'; ?>
-    <section id="#">
+  </div>
+
+    <section id="#" class="mb-5 pb-1">
       <?php 
         include 'components/download.php'; 
+      ?>
+    </section>
+    <section id="#">
+      <?php 
         include 'components/ads/ads_1.php';
         include 'components/welcome.php'; 
        ?>
