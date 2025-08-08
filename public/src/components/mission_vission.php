@@ -119,7 +119,7 @@ while ($row = $result->fetch_assoc()) {
     <!-- Ads -->
   <?php if (isset($_SESSION['user_id'])): ?>
   <!--DISPLAY-->
-    <div class="row justify-content-center align-items-center gap-3 pb-5">
+    <div class="text-center row justify-content-center align-items-center gap-3 pb-5">
       <div class="col-7 col-md-5 col-lg-4">
         <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads3'] ?? 'rural.png'); ?>" alt="Rural" class="ad2-1 img-fluid current-cms-img" data-cms-key="ads3" style="width:100%; max-width: 400px;">
       </div>

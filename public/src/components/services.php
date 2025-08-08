@@ -9,7 +9,7 @@ $stmt->bind_param(str_repeat('s', count($keys)), ...$keys);
 $stmt->execute();
 $result = $stmt->get_result();
 
-// For Cards
+// Card Table
 $card_query = "SELECT * FROM card_table ORDER BY id DESC";
 $card_result = $conn->query($card_query);
 $cards = [];
@@ -19,6 +19,7 @@ if ($card_result && $card_result->num_rows > 0) {
         $cards[] = $row;
     }
 }
+
 
 $content = [];
 while ($row = $result->fetch_assoc()) {
@@ -31,8 +32,15 @@ while ($row = $result->fetch_assoc()) {
     <?php if (isset($_SESSION['user_id'])): ?>
         <h4 class="text-white text-center pt-5 display-5 fw-bold"><?php echo htmlspecialchars($content['service_title'] ?? "SERVICES"); ?></h4>
         <img src="../main/images/services_section/<?php echo htmlspecialchars($content['services_image'] ?? 'Service_img.png')?>" alt="Service Image" class="bgservice w-75 img-fluid py-3 mx-auto d-block current-cms-img" data-cms-key="services_image">
-        <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll(this)" data-modal-target=".serviceContent">Edit</button>
-
+        <?php foreach ($cards as $index => $card): ?>
+    <div class="card<?php echo $index + 1; ?> services-card w-75 p-3 mx-auto d-block text-white rounded my-3">
+        <h3><?php echo strtoupper(htmlspecialchars($card['title'])); ?></h3>
+        <p><?php echo nl2br(htmlspecialchars($card['content'])); ?></p>
+    </div>
+<?php endforeach; ?>
+        <div class="text-center">
+            <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll(this)" data-modal-target=".serviceContent">Edit</button>
+        </div>
         <div class="modal fade serviceContent" tabindex="-1" id="serviceModal">
             <div class="modal-dialog modal-xl modal-dialog-scrollable">
                 <div class="modal-content">
@@ -44,8 +52,11 @@ while ($row = $result->fetch_assoc()) {
                         <form id="all-form" method="POST" action="backend/savecms.php" enctype="multipart/form-data">
                             <textarea name="service_title" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['service_title'] ?? "SERVICES"); ?></textarea>
                             <div>
-                                <img src="../main/images/services_section/<?php echo htmlspecialchars($content['services_image'] ?? 'Service_img.png')?>" alt="Service Image" class="bgservice w-75 img-fluid py-3 mx-auto d-block current-cms-img">
-                                <input type="file" name="services_image" class="form-control mb-2" accept="image/*">
+                                <img src="../main/images/services_section/<?php echo htmlspecialchars($content['services_image'] ?? 'Service_img.png'); ?>"alt="Service Image" class="bgservice w-75 img-fluid py-3 mx-auto d-block current-cms-img">
+                                <input type="file" name="services_image" class="form-control mb-2 cms-image-input"
+                                data-cms-key="services_image"
+                                accept="image/*"
+                                >
                             </div>
 
 
@@ -55,9 +66,10 @@ while ($row = $result->fetch_assoc()) {
                                 <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
                             </div>
                         </form>
+                        <hr>
                         <!-- CRUD TABLE START -->
                             <h5 class="mt-4">Service Cards</h5>
-                            <table class="table table-bordered table-dark">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>Title</th>
@@ -70,16 +82,16 @@ while ($row = $result->fetch_assoc()) {
                                         <tr>
                                             <td><?php echo htmlspecialchars($card['title']); ?></td>
                                             <td><?php echo htmlspecialchars($card['content']); ?></td>
-                                            <td>
+                                            <td class="d-flex justify-content-between align-items-center gap-1">
                                                 <form action="backend/delete_card.php" method="POST" class="d-inline">
                                                     <input type="hidden" name="id" value="<?php echo $card['id']; ?>">
-                                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                                    <button class="d-flex btn btn-danger  mx-auto my-auto" style="width:100px;">Delete</button>
                                                 </form>
-                                                <div class="text-center mb-3 ad1">
-                                                    <button class="btn btn-secondary btn-sm edit-btn" 
+                                                <div class="d-flex mb-3">
+                                                    <button class="btn btn-secondary edit-btn" 
                                                         data-id="<?php echo $card['id']; ?>" 
                                                         data-title="<?php echo htmlspecialchars($card['title'], ENT_QUOTES); ?>" 
-                                                        data-content="<?php echo htmlspecialchars($card['content'], ENT_QUOTES); ?>">
+                                                        data-content="<?php echo htmlspecialchars($card['content'], ENT_QUOTES); ?>" style="width:100px;">
                                                         Edit
                                                     </button>
                                                 </div>
@@ -91,15 +103,22 @@ while ($row = $result->fetch_assoc()) {
                             <?php
                             include 'service_edit_modal.php';
                             ?>
+                            <div class="text-center">
+                                <button id="showAddCardForm" class="btn btn-success">
+                                    Add New Card
+                                </button>
+                            </div>
+           
 
-
-                            <hr>
-                            <h6>Add New Card</h6>
-                            <form action="backend/add_card.php" method="POST">
-                                <input type="text" name="title" class="form-control mb-2" placeholder="Card Title" required>
-                                <textarea name="content" class="form-control mb-2" rows="3" placeholder="Card Description" required></textarea>
-                                <button class="btn btn-primary" type="submit">Add Card</button>
-                            </form>
+                            <div id="addCardForm" style="display: none;">
+                                <hr>
+                                <h5>Add New Card</h5>
+                                <form action="backend/add_card.php" method="POST">
+                                    <input type="text" name="title" class="form-control mb-2" placeholder="Card Title" required>
+                                    <textarea name="content" class="form-control mb-2" rows="3" placeholder="Card Description" required></textarea>
+                                    <button class="btn btn-primary" type="submit">Add Card</button>
+                                </form>
+                            </div>
                             <!-- CRUD TABLE END -->
                     </div>
                 </div>
@@ -111,7 +130,13 @@ while ($row = $result->fetch_assoc()) {
 
     <?php else: ?>
          <h4 class="text-white text-center pt-5 display-5 fw-bold"><?php echo htmlspecialchars($content['service_title'] ?? "SERVICES"); ?></h4>
-        <img src="../main/images/services_section/<?php echo htmlspecialchars($content['services_image'] ?? 'Service_img.png')?>" alt="Service Image" class="bgservice w-75 img-fluid py-3 mx-auto d-block">
+        <img src="../main/images/services_section/<?php echo htmlspecialchars($content['services_image'] ?? 'Service_img.png')?>" alt="Service Image" class="bgservice w-75 img-fluid py-3 mx-auto d-block current-cms-img" data-cms-key="services_image">
+        <?php foreach ($cards as $index => $card): ?>
+            <div class="card<?php echo $index + 1; ?> services-card w-75 p-3 mx-auto d-block text-white rounded my-3">
+                <h3><?php echo strtoupper(htmlspecialchars($card['title'])); ?></h3>
+                <p><?php echo nl2br(htmlspecialchars($card['content'])); ?></p>
+            </div>
+        <?php endforeach; ?>
     <?php endif; ?>
 
 </section>
@@ -130,5 +155,13 @@ while ($row = $result->fetch_assoc()) {
       new bootstrap.Modal(document.getElementById('editCardModal')).show();
     });
   });
+  document.getElementById('showAddCardForm').addEventListener('click', function () {
+    const form = document.getElementById('addCardForm');
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    });
   
 </script>
