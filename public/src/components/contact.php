@@ -1,6 +1,6 @@
 <section class="contactbg contact text-center text-white">
     <div class="container py-5">
-        <h5 class="display-5 fw-bold">Contact us</h5>
+        <h5 class="display-5 fw-bold">Contact Us</h5>
         <p> </p>
         <!-- Wrapper to center form -->
         <div class="row justify-content-center">
@@ -61,7 +61,7 @@
                 <img src="../../public/main/images/contact_section/web.png" alt="" class="icon-img">
             </div>
             <div class="contact_nav d-flex flex-column">
-                <a href="#about">About us</a>
+                <a href="#about">About Us</a>
                 <a href="">Copyright</a>
                 <a href="">Privacy Policy</a>
                 <a href="">Terms and Condition</a>

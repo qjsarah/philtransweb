@@ -61,7 +61,7 @@ while ($row = $result->fetch_assoc()) {
                   <?php endif; ?>
                 </div>
                 <div id="edit-buttons" class="text-center modal-footer">
-                  <button type="submit" form="download1-form" class="btn btn-success mb-2">Save</button>
+                  <button type="button" id="save-button" class="btn btn-success mb-2">Save</button>
                   <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </form>
@@ -100,6 +100,28 @@ while ($row = $result->fetch_assoc()) {
     </p>
   </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
- 
+  document.addEventListener('DOMContentLoaded', function () {
+    const saveButton = document.getElementById('save-button');
+    const form = document.getElementById('download1-form');
+
+    saveButton.addEventListener('click', function () {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you want to save this information?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: '#198754',
+        cancelButtonColor: '#6c757d'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          form.submit();
+        }
+      });
+    });
+  });
 </script>
+

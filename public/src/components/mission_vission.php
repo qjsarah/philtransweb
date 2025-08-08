@@ -75,7 +75,7 @@ while ($row = $result->fetch_assoc()) {
                 <input type="file" class="form-control mt-3 cms-image-input" data-cms-key="vision_image" accept="image/*" style="max-width: 350px; margin: 0 auto;">
               </div>
               <div id="edit-buttons" class="text-center modal-footer">
-                  <button type="submit" class="btn btn-success mb-2">Save</button>
+                  <button type="submit" id="save_buton" class="btn btn-success mb-2">Save</button>
                   <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
               </div>
             </form>
@@ -169,3 +169,30 @@ while ($row = $result->fetch_assoc()) {
     <?php endif; ?>
 
 </section>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const saveBtn = document.getElementById('save_buton'); 
+    const form = document.getElementById('mv-form');      
+
+    if (saveBtn && form) {
+      saveBtn.addEventListener('click', function (e) {
+        e.preventDefault(); 
+
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'Do you want to save this?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#198754',
+          cancelButtonColor: '#6c757d',
+          confirmButtonText: 'Save'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    }
+  });
+</script>

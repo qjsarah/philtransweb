@@ -81,7 +81,7 @@ while ($row = $result->fetch_assoc()) {
                                     <td class="d-flex justify-content-between align-items-center gap-1">
                                         <form action="backend/delete_testimonial.php" method="POST" class="d-inline">   
                                             <input type="hidden" name="id" value="<?php echo $test['id']; ?>">
-                                            <button class="btn btn-danger my-auto" style="width:100px;">Delete</button>
+                                            <button type="button" class="btn btn-danger my-auto delete-testimonial-btn" style="width:100px;">Delete</button>
                                         </form>
                                         <div class="d-flex mb-3">
                                         <button class="btn btn-secondary edit-btn-testimonial" 
@@ -213,3 +213,28 @@ while ($row = $result->fetch_assoc()) {
   
   
 </script>
+
+<script>
+document.querySelectorAll('.delete-testimonial-btn').forEach(button => {
+  button.addEventListener('click', function () {
+    const form = this.closest('form');
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This card will be permanently deleted!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#aaa',
+      confirmButtonText: 'Delete',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        form.submit();
+      }
+    });
+  });
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+

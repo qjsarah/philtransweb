@@ -63,7 +63,7 @@ while ($row = $result->fetch_assoc()) {
                       <?php endif; ?>
                       <div class="text-center modal-footer">
                       <!-- SAVE BOTAN-->
-                        <button type="submit" form="download1-form" class="btn btn-success mb-2">Save</button>
+                        <button type="button" id="confirm-save" form="download1-form" class="btn btn-success mb-2">Save</button>
                         <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
                       </div>
                     </form>
@@ -111,4 +111,24 @@ while ($row = $result->fetch_assoc()) {
       </div>
     </div>
   </div> -->
-</section>  
+</section>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById('confirm-save').addEventListener('click', function () {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "Do you want to save your changes?",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, save it!',
+    cancelButtonText: 'Cancel',
+    confirmButtonColor: '#28a745',
+    cancelButtonColor: '#6c757d'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.getElementById('aboutus-form').submit();
+    }
+  });
+});
+</script>
+
