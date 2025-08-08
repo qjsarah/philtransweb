@@ -67,7 +67,7 @@ while ($row = $result->fetch_assoc()) {
                 <!-- Image Upload -->
                 <div class="me-5 w-50">
                   <img src="../main/images/download_section/<?php echo htmlspecialchars($content['person1'] ?? 'intro_img.png')?>" alt="Person" class="img-fluid current-cms-img w-50 mb-2" data-cms-key="person1">
-                  <input type="file" class="form-control cms-image-input" name="person1" accept="image/*">
+                  <input type="file" class="form-control cms-image-input" data-cms-key="person1" name="person1" accept="image/*">
                 </div>
 
                 <!-- Submit Buttons -->

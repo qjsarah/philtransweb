@@ -2,9 +2,8 @@
 session_start();
 include 'config.php';
 
-$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'contact_bg']; // ✅ Add 'contact_bg'
-
-
+// Text fields
+$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6'];
 
 foreach ($fields as $field) {
     if (isset($_POST[$field])) {
@@ -56,18 +55,27 @@ foreach ($fields as $field) {
     }
 }
 
+foreach ($fields as $field) {
+    if (isset($_POST[$field])) {
+        $content = $_POST[$field];
+        $stmt = $conn->prepare("UPDATE testimonial SET content = ? WHERE key_name = ?");
+        $stmt->bind_param("ss", $content, $field);
+        $stmt->execute();
+        $stmt->close();
+    }
+}
+
 // Download Section
 if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['ads1', 'ads2', 'person1', 'phone_image'])) {
     $cmsKey = $_POST['cms_key'];
 
     if (isset($_FILES['cms_image']) && $_FILES['cms_image']['error'] === UPLOAD_ERR_OK) {
-       $allowedKeys = [
-        'ads1' => ['dir' => '../../main/images/ads_section/', 'path' => ''],
-        'ads2' => ['dir' => '../../main/images/ads_section/', 'path' => ''],
-        'person1' => ['dir' => '../../main/images/download_section/', 'path' => ''],
-        'phone_image' => ['dir' => '../../main/images/intro_section/', 'path' => ''],
+        $allowedKeys = [
+            'ads1' => ['dir' => '../../main/images/ads_section/', 'path' => ''],
+            'ads2' => ['dir' => '../../main/images/ads_section/', 'path' => ''],
+            'person1' => ['dir' => '../../main/images/download_section/', 'path' => ''],
+            'phone_image' => ['dir' => '../../main/images/intro_section/', 'path' => ''],
         ];
-        
 
         if (!array_key_exists($cmsKey, $allowedKeys)) {
             http_response_code(400);
@@ -78,7 +86,7 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['ads1', 'ads2', 'pe
         $relativePath = $allowedKeys[$cmsKey]['path'];
 
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-        $maxSize = 2 * 1024 * 1024; // 2MB
+        $maxSize = 2 * 1024 * 1024;
 
         $fileType = $_FILES['cms_image']['type'];
         $fileSize = $_FILES['cms_image']['size'];
@@ -103,11 +111,11 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['mission_image', 'v
     $cmsKey = $_POST['cms_key'];
 
     if (isset($_FILES['cms_image']) && $_FILES['cms_image']['error'] === UPLOAD_ERR_OK) {
-       $allowedKeys = [
-        'mission_image' => ['dir' => '../../main/images/mission_and_vission_section/', 'path' => ''],
-        'vision_image' => ['dir' => '../../main/images/mission_and_vission_section/', 'path' => ''],
-        'ads3' => ['dir' => '../../main/images/ads_section/', 'path' => ''],
-        'ads4' => ['dir' => '../../main/images/ads_section/', 'path' => '']
+        $allowedKeys = [
+            'mission_image' => ['dir' => '../../main/images/mission_and_vission_section/', 'path' => ''],
+            'vision_image' => ['dir' => '../../main/images/mission_and_vission_section/', 'path' => ''],
+            'ads3' => ['dir' => '../../main/images/ads_section/', 'path' => ''],
+            'ads4' => ['dir' => '../../main/images/ads_section/', 'path' => '']
         ];
 
         if (!array_key_exists($cmsKey, $allowedKeys)) {
@@ -119,7 +127,7 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['mission_image', 'v
         $relativePath = $allowedKeys[$cmsKey]['path'];
 
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-        $maxSize = 2 * 1024 * 1024; // 2MB
+        $maxSize = 2 * 1024 * 1024;
 
         $fileType = $_FILES['cms_image']['type'];
         $fileSize = $_FILES['cms_image']['size'];
@@ -144,8 +152,8 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['tricycle'])) {
     $cmsKey = $_POST['cms_key'];
 
     if (isset($_FILES['cms_image']) && $_FILES['cms_image']['error'] === UPLOAD_ERR_OK) {
-       $allowedKeys = [
-        'tricycle' => ['dir' => '../../main/images/about_section/', 'path' => '']
+        $allowedKeys = [
+            'tricycle' => ['dir' => '../../main/images/about_section/', 'path' => '']
         ];
 
         if (!array_key_exists($cmsKey, $allowedKeys)) {
@@ -157,7 +165,7 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['tricycle'])) {
         $relativePath = $allowedKeys[$cmsKey]['path'];
 
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-        $maxSize = 2 * 1024 * 1024; // 2MB
+        $maxSize = 2 * 1024 * 1024;
 
         $fileType = $_FILES['cms_image']['type'];
         $fileSize = $_FILES['cms_image']['size'];
@@ -182,10 +190,10 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['services_image', '
     $cmsKey = $_POST['cms_key'];
 
     if (isset($_FILES['cms_image']) && $_FILES['cms_image']['error'] === UPLOAD_ERR_OK) {
-       $allowedKeys = [
-        'services_image' => ['dir' => '../../main/images/services_section/', 'path' => ''],
-        'ads5' => ['dir' => '../../main/images/ads_section/', 'path' => ''],
-        'ads6' => ['dir' => '../../main/images/ads_section/', 'path' => '']
+        $allowedKeys = [
+            'services_image' => ['dir' => '../../main/images/services_section/', 'path' => ''],
+            'ads5' => ['dir' => '../../main/images/ads_section/', 'path' => ''],
+            'ads6' => ['dir' => '../../main/images/ads_section/', 'path' => '']
         ];
 
         if (!array_key_exists($cmsKey, $allowedKeys)) {
@@ -197,7 +205,7 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['services_image', '
         $relativePath = $allowedKeys[$cmsKey]['path'];
 
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-        $maxSize = 2 * 1024 * 1024; // 2MB
+        $maxSize = 2 * 1024 * 1024;
 
         $fileType = $_FILES['cms_image']['type'];
         $fileSize = $_FILES['cms_image']['size'];
@@ -216,6 +224,7 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['services_image', '
         }
     }
 }
+
 // ✅ Update CFS table fields
 foreach ($fields as $field) {
     if (isset($_POST[$field])) {
@@ -227,6 +236,41 @@ foreach ($fields as $field) {
     }
 }
 
+// ✅ Save download_bg_color
+if (isset($_POST['download_bg_color'])) {
+    $downloadBg = $_POST['download_bg_color'];
+    $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = 'download_bg_color'");
+    $stmt->bind_param("s", $downloadBg);
+    $stmt->execute();
+    $stmt->close();
+}
+
+// ✅ Save aboutus_bgcolor
+if (isset($_POST['aboutus_bgcolor'])) {
+    $aboutusBg = $_POST['aboutus_bgcolor'];
+    $stmt = $conn->prepare("UPDATE aboutus SET content = ? WHERE key_name = 'aboutus_bgcolor'");
+    $stmt->bind_param("s", $aboutusBg);
+    $stmt->execute();
+    $stmt->close();
+}
+
+// ✅ Save contact_bg
+if (isset($_POST['contact_bg'])) {
+    $contactBg = $_POST['contact_bg']; // ← Correct variable name
+    $stmt = $conn->prepare("UPDATE cfs SET content = ? WHERE key_name = 'contact_bg'");
+    $stmt->bind_param("s", $contactBg);
+    $stmt->execute();
+    $stmt->close();
+}
+
+if (isset($_POST['services_bgcolor'])) {
+    $bgcolor = $_POST['services_bgcolor'];
+    $stmt = $conn->prepare("UPDATE services SET content = ? WHERE key_name = 'services_bgcolor'");
+    $stmt->bind_param("s", $bgcolor);
+    $stmt->execute();
+}
+
+
 // Redirect back
-header("Location: ../index.php"); // Or wherever your CMS page is
+header("Location: ../index.php");
 exit;

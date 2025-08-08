@@ -56,7 +56,7 @@ $bgColor = htmlspecialchars($content['aboutus_bgcolor'] ?? '#BF0D3D');
                 <img src="../main/images/about_section/<?= htmlspecialchars($content['tricycle'] ?? 'desktop_trycicle.png') ?>" class="img-fluid w-75 current-cms-img">
               </div>
 
-              <input type="file" class="form-control mb-2" name="tricycle_image" accept="image/*">
+              <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="tricycle" name="tricycle_image" accept="image/*">
 
               <div class="modal-footer text-center">
                 <button type="submit" class="btn btn-success mb-2">Save</button>

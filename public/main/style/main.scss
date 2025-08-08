@@ -179,7 +179,6 @@ body {
     transition: 0.3s;
     border-style: solid;
     border-width: thin;
-    border-color: #BF0D3D;
 }
 
 .services-card:hover {
@@ -371,7 +370,11 @@ footer{
 }
 
 #editCardModal {
-  z-index: 1085 !important;
+  z-index: 1085;
+}
+
+#editTestimonial {
+  z-index: 1085;
 }
 
 // //MODAL

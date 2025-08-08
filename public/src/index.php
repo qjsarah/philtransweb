@@ -20,12 +20,13 @@
   <script src="../../public/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../../public/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="../../public/main/scripts/data.js"></script>
+    <script src="../../public/main/scripts/bootstrap.bundle.min.js"></script> 
   <script src="backend/script.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 </head>
 <body class="download">
-  <div class="sticky-top">
+  <div class="sticky-top pt-2">
     <?php include 'components/navbar.php'; ?>
   </div>
 
@@ -68,7 +69,7 @@
       <?php include 'components/footer.php'; ?>
     </section>
     
-  <script src="../../public/main/scripts/bootstrap.bundle.min.js"></script> 
+
   <script> //for modal backdrop kase grabe na un source: https://stackoverflow.com/questions/10636667/bootstrap-modal-appearing-under-background
   //BAWAL ITAAS PLEASE
     $(document).on('show.bs.modal', '.modal', function () {
@@ -94,6 +95,7 @@
         reader.readAsDataURL(file);
       });
     });
+    document.body.appendChild(document.getElementById('editTestimonial'));
   </script>
 </body>
 </html>
