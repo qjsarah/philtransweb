@@ -53,7 +53,7 @@ while ($row = $result->fetch_assoc()) {
                         <textarea name="paragraph_test" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['paragraph_test'] ?? "What our Client Says"); ?></textarea>
                         <textarea name="test_title" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['test_title'] ?? "TESTIMONIAL"); ?></textarea>
                         <div id="edit-buttons" class="text-center modal-footer">
-                            <button type="submit" class="btn btn-success mb-2">Save</button>
+                            <button type="button" id="save_testimonial" class="btn btn-success mb-2">Save</button>
                             <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </form>
@@ -81,9 +81,9 @@ while ($row = $result->fetch_assoc()) {
                                     <td class="d-flex justify-content-between align-items-center gap-1">
                                         <form action="backend/delete_testimonial.php" method="POST" class="d-inline">   
                                             <input type="hidden" name="id" value="<?php echo $test['id']; ?>">
-                                            <button class="btn btn-danger my-auto" style="width:100px;">Delete</button>
+                                            <button type="button" class="btn btn-danger my-auto delete-testimonial-btn" style="width:100px;">Delete</button>
                                         </form>
-                                        <div class="d-flex mb-3">
+                                        <div class="d-flex">
                                         <button class="btn btn-secondary edit-btn-testimonial" 
                                             data-id="<?php echo $test['id']; ?>" 
                                             data-content="<?php echo htmlspecialchars($test['test_content'], ENT_QUOTES); ?>"
@@ -233,6 +233,23 @@ document.querySelectorAll('.delete-testimonial-btn').forEach(button => {
         form.submit();
       }
     });
+  });
+});
+
+document.getElementById('save_testimonial').addEventListener('click', function () {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "Do you want to save your changes?",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, save it!',
+    cancelButtonText: 'Cancel',
+    confirmButtonColor: '#28a745',
+    cancelButtonColor: '#6c757d'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.getElementById('aboutus-form').submit();
+    }
   });
 });
 </script>
