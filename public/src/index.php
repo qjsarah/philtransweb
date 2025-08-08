@@ -88,6 +88,7 @@
         reader.readAsDataURL(file);
       });
     });
+    document.body.appendChild(document.getElementById('editTestimonial'));
   </script>
 </body>
 </html>

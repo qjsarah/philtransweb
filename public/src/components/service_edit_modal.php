@@ -1,6 +1,6 @@
 <!-- Edit Card Modal -->
-<div class="modal fade" id="editCardModal" tabindex="-1" aria-labelledby="editCardModalLabel" aria-hidden="true" >
-  <div class="modal-dialog">
+<div class="modal fade" id="editCardModal" tabindex="-1">
+  <div class="modal-dialog  modal-lg modal-dialog-centered  modal-dialog-scrollable">
     <form id="editCardForm" method="POST" action="backend/update_card.php">
       <div class="modal-content">
         <div class="modal-header">
