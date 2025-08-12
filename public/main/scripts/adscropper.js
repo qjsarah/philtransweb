@@ -50,9 +50,29 @@ function cropAndUpload() {
     })
     .then(res => {
       if (res.ok) {
-        sessionStorage.removeItem("tempImage");
-        sessionStorage.removeItem("cmsKey");
-        window.history.back();
+        swal.fire({
+          title: 'Are you sure?',
+          text: "Do you want to save your changes?",
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, save it!',
+          cancelButtonText: 'Cancel',
+          confirmButtonColor: '#28a745',
+          cancelButtonColor: '#6c757d'
+        }).then((result) => {
+            if (result.isConfirmed) {
+               swal.fire({
+                title: 'Saved!',
+                text: 'Your changes have been saved successfully.',
+                icon: 'success',
+                confirmButtonColor: '#28a745'
+              }).then(() => {
+                sessionStorage.removeItem("tempImage");
+                sessionStorage.removeItem("cmsKey");
+                window.history.back();
+              });
+            }
+        });
       } else {
         alert("Upload failed.");
       }

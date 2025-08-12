@@ -18,6 +18,7 @@
   <script src="backend/script.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="download">
   <div class="sticky-top bg-danger py-2">
@@ -123,10 +124,17 @@ document.querySelectorAll('.save-button').forEach(button => {
             cancelButtonColor: '#6c757d'
         }).then((result) => {
             if (result.isConfirmed) {
+              swal.fire({
+                title: 'Saved!',
+                text: 'Your changes have been saved successfully.',
+                icon: 'success',
+                confirmButtonColor: '#28a745'
+              }).then(() => {
                 const form = button.closest('form'); // find the form this button belongs to
                 if (form) {
                     form.submit();
                 }
+              })
             }
         });
     });
