@@ -1,0 +1,1 @@
+const downloadSection = document.getElementById('download-section');

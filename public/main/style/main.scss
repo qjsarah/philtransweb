@@ -245,7 +245,6 @@ footer{
 //nav bar
 .navbar {
   background-color: transparent;
-  margin: 1rem auto;
   max-width: 100%;
   position: relative;
   transition: background-color 0.4s ease;
@@ -262,56 +261,6 @@ footer{
     z-index: 1;
   }
 
-  .nav-left,
-  .nav-right {
-    position: absolute;
-    top: 0;
-    height: fit-content;
-    border-radius: 50px;
-    transition: width 0.5s ease, opacity 0.5s ease;
-    overflow: hidden;
-    opacity: 0;
-    width: 0%;
-    z-index: 0;
-
-    li.nav-link {
-      transition: all 0.5s ease;
-      transform: scale(0.1);
-      opacity: 0;
-    }
-  }
-
-  .nav-right {
-    left: 50%;
-    transform: none;
-  }
-
-  .nav-left {
-    right: 50%;
-    transform: none;
-  }
-
-  &:hover .nav-left,
-  &:hover .nav-right {
-    width: 40%;
-    opacity: 1;
-
-    li.nav-link {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  &.show-nav .nav-left,
-  &.show-nav .nav-right {
-    width: 40%;
-    opacity: 1;
-
-    li.nav-link {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
   .custom-toggler div {
     width: 25px;
     height: 3px;

@@ -3,65 +3,139 @@ session_start();
 include 'config.php';
 
 // Text fields
-$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6'];
+$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bgcolor', 'paragraph_test', 'test_title'];
 
+// foreach ($fields as $field) {
+//     if (isset($_POST[$field])) {
+//         $content = $_POST[$field];
+//         $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = ?");
+//         $stmt->bind_param("ss", $content, $field);
+//         $stmt->execute();
+//         $stmt->close();
+//         header("Location: ../index.php");
+//         exit;
+//     }
+// }
+
+// foreach ($fields as $field) {
+//     if (isset($_POST[$field])) {
+//         $content = $_POST[$field];
+//         $stmt = $conn->prepare("UPDATE aboutus SET content = ? WHERE key_name = ?");
+//         $stmt->bind_param("ss", $content, $field);
+//         $stmt->execute();
+//         $stmt->close();
+//         header("Location: ../index.php#about");
+//         exit;
+//     }
+// }
+
+// foreach ($fields as $field) {
+//     if (isset($_POST[$field])) {
+//         $content = $_POST[$field];
+//         $stmt = $conn->prepare("UPDATE missionvision SET content = ? WHERE key_name = ?");
+//         $stmt->bind_param("ss", $content, $field);
+//         $stmt->execute();
+//         $stmt->close();
+//         header("Location: ../index.php#missionvission");
+//         exit;
+//     }
+// }
+
+// foreach ($fields as $field) {
+//     if (isset($_POST[$field])) {
+//         $content = $_POST[$field];
+//         $stmt = $conn->prepare("UPDATE services SET content = ? WHERE key_name = ?");
+//         $stmt->bind_param("ss", $content, $field);
+//         $stmt->execute();
+//         $stmt->close();
+//         header("Location: ../index.php#missionvission");
+//         exit;
+//     }
+// }
+
+// foreach ($fields as $field) {
+//     if (isset($_POST[$field])) {
+//         $content = $_POST[$field];
+//         $stmt = $conn->prepare("UPDATE card_table SET content = ? WHERE title = ?");
+//         $stmt->bind_param("ss", $content, $field);
+//         $stmt->execute();
+//         $stmt->close();
+//         header("Location: ../index.php#services");
+//         exit;
+//     }
+// }
+
+// foreach ($fields as $field) {
+//     if (isset($_POST[$field])) {
+//         $content = $_POST[$field];
+//         $stmt = $conn->prepare("UPDATE testimonial SET content = ? WHERE key_name = ?");
+//         $stmt->bind_param("ss", $content, $field);
+//         $stmt->execute();
+//         $stmt->close();
+//         header("Location: ../index.php#testimonial");
+//         exit;
+//     }
+// }
 foreach ($fields as $field) {
     if (isset($_POST[$field])) {
         $content = $_POST[$field];
-        $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = ?");
-        $stmt->bind_param("ss", $content, $field);
-        $stmt->execute();
-        $stmt->close();
-    }
-}
 
-foreach ($fields as $field) {
-    if (isset($_POST[$field])) {
-        $content = $_POST[$field];
-        $stmt = $conn->prepare("UPDATE aboutus SET content = ? WHERE key_name = ?");
-        $stmt->bind_param("ss", $content, $field);
-        $stmt->execute();
-        $stmt->close();
-    }
-}
+        // Decide which table and section to update based on $field
+        if (in_array($field, ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'download_bg_color'])) {
+            $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = ?");
+            $stmt->bind_param("ss", $content, $field);
+            $stmt->execute();
+            $stmt->close();
+            $redirectSection = '#';
+        }
 
-foreach ($fields as $field) {
-    if (isset($_POST[$field])) {
-        $content = $_POST[$field];
-        $stmt = $conn->prepare("UPDATE missionvision SET content = ? WHERE key_name = ?");
-        $stmt->bind_param("ss", $content, $field);
-        $stmt->execute();
-        $stmt->close();
-    }
-}
+        if (in_array($field, ['welcome', 'paragraph2', 'paragraph3'])) {
+            $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = ?");
+            $stmt->bind_param("ss", $content, $field);
+            $stmt->execute();
+            $stmt->close();
+            $redirectSection = '#welcome';
+        }
+        if (in_array($field, ['aboutus', 'PTAS', 'paragraph4', 'aboutus_bgcolor'])) {
+            $stmt = $conn->prepare("UPDATE aboutus SET content = ? WHERE key_name = ?");
+            $stmt->bind_param("ss", $content, $field);
+            $stmt->execute();
+            $stmt->close();
+            $redirectSection = '#about';
+        }
 
-foreach ($fields as $field) {
-    if (isset($_POST[$field])) {
-        $content = $_POST[$field];
-        $stmt = $conn->prepare("UPDATE services SET content = ? WHERE key_name = ?");
-        $stmt->bind_param("ss", $content, $field);
-        $stmt->execute();
-        $stmt->close();
-    }
-}
+        if (in_array($field, ['mission', 'vision', 'paragraph5', 'paragraph6'])) {
+            $stmt = $conn->prepare("UPDATE missionvision SET content = ? WHERE key_name = ?");
+            $stmt->bind_param("ss", $content, $field);
+            $stmt->execute();
+            $stmt->close();
+            $redirectSection = '#missionvission';
+        }
 
-foreach ($fields as $field) {
-    if (isset($_POST[$field])) {
-        $content = $_POST[$field];
-        $stmt = $conn->prepare("UPDATE card_table SET content = ? WHERE title = ?");
-        $stmt->bind_param("ss", $content, $field);
-        $stmt->execute();
-        $stmt->close();
-    }
-}
+        if (in_array($field, ['service_title', 'services_bgcolor'])) {
+            $stmt = $conn->prepare("UPDATE services SET content = ? WHERE key_name = ?");
+            $stmt->bind_param("ss", $content, $field);
+            $stmt->execute();
+            $stmt->close();
+            $redirectSection = '#services';
+        }
 
-foreach ($fields as $field) {
-    if (isset($_POST[$field])) {
-        $content = $_POST[$field];
-        $stmt = $conn->prepare("UPDATE testimonial SET content = ? WHERE key_name = ?");
-        $stmt->bind_param("ss", $content, $field);
-        $stmt->execute();
-        $stmt->close();
+        if (in_array($field, ['paragraph_test', 'test_title'])) {
+            $stmt = $conn->prepare("UPDATE testimonial SET content = ? WHERE key_name = ?");
+            $stmt->bind_param("ss", $content, $field);
+            $stmt->execute();
+            $stmt->close();
+            $redirectSection = '#testimonial';
+        }
+        // ✅ Update CFS table fields
+        if (in_array($field, ['contact_bg'])) {
+            $content = $_POST[$field];
+            $stmt = $conn->prepare("UPDATE cfs SET content = ? WHERE key_name = ?");
+            $stmt->bind_param("ss", $content, $field);
+            $stmt->execute();
+            $stmt->close();
+            $redirectSection = '#contact';
+        }
     }
 }
 
@@ -101,6 +175,7 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['ads1', 'ads2', 'pe
                 $stmt->bind_param("ss", $dbPath, $cmsKey);
                 $stmt->execute();
                 $stmt->close();
+            $redirectSection = '';
             }
         }
     }
@@ -142,6 +217,7 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['mission_image', 'v
                 $stmt->bind_param("ss", $dbPath, $cmsKey);
                 $stmt->execute();
                 $stmt->close();
+            $redirectSection = '#missionvission';
             }
         }
     }
@@ -180,6 +256,7 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['tricycle'])) {
                 $stmt->bind_param("ss", $dbPath, $cmsKey);
                 $stmt->execute();
                 $stmt->close();
+            $redirectSection = '#about';
             }
         }
     }
@@ -220,57 +297,14 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['services_image', '
                 $stmt->bind_param("ss", $dbPath, $cmsKey);
                 $stmt->execute();
                 $stmt->close();
+            $redirectSection = '#services';
             }
         }
     }
 }
 
-// ✅ Update CFS table fields
-foreach ($fields as $field) {
-    if (isset($_POST[$field])) {
-        $content = $_POST[$field];
-        $stmt = $conn->prepare("UPDATE cfs SET content = ? WHERE key_name = ?");
-        $stmt->bind_param("ss", $content, $field);
-        $stmt->execute();
-        $stmt->close();
-    }
+
+if ($redirectSection) {
+    header("Location: ../index.php{$redirectSection}");
+    exit;
 }
-
-// ✅ Save download_bg_color
-if (isset($_POST['download_bg_color'])) {
-    $downloadBg = $_POST['download_bg_color'];
-    $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = 'download_bg_color'");
-    $stmt->bind_param("s", $downloadBg);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// ✅ Save aboutus_bgcolor
-if (isset($_POST['aboutus_bgcolor'])) {
-    $aboutusBg = $_POST['aboutus_bgcolor'];
-    $stmt = $conn->prepare("UPDATE aboutus SET content = ? WHERE key_name = 'aboutus_bgcolor'");
-    $stmt->bind_param("s", $aboutusBg);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// ✅ Save contact_bg
-if (isset($_POST['contact_bg'])) {
-    $contactBg = $_POST['contact_bg']; // ← Correct variable name
-    $stmt = $conn->prepare("UPDATE cfs SET content = ? WHERE key_name = 'contact_bg'");
-    $stmt->bind_param("s", $contactBg);
-    $stmt->execute();
-    $stmt->close();
-}
-
-if (isset($_POST['services_bgcolor'])) {
-    $bgcolor = $_POST['services_bgcolor'];
-    $stmt = $conn->prepare("UPDATE services SET content = ? WHERE key_name = 'services_bgcolor'");
-    $stmt->bind_param("s", $bgcolor);
-    $stmt->execute();
-}
-
-
-// Redirect back
-header("Location: ../index.php");
-exit;

@@ -12212,7 +12212,6 @@ footer {
 
 .navbar {
   background-color: transparent;
-  margin: 1rem auto;
   max-width: 100%;
   position: relative;
   transition: background-color 0.4s ease;
@@ -12228,49 +12227,6 @@ footer {
   opacity: 1 !important;
   position: relative;
   z-index: 1;
-}
-.navbar .nav-left,
-.navbar .nav-right {
-  position: absolute;
-  top: 0;
-  height: -moz-fit-content;
-  height: fit-content;
-  border-radius: 50px;
-  transition: width 0.5s ease, opacity 0.5s ease;
-  overflow: hidden;
-  opacity: 0;
-  width: 0%;
-  z-index: 0;
-}
-.navbar .nav-left li.nav-link,
-.navbar .nav-right li.nav-link {
-  transition: all 0.5s ease;
-  transform: scale(0.1);
-  opacity: 0;
-}
-.navbar .nav-right {
-  left: 50%;
-  transform: none;
-}
-.navbar .nav-left {
-  right: 50%;
-  transform: none;
-}
-.navbar:hover .nav-left, .navbar:hover .nav-right {
-  width: 40%;
-  opacity: 1;
-}
-.navbar:hover .nav-left li.nav-link, .navbar:hover .nav-right li.nav-link {
-  transform: scale(1);
-  opacity: 1;
-}
-.navbar.show-nav .nav-left, .navbar.show-nav .nav-right {
-  width: 40%;
-  opacity: 1;
-}
-.navbar.show-nav .nav-left li.nav-link, .navbar.show-nav .nav-right li.nav-link {
-  transform: scale(1);
-  opacity: 1;
 }
 .navbar .custom-toggler div {
   width: 25px;
@@ -12436,4 +12392,4 @@ footer {
   50% {
     transform: translateY(-8px);
   } /* Gentle floating effect */
-}/*# sourceMappingURL=main.css.map */
+}

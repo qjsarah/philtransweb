@@ -1,3 +1,13 @@
+<?php
+include 'backend/config.php';
+
+// Fetch ads1 and ads2 from DB
+$result = $conn->query("SELECT key_name, content FROM services WHERE key_name IN ('ads5', 'ads6')");
+$content = [];
+while ($row = $result->fetch_assoc()) {
+    $content[$row['key_name']] = $row['content'];
+}
+?>
 <section class="py-4">
   <?php if (isset($_SESSION['user_id'])): ?>
     <div class="d-flex flex-column flex-xl-row justify-content-around gap-3">
@@ -32,7 +42,6 @@
             </div>
           <?php endif; ?>
           <div id="edit-buttons" class="text-center modal-footer">
-            <button type="submit" class="btn btn-success mb-2">Save</button>
             <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
           </div>
         </div>

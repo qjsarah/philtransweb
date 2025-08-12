@@ -49,11 +49,11 @@ while ($row = $result->fetch_assoc()) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="backend/savecms.php" method="POST" enctype="multipart/form-data">
-                        <textarea name="paragraph_test" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['paragraph_test'] ?? "What our Client Says"); ?></textarea>
-                        <textarea name="test_title" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['test_title'] ?? "TESTIMONIAL"); ?></textarea>
-                        <div id="edit-buttons" class="text-center modal-footer">
-                            <button type="button" id="save_testimonial" class="btn btn-success mb-2">Save</button>
+                    <form action="backend/savecms.php" method="POST" enctype="multipart/form-data" class="form">
+                        <textarea name="paragraph_test" id="paragraph_test" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['paragraph_test'] ?? "What our Client Says"); ?></textarea>
+                        <textarea name="test_title" id="test_title" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['test_title'] ?? "Testimonial"); ?></textarea>
+                        <div class="text-center modal-footer">
+                            <button type="button" class="btn btn-success mb-2 save-button">Save</button>
                             <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </form>
@@ -233,23 +233,6 @@ document.querySelectorAll('.delete-testimonial-btn').forEach(button => {
         form.submit();
       }
     });
-  });
-});
-
-document.getElementById('save_testimonial').addEventListener('click', function () {
-  Swal.fire({
-    title: 'Are you sure?',
-    text: "Do you want to save your changes?",
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Yes, save it!',
-    cancelButtonText: 'Cancel',
-    confirmButtonColor: '#28a745',
-    cancelButtonColor: '#6c757d'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      document.getElementById('aboutus-form').submit();
-    }
   });
 });
 </script>

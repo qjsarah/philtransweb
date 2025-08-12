@@ -40,6 +40,8 @@ while ($row = $result->fetch_assoc()) {
 
         <div class="text-center">
             <button type="button" class="btn btn-warning mt-3 ad1" onclick="toggleEditAll(this)" data-modal-target=".serviceContent">Edit</button>
+            <button type="button" class="btn btn-warning mt-3 ad1" onclick="toggleEditAll(this)" data-modal-target=".edit-services-image">Edit Images</button>
+
         </div>
 
         <div class="modal fade serviceContent" tabindex="-1" id="serviceModal">
@@ -51,18 +53,11 @@ while ($row = $result->fetch_assoc()) {
                     </div>
                     <div class="modal-body">
                         
-                        <form id="all-form" method="POST" action="backend/savecms.php" enctype="multipart/form-data">
+                        <form id="all-form" method="POST" action="backend/savecms.php" enctype="multipart/form-data" class="form">
                             <textarea name="service_title" class="form-control mb-3" rows="2"><?php echo htmlspecialchars($content['service_title'] ?? "SERVICES"); ?></textarea>
 
-                            <div>
-                                <img src="../main/images/services_section/<?php echo htmlspecialchars($content['services_image'] ?? 'Service_img.png'); ?>" alt="Service Image" class="bgservice w-75 img-fluid py-3 mx-auto d-block current-cms-img">
-                                <input type="file" name="services_image" class="form-control mb-2 cms-image-input" data-cms-key="services_image" accept="image/*">
-                            </div>
-
-                           
-
-                            <div id="edit-buttons" class="text-center modal-footer">
-                                <button type="button" id="save-service" class="btn btn-success mb-2">Save</button>
+                            <div class="text-center modal-footer">
+                                <button type="button" id="save-service" class="btn btn-success mb-2 save-button">Save</button>
                                 <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
                             </div>
                         </form>
@@ -124,7 +119,25 @@ while ($row = $result->fetch_assoc()) {
                 </div>
             </div>
         </div>
-
+        <div class="modal fade edit-services-image" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content" style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.85); border-radius: 1rem;">
+                <div class="modal-header border-bottom-0">
+                
+                <h3 class="modal-title fw-bold">Edit Content</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form method="POST" action="backend/savecms.php" enctype="multipart/form-data">
+                    <div>
+                        <img src="../main/images/services_section/<?php echo htmlspecialchars($content['services_image'] ?? 'Service_img.png'); ?>" alt="Service Image" class="bgservice w-75 img-fluid py-3 mx-auto d-block current-cms-img">
+                        <input type="file" name="services_image" class="form-control mb-2 cms-image-input" data-cms-key="services_image" accept="image/*">
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
     <?php else: ?>
         <h4 class="text-white text-center pt-5 display-5 fw-bold"><?php echo htmlspecialchars($content['service_title'] ?? "SERVICES"); ?></h4>
         <img src="../main/images/services_section/<?php echo htmlspecialchars($content['services_image'] ?? 'Service_img.png')?>" alt="Service Image" class="bgservice w-75 img-fluid py-3 mx-auto d-block current-cms-img">
@@ -182,23 +195,6 @@ document.querySelectorAll('.delete-btn').forEach(button => {
         form.submit();
       }
     });
-  });
-});
-
-document.getElementById('save-service').addEventListener('click', function () {
-  Swal.fire({
-    title: 'Are you sure?',
-    text: "Do you want to save your changes?",
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Yes, save it!',
-    cancelButtonText: 'Cancel',
-    confirmButtonColor: '#28a745',
-    cancelButtonColor: '#6c757d'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      document.getElementById('aboutus-form').submit();
-    }
   });
 });
 </script>

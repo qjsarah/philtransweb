@@ -20,23 +20,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 </head>
 <body class="download">
-  <div class="sticky-top pt-2">
+  <div class="sticky-top bg-danger py-2">
     <?php include 'components/navbar.php'; ?>
   </div>
+
+  </div>
     <section id="#" class="mb-5 pb-1">
-      
       <?php 
         include 'components/download.php'; 
-      ?>
-      
-    </section>
-    <section id="#">
-      <?php 
         include 'components/ads/ads_1.php';
+      ?>
+    </section>
+
+    <section id="welcome">
+       <?php 
         include 'components/welcome.php'; 
        ?>
     </section>
-
     <section id="about">
       <?php include 'components/about.php'; ?>
     </section>
@@ -91,6 +91,47 @@
       });
     });
     document.body.appendChild(document.getElementById('editTestimonial'));
+
+    // document.querySelectorAll('.modal').forEach(modal => {
+    //   modal.addEventListener('show.bs.modal', function () {
+    //     localStorage.setItem('lastOpenedModal', `#${this.id}`);
+    //   });
+    // });
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   const lastModal = localStorage.getItem('lastOpenedModal');
+    //   if (lastModal) {
+    //     const modalElement = document.querySelector(lastModal);
+    //     if (modalElement) {
+    //       const modalInstance = new bootstrap.Modal(modalElement);
+    //       modalInstance.show();
+    //     }
+    //     localStorage.removeItem('lastOpenedModal');
+    //   }
+    // });
+ 
+document.querySelectorAll('.save-button').forEach(button => {
+    button.addEventListener('click', function () {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to save your changes?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, save it!',
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#6c757d'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const form = button.closest('form'); // find the form this button belongs to
+                if (form) {
+                    form.submit();
+                }
+            }
+        });
+    });
+});
+
   </script>
 </body>
 </html>
