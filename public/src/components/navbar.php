@@ -1,6 +1,12 @@
 <div class=" mx-5 position-relative desktop">
     <nav class="navbar navbar-expand-lg justify-content-center fw-bold rounded-pill w-100 bg-light">
       <ul class="navbar-nav d-flex flex-row jsutify-content-around gap-5 align-items-center" id="navBar">
+        <?php if (isset($_SESSION['user_id'])): ?>
+          <li class="nav-item">
+            <a href="backend/" class="nav-link text-secondary">Admin Dashboard
+            </a>
+          </li>
+        <?php endif; ?>  
         <li class="nav-item"><a class="nav-link  text-secondary" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link  text-secondary" href="#services">Services</a></li>
         <li class="nav-item px-4 d-flex justify-content-center align-items-center">
@@ -10,6 +16,13 @@
         </li>
         <li class="nav-item"><a class="nav-link  text-secondary" href="#testimonial">Testimonial</a></li>
         <li class="nav-item"><a class="nav-link  text-secondary" href="#contact">Contact</a></li>
+        <?php if (isset($_SESSION['user_id'])): ?>
+          <li class="nav-item">
+            <a href="backend/logout.php" class="nav-link text-secondary">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </li>
+        <?php endif; ?>  
       </ul>
     </nav>
 </div>
@@ -25,10 +38,23 @@
     </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav text-end" id="navBar">
+           <?php if (isset($_SESSION['user_id'])): ?>
+          <li class="nav-item">
+            <a href="backend/" class="nav-link text-secondary">Admin Dashboard
+            </a>
+          </li>
+        <?php endif; ?>  
           <li class="nav-item"><a class="nav-link  text-secondary" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link  text-secondary" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link  text-secondary" href="#testimonial">Testimonial</a></li>
           <li class="nav-item"><a class="nav-link  text-secondary" href="#contact">Contact</a></li>
+            <?php if (isset($_SESSION['user_id'])): ?>
+          <li class="nav-item">
+            <a href="backend/logout.php" class="nav-link text-secondary">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </li>
+        <?php endif; ?>  
         </ul>
       </div>
     </nav>

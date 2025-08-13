@@ -3,7 +3,9 @@ session_start();
 include 'config.php';
 
 // Text fields
-$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bgcolor', 'paragraph_test', 'test_title'];
+$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bgcolor', 'paragraph_test', 'test_title', 'download_title_color', 'download_desc_color'];
+
+
 
 // foreach ($fields as $field) {
 //     if (isset($_POST[$field])) {
@@ -80,14 +82,17 @@ foreach ($fields as $field) {
     if (isset($_POST[$field])) {
         $content = $_POST[$field];
 
-        // Decide which table and section to update based on $field
-        if (in_array($field, ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'download_bg_color'])) {
-            $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = ?");
-            $stmt->bind_param("ss", $content, $field);
-            $stmt->execute();
-            $stmt->close();
-            $redirectSection = '#';
-        }
+        if (in_array($field, [
+                'download1', 'paragraph1', 'paragraph2', 'paragraph3', 
+                'download_bg_color', 'download_title_color', 'download_desc_color'
+            ])) {
+                $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = ?");
+                $stmt->bind_param("ss", $content, $field);
+                $stmt->execute();
+                $stmt->close();
+                $redirectSection = '#';
+            }
+
 
         if (in_array($field, ['welcome', 'paragraph2', 'paragraph3'])) {
             $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = ?");

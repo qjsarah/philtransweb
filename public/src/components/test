@@ -1,6 +1,0 @@
-        <?php if (isset($_SESSION['user_id'])): ?>
-            <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="ads3" accept="image/*">
-          <?php endif; ?>
-                  <?php if (isset($_SESSION['user_id'])): ?>
-            <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="ads4" accept="image/*">
-          <?php endif; ?>

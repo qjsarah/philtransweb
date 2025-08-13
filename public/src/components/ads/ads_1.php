@@ -20,49 +20,70 @@ while ($row = $result->fetch_assoc()) {
         <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads2'] ?? 'ads_no_2.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img" data-cms-key="ads2" style="max-width: 100%; height: auto;">
       </div>
     </div>
+    <!--EDIT BUTTOn-->
+<div class="text-center mb-3 ad1">
+  <button type="button" 
+          class="contact_button rounded text-dark w-50 w-md-25 px-2 py-2 mt-2" 
+          style="border-color: black;" 
+          onclick="toggleEditAll(this)" 
+          data-modal-target=".edit-ads-1">
+    Change Advertisement
+  </button>
+</div>
 
-    <!--EDIT BOTAN-->
-    <div class="text-center mb-3 ad1">
-      <button type="button" class="btn btn-warning mt-3" onclick="toggleEditAll(this)" data-modal-target=".edit-ads-1">Edit</button>
-    </div>
-    
+
+  <!--Modal -->
       <div class="modal fade edit-ads-1" tabindex="-1">
-        <div class="modal-dialog modal-xl modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title">Edit Content</h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered" ><!-- Added modal-dialog-centered -->
+    <div class="modal-content" style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.85); border-radius: 8px; border: 2px solid black;">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Content</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pb-4">
+        <?php if (isset($_SESSION['user_id'])): ?>
+        <div class="d-flex flex-column flex-xl-row justify-content-center align-items-center gap-3">
+          <div class="text-center">
+            <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads1'] ?? 'ads_no_1.png'); ?>" 
+                 alt="Ad Image" 
+                 class="img-fluid mb-2 current-cms-img" 
+                 data-cms-key="ads1" 
+                 style="max-width: 100%; height: auto;">
+            <div class="upload-box uploadBox">
+              <input type="file" class="form-control mb-2 cms-image-input fileInput" data-cms-key="ads1" accept="image/*">
+              <p>Click or drag a file here to upload</p>
             </div>
-        <div class="modal-body">
-          <?php if (isset($_SESSION['user_id'])): ?>
-            <div class="d-flex flex-column flex-xl-row justify-content-center align-items-center gap-3">
-              <div>
-                <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads1'] ?? 'ads_no_1.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img" data-cms-key="ads1" style="max-width: 100%; height: auto;">
-                <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="ads1" accept="image/*">
-              </div>
-              <div>
-                <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads2'] ?? 'ads_no_2.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img" data-cms-key="ads2" style="max-width: 100%; height: auto;">
-                <input type="file" class="form-control mb-2 cms-image-input" data-cms-key="ads2" accept="image/*">
-              </div>
+          </div>
+
+          <div class="text-center">
+            <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads2'] ?? 'ads_no_2.png'); ?>" 
+                 alt="Ad Image" 
+                 class="img-fluid mb-2 current-cms-img" 
+                 data-cms-key="ads2" 
+                 style="max-width: 100%; height: auto;">
+            <div class="upload-box uploadBox">
+              <input type="file" class="form-control mb-2 cms-image-input fileInput" data-cms-key="ads2" accept="image/*">
+              <p>Click or drag a file here to upload</p>
             </div>
-          <?php endif; ?>
-          <div id="edit-buttons" class="text-center modal-footer">
-            <button type="button" class="btn btn-secondary mb-2 ms-2" data-bs-dismiss="modal">Cancel</button>
           </div>
         </div>
-          </div>
+        <?php endif; ?>
       </div>
+    </div>
   </div>
+</div>
+
 <?php else: ?>
   <div class="ad1 d-flex flex-column flex-xl-row justify-content-center align-items-center gap-3">
     <div>
-      <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads1'] ?? 'ads_no_1.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img" data-cms-key="ads1" style="max-width: 100%; height: auto;">
+      <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads1'] ?? 'ads_no_1.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img " data-cms-key="ads1" style="max-width: 100%; height: auto;">
     </div>
     <div>
       <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads2'] ?? 'ads_no_2.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img" data-cms-key="ads2" style="max-width: 100%; height: auto;">
     </div>
   </div>
 <?php endif; ?>
+
 </section>
 <!-- Modal for Image Cropping -->
 <!-- <div id="cropModal" class="modal fade" tabindex="1" aria-labelledby="cropModalLabel" aria-hidden="true">

@@ -21,7 +21,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="download">
-  <div class="sticky-top bg-danger py-2">
+  <div class="sticky-top py-2" >
     <?php include 'components/navbar.php'; ?>
   </div>
 
@@ -110,9 +110,10 @@
     //     localStorage.removeItem('lastOpenedModal');
     //   }
     // });
- 
 document.querySelectorAll('.save-button').forEach(button => {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (e) {
+        e.preventDefault(); // prevent default form submit immediately
+
         Swal.fire({
             title: 'Are you sure?',
             text: "Do you want to save your changes?",
@@ -124,21 +125,67 @@ document.querySelectorAll('.save-button').forEach(button => {
             cancelButtonColor: '#6c757d'
         }).then((result) => {
             if (result.isConfirmed) {
-              swal.fire({
-                title: 'Saved!',
-                text: 'Your changes have been saved successfully.',
-                icon: 'success',
-                confirmButtonColor: '#28a745'
-              }).then(() => {
-                const form = button.closest('form'); // find the form this button belongs to
-                if (form) {
-                    form.submit();
-                }
-              })
+                Swal.fire({
+                    title: 'Saved!',
+                    text: 'Your changes have been saved successfully.',
+                    icon: 'success',
+                    confirmButtonColor: '#28a745'
+                }).then(() => {
+                    const form = button.closest('form'); // find the form this button belongs to
+                    if (form) {
+                        form.submit();
+                    }
+                });
             }
         });
     });
 });
+
+const uploadBoxes = document.querySelectorAll(".uploadBox");
+const fileInputs = document.querySelectorAll(".fileInput");
+
+uploadBoxes.forEach((box, index) => {
+  const input = fileInputs[index]; // Link each box to its file input
+
+  // Click to open file dialog
+  box.addEventListener("click", () => input.click());
+
+  // ADD THIS: dragenter event to allow drop
+  box.addEventListener("dragenter", (e) => {
+    e.preventDefault();
+    box.classList.add("dragover");
+  });
+
+  // Highlight on drag
+  box.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    box.classList.add("dragover");
+  });
+
+  box.addEventListener("dragleave", () => {
+    box.classList.remove("dragover");
+  });
+
+  // Handle dropped files
+  box.addEventListener("drop", (e) => {
+    e.preventDefault();
+    box.classList.remove("dragover");
+
+    if (e.dataTransfer.files.length) {
+      input.files = e.dataTransfer.files;
+
+      // ADD THIS: Manually trigger change event on input
+      const event = new Event('change');
+      input.dispatchEvent(event);
+    }
+  });
+
+  // Handle normal file selection
+  input.addEventListener("change", () => {
+    // No alert — just keeps the file in the input
+  });
+});
+
 
   </script>
 </body>
