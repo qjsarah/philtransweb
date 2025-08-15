@@ -46,6 +46,10 @@
       <?php include 'components/mission_vission.php'; ?>
     </section>
 
+    <section>
+      <?php include 'components/ads/mv_ads.php'; ?>
+    </section>
+
     <section id="services">
       <?php 
         include 'components/services.php'; 

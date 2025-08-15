@@ -3,81 +3,9 @@ session_start();
 include 'config.php';
 
 // Text fields
-$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission', 'vision', 'paragraph5', 'paragraph6', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bgcolor', 'paragraph_test', 'test_title', 'download_title_color', 'download_desc_color'];
+$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission_title', 'vision_title', 'mission_content', 'vision_content', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bg_color', 'services_title_color' ,'card_title_color','card_desc_color', 'paragraph_test', 'test_title', 'download_title_color', 'download_desc_color', 'welcome_title_color','welcome_desc_color', 'aboutus_title_color','aboutus_sub_color', 'aboutus_desc_color', 'mission_title_color', 'mission_content_color', 'vision_title_color', 'vision_content_color'];
 
 
-
-// foreach ($fields as $field) {
-//     if (isset($_POST[$field])) {
-//         $content = $_POST[$field];
-//         $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = ?");
-//         $stmt->bind_param("ss", $content, $field);
-//         $stmt->execute();
-//         $stmt->close();
-//         header("Location: ../index.php");
-//         exit;
-//     }
-// }
-
-// foreach ($fields as $field) {
-//     if (isset($_POST[$field])) {
-//         $content = $_POST[$field];
-//         $stmt = $conn->prepare("UPDATE aboutus SET content = ? WHERE key_name = ?");
-//         $stmt->bind_param("ss", $content, $field);
-//         $stmt->execute();
-//         $stmt->close();
-//         header("Location: ../index.php#about");
-//         exit;
-//     }
-// }
-
-// foreach ($fields as $field) {
-//     if (isset($_POST[$field])) {
-//         $content = $_POST[$field];
-//         $stmt = $conn->prepare("UPDATE missionvision SET content = ? WHERE key_name = ?");
-//         $stmt->bind_param("ss", $content, $field);
-//         $stmt->execute();
-//         $stmt->close();
-//         header("Location: ../index.php#missionvission");
-//         exit;
-//     }
-// }
-
-// foreach ($fields as $field) {
-//     if (isset($_POST[$field])) {
-//         $content = $_POST[$field];
-//         $stmt = $conn->prepare("UPDATE services SET content = ? WHERE key_name = ?");
-//         $stmt->bind_param("ss", $content, $field);
-//         $stmt->execute();
-//         $stmt->close();
-//         header("Location: ../index.php#missionvission");
-//         exit;
-//     }
-// }
-
-// foreach ($fields as $field) {
-//     if (isset($_POST[$field])) {
-//         $content = $_POST[$field];
-//         $stmt = $conn->prepare("UPDATE card_table SET content = ? WHERE title = ?");
-//         $stmt->bind_param("ss", $content, $field);
-//         $stmt->execute();
-//         $stmt->close();
-//         header("Location: ../index.php#services");
-//         exit;
-//     }
-// }
-
-// foreach ($fields as $field) {
-//     if (isset($_POST[$field])) {
-//         $content = $_POST[$field];
-//         $stmt = $conn->prepare("UPDATE testimonial SET content = ? WHERE key_name = ?");
-//         $stmt->bind_param("ss", $content, $field);
-//         $stmt->execute();
-//         $stmt->close();
-//         header("Location: ../index.php#testimonial");
-//         exit;
-//     }
-// }
 foreach ($fields as $field) {
     if (isset($_POST[$field])) {
         $content = $_POST[$field];
@@ -94,14 +22,14 @@ foreach ($fields as $field) {
             }
 
 
-        if (in_array($field, ['welcome', 'paragraph2', 'paragraph3'])) {
+        if (in_array($field, ['welcome', 'paragraph2', 'paragraph3', 'welcome_title_color','welcome_desc_color'])) {
             $stmt = $conn->prepare("UPDATE download SET content = ? WHERE key_name = ?");
             $stmt->bind_param("ss", $content, $field);
             $stmt->execute();
             $stmt->close();
             $redirectSection = '#welcome';
         }
-        if (in_array($field, ['aboutus', 'PTAS', 'paragraph4', 'aboutus_bgcolor'])) {
+        if (in_array($field, ['aboutus', 'PTAS', 'paragraph4', 'aboutus_bgcolor', 'aboutus_title_color', 'aboutus_sub_color', 'aboutus_desc_color'])) {
             $stmt = $conn->prepare("UPDATE aboutus SET content = ? WHERE key_name = ?");
             $stmt->bind_param("ss", $content, $field);
             $stmt->execute();
@@ -109,7 +37,7 @@ foreach ($fields as $field) {
             $redirectSection = '#about';
         }
 
-        if (in_array($field, ['mission', 'vision', 'paragraph5', 'paragraph6'])) {
+        if (in_array($field, ['mission_title', 'vision_title', 'mission_content', 'vision_content', 'mission_title_color', 'mission_content_color','vision_title_color', 'vision_content_color'])) {
             $stmt = $conn->prepare("UPDATE missionvision SET content = ? WHERE key_name = ?");
             $stmt->bind_param("ss", $content, $field);
             $stmt->execute();
@@ -117,7 +45,7 @@ foreach ($fields as $field) {
             $redirectSection = '#missionvission';
         }
 
-        if (in_array($field, ['service_title', 'services_bgcolor'])) {
+        if (in_array($field, ['service_title', 'services_bg_color', 'services_title_color','card_title_color','card_desc_color'])) {
             $stmt = $conn->prepare("UPDATE services SET content = ? WHERE key_name = ?");
             $stmt->bind_param("ss", $content, $field);
             $stmt->execute();

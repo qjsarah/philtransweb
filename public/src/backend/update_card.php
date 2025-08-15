@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $stmt->bind_param("ssi", $title, $content, $id);
 
   if ($stmt->execute()) {
-    header("Location: ../index.php");
+    header("Location: ../index.php#services");
     exit();
   } else {
     echo "Error updating card.";

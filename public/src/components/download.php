@@ -45,7 +45,7 @@ while ($row = $result->fetch_assoc()) {
         </div>
       </div>
       <div class="text-start my-3 h1main">
-        <button type="button" class="contact_button w-auto px-3 py-2 rounded text-white " onclick="toggleEditAll(this)" data-modal-target=".editContentModal">Edit Content</button>
+        <button type="button" class="contact_button w-auto px-3 py-2 rounded text-white" onclick="toggleEditAll(this)" data-modal-target=".editContentModal">Edit Content</button>
       </div>
 
       <!-- Modal Form -->
@@ -61,7 +61,6 @@ while ($row = $result->fetch_assoc()) {
               <form method="POST" id="downloadForm" action="backend/savecms.php" enctype="multipart/form-data" class="form">
                 <!-- Responsive flex container: stacks vertically on mobile -->
                     <label for="download_bg_color" class="form-label fw-bold text-secondary">Background Color:</label>
-                    
                      <div class="d-flex flex-column flex-md-row align-items-center gap-3 mb-2">
                       <input type="text" 
                             id="download_bg_hex" 
@@ -140,39 +139,39 @@ while ($row = $result->fetch_assoc()) {
         </div>
       </div>
 
-     <!-- Image Edit Modal -->
-<div class="modal fade edit-download-iamge" tabindex="-1">
-  <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
-    <div class="modal-content" style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.85); border-radius: 8px; border: 2px solid black;">
-      <div class="modal-header px-4 border-bottom-0">
-        <h3 class="modal-title fw-bold text-dark">Download Image Content</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body px-4">
-        <hr>
-        <form method="POST" action="backend/savecms.php" enctype="multipart/form-data" class="form">
-          <div class="d-flex justify-content-center">
-            <div class="me-5 w-75 text-center">
-              <img src="../main/images/download_section/<?php echo htmlspecialchars($content['person1'] ?? 'intro_img.png')?>" 
-                  alt="Person" 
-                  class="img-fluid current-cms-img w-50 mb-2" 
-                  data-cms-key="person1">
-                  <div class="upload-box uploadBox">
-                    <input type="file" 
-                    class="form-control cms-image-input fileInput mx-auto " 
-                    data-cms-key="person1" 
-                    name="person1" 
-                    accept="image/*" 
-                    style="max-width: 300px;">
-                    <p>Click or drag a file here to upload</p>
+          <!-- Image Edit Modal -->
+        <div class="modal fade edit-download-iamge" tabindex="-1">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content" style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.85); border-radius: 8px; border: 2px solid black;">
+              <div class="modal-header px-4 border-bottom-0">
+                <h3 class="modal-title fw-bold text-dark">Download Image Content</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body px-4">
+                <hr>
+                <form method="POST" action="backend/savecms.php" enctype="multipart/form-data" class="form">
+                  <div class="d-flex justify-content-center">
+                    <div class="me-5 w-75 text-center">
+                      <img src="../main/images/download_section/<?php echo htmlspecialchars($content['person1'] ?? 'intro_img.png')?>" 
+                          alt="Person" 
+                          class="img-fluid current-cms-img w-50 mb-2" 
+                          data-cms-key="person1">
+                          <div class="upload-box uploadBox">
+                            <input type="file" 
+                            class="form-control cms-image-input fileInput mx-auto " 
+                            data-cms-key="person1" 
+                            name="person1" 
+                            accept="image/*" 
+                            style="max-width: 300px;">
+                            <p>Click or drag a file here to upload</p>
+                          </div>
+                    </div>
                   </div>
+                </form>
+              </div>
             </div>
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+        </div>
 
     <?php else: ?>
       <!-- Public View -->

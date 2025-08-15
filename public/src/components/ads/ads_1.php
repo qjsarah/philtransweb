@@ -37,7 +37,7 @@ while ($row = $result->fetch_assoc()) {
   <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered" ><!-- Added modal-dialog-centered -->
     <div class="modal-content" style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.85); border-radius: 8px; border: 2px solid black;">
       <div class="modal-header">
-        <h3 class="modal-title">Edit Content</h3>
+        <h3 class="modal-title">Advertisments Content</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body pb-4">

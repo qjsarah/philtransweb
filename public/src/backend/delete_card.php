@@ -9,6 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $stmt->execute();
 }
 
-header("Location: ../index.php");
+header("Location: ../index.php#services");
 exit();
 ?>

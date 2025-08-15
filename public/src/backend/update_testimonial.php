@@ -8,8 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $role = $_POST['roles'];
   $stars= $_POST['stars'];
 
-  $stmt = $conn->prepare("UPDATE testimonials_table SET content = ?, name = ?, role = ?, stars = ? WHERE id = ?");
-  $stmt->bind_param("ssssii", $content, $name, $role, $stars, $id);
+  $stmt = $conn->prepare("UPDATE testimonials_table SET test_content = ?, test_name = ?, roles = ?, stars = ? WHERE id = ?");
+  $stmt->bind_param("sssii", $content, $name, $role, $stars, $id);
 
   if ($stmt->execute()) {
     header("Location: ../index.php");
