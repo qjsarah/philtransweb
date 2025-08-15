@@ -1,5 +1,5 @@
 <!-- Edit Card Modal -->
-<div class="modal fade" id="editCardModal" tabindex="-1" style="margin-top: 10%;">
+<div class="modal fade" id="editCardModal" tabindex="-1" style="margin-top: 10%; margin-left: 0.5%;">
   <div class="modal-dialog modal-dialog-scrollable modal-lg mt-5">
     <form id="editCardForm" method="POST" action="backend/update_card.php">
       <div class="modal-content" style="backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.56); border-radius: 8px; border: 2px solid black;">
