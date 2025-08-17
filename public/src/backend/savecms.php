@@ -3,7 +3,7 @@ session_start();
 include 'config.php';
 
 // Text fields
-$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission_title', 'vision_title', 'mission_content', 'vision_content', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bg_color', 'services_title_color' ,'card_title_color','card_desc_color', 'paragraph_test', 'test_title', 'download_title_color', 'download_desc_color', 'welcome_title_color','welcome_desc_color', 'aboutus_title_color','aboutus_sub_color', 'aboutus_desc_color', 'mission_title_color', 'mission_content_color', 'vision_title_color', 'vision_content_color'];
+$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission_title', 'vision_title', 'mission_content', 'vision_content', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bg_color', 'services_title_color' ,'card_title_color','card_desc_color', 'paragraph_test', 'test_title', 'download_title_color', 'download_desc_color', 'welcome_title_color','welcome_desc_color', 'aboutus_title_color','aboutus_sub_color', 'aboutus_desc_color', 'mission_title_color', 'mission_content_color', 'vision_title_color', 'vision_content_color', 'test_paragraph_color', 'test_title_color', 'test_border_color', 'test_quotation_color'];
 
 
 foreach ($fields as $field) {
@@ -53,7 +53,7 @@ foreach ($fields as $field) {
             $redirectSection = '#services';
         }
 
-        if (in_array($field, ['paragraph_test', 'test_title'])) {
+        if (in_array($field, ['paragraph_test', 'test_title', 'test_paragraph_color', 'test_title_color', 'test_border_color', 'test_quotation_color'])) {
             $stmt = $conn->prepare("UPDATE testimonial SET content = ? WHERE key_name = ?");
             $stmt->bind_param("ss", $content, $field);
             $stmt->execute();
