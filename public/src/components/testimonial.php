@@ -47,31 +47,37 @@ testimonialDiv.innerHTML =
                     <form action="backend/savecms.php" method="POST">
                          <div class="d-flex flex-column flex-md-row align-items-start gap-4">
                          <div style="min-width: 200px; width: 100%; max-width: 200px;">
-                            <!-- Testimonials Paragraph Color -->
-                            <label class="form-label fw-bold text-secondary mb-3">Paragraph Font Color:</label>
-                            <input type="text" id="test_paragraph_hex" 
-                                name="test_paragraph_color" 
-                                class="form-control text-uppercase mb-2" 
-                                maxlength="7" style="border-color: black;" 
-                                value="<?= htmlspecialchars($content['test_paragraph_color'] ?? '#1a1a1a'); ?>">
-                            <input type="color" id="test_paragraph_color" 
-                                name="test_paragraph_color" 
-                                class="form-control form-control-color mb-4" 
-                                style="height: 64px; border-color: black; width: 100%;" 
-                                value="<?= htmlspecialchars($content['test_paragraph_color'] ?? '#1a1a1a'); ?>">
+                            <!-- Paragraph Color -->
+<label class="form-label fw-bold text-secondary mb-3">Paragraph Font Color:</label>
+<input type="text" id="test_paragraph_hex" 
+    class="form-control text-uppercase mb-2" 
+    maxlength="7" style="border-color: black;" 
+    value="<?= htmlspecialchars($content['test_paragraph_color'] ?? '#1a1a1a'); ?>">
 
-                            <!-- Testimonials Title Color -->
-                            <label class="form-label fw-bold text-secondary">Title Font Color:</label>
-                            <input type="text" id="test_title_hex" 
-                                name="test_title_color" 
-                                class="form-control text-uppercase mb-2" 
-                                maxlength="7" style="border-color: black;" 
-                                value="<?= htmlspecialchars($content['test_title_color'] ?? '#1a1a1a'); ?>">
-                            <input type="color" id="test_title_color" 
-                                name="test_title_color" 
-                                class="form-control form-control-color mb-5" 
-                                style="height: 40px; border-color: black; width: 100%;" 
-                                value="<?= htmlspecialchars($content['test_title_color'] ?? '#1a1a1a'); ?>">
+<input type="color" id="test_paragraph_color" 
+    class="form-control form-control-color mb-4" 
+    style="height: 64px; border-color: black; width: 100%;" 
+    value="<?= htmlspecialchars($content['test_paragraph_color'] ?? '#1a1a1a'); ?>">
+
+<input type="hidden" name="test_paragraph_color" id="test_paragraph_hidden"
+    value="<?= htmlspecialchars($content['test_paragraph_color'] ?? '#1a1a1a'); ?>">
+
+
+
+<!-- Title Font Color -->
+<label class="form-label fw-bold text-secondary">Title Font Color:</label>
+<input type="text" id="test_title_hex" 
+    class="form-control text-uppercase mb-2" 
+    maxlength="7" style="border-color: black;" 
+    value="<?= htmlspecialchars($content['test_title_color'] ?? '#1a1a1a'); ?>">
+
+<input type="color" id="test_title_color" 
+    class="form-control form-control-color mb-5" 
+    style="height: 40px; border-color: black; width: 100%;" 
+    value="<?= htmlspecialchars($content['test_title_color'] ?? '#1a1a1a'); ?>">
+
+<input type="hidden" name="test_title_color" id="test_title_hidden"
+    value="<?= htmlspecialchars($content['test_title_color'] ?? '#1a1a1a'); ?>">
                             </div>
 
                                 <div class="flex-grow-1 w-100 ">
@@ -83,34 +89,40 @@ testimonialDiv.innerHTML =
                                 </div>
                         </div>
                         <!-- Testimonials Border Color -->
-                        <label class="form-label fw-bold text-secondary">Testimonials Border  Color:</label>
-                        <div class="d-flex flex-column flex-md-row align-items-center gap-3 mb-2">
-                            <input type="text" id="test_border_hex" 
-                                name="test_border_color" 
-                                class="form-control text-uppercase" 
-                                maxlength="7" style="border-color: black; flex: 0 0 27%;" 
-                                value="<?= htmlspecialchars($content['test_border_color'] ?? '#1a1a1a'); ?>">
-                            <input type="color" id="test_border_color" 
-                                name="test_border_color"
-                                class="form-control form-control-color" 
-                                style="height: 38px; border-color: black; width: 100%;" 
-                                value="<?= htmlspecialchars($content['test_border_color'] ?? '#1a1a1a'); ?>">
-                        </div>
+<label class="form-label fw-bold text-secondary">Testimonials Border Color:</label>
+<div class="d-flex flex-column flex-md-row align-items-center gap-3 mb-2">
+    <input type="text" id="test_border_hex" 
+        class="form-control text-uppercase" 
+        maxlength="7" style="border-color: black; flex: 0 0 27%;" 
+        value="<?= htmlspecialchars($content['test_border_color'] ?? '#1a1a1a'); ?>">
 
-                            <!-- Testimonials Quotation Color -->
-                            <label class="form-label fw-bold text-secondary mt-2">Testimonials Quotation Font Color:</label>
-                            <div class="d-flex flex-column flex-md-row align-items-center gap-3 mb-2">
-                            <input type="text" id="test_quotation_color" 
-                                name="test_quotation_color" 
-                                class="form-control text-uppercase" 
-                                maxlength="7" style="border-color: black; flex: 0 0 27%;" 
-                                value="<?= htmlspecialchars($content['test_quotation_color'] ?? '#1a1a1a'); ?>">
-                            <input type="color" id="test_quotation_color" 
-                                name="test_quotation_color" 
-                                class="form-control form-control-color" 
-                                style="height: 38px; border-color: black; width: 100%;" 
-                                value="<?= htmlspecialchars($content['test_quotation_color'] ?? '#1a1a1a'); ?>">
-                            </div>  
+    <input type="color" id="test_border_color" 
+        class="form-control form-control-color" 
+        style="height: 38px; border-color: black; width: 100%;" 
+        value="<?= htmlspecialchars($content['test_border_color'] ?? '#1a1a1a'); ?>">
+
+    <input type="hidden" name="test_border_color" id="test_border_hidden"
+        value="<?= htmlspecialchars($content['test_border_color'] ?? '#1a1a1a'); ?>">
+</div>
+
+
+
+<!-- Testimonials Quotation Color -->
+<label class="form-label fw-bold text-secondary mt-2">Testimonials Quotation Font Color:</label>
+<div class="d-flex flex-column flex-md-row align-items-center gap-3 mb-2">
+    <input type="text" id="test_quotation_hex" 
+        class="form-control text-uppercase" 
+        maxlength="7" style="border-color: black; flex: 0 0 27%;" 
+        value="<?= htmlspecialchars($content['test_quotation_color'] ?? '#1a1a1a'); ?>">
+
+    <input type="color" id="test_quotation_color" 
+        class="form-control form-control-color" 
+        style="height: 38px; border-color: black; width: 100%;" 
+        value="<?= htmlspecialchars($content['test_quotation_color'] ?? '#1a1a1a'); ?>">
+
+    <input type="hidden" name="test_quotation_color" id="test_quotation_hidden"
+        value="<?= htmlspecialchars($content['test_quotation_color'] ?? '#1a1a1a'); ?>">
+</div>
                              <div class="text-center modal-footer d-flex flex-column flex-md-row justify-content-center gap-3">
                                 <button type="submit" class="contact_button px-5 py-2 rounded text-dark save-button w-100 w-md-auto" style="border-color: black;">Save</button>
                                 <button type="button" class="contact_button px-5 py-2 rounded text-dark w-100 w-md-auto" style="border-color: black;" data-bs-dismiss="modal">Cancel</button>
@@ -247,12 +259,48 @@ testimonialDiv.innerHTML =
         <?php endif; ?>
     </div>
 `;
+$(document).ready(function () {
+    // Get border color from hidden input or fallback
+    const borderColor = $("#test_border_color").val() || "#1a1a1a";
 
-$('.owl-carousel').owlCarousel({
-    rtl: false, loop: true, margin: 50, center: true,
-    smartSpeed: 1000, autoplay: true, autoplayTimeout: 1500, autoplayHoverPause: true,
-    responsive: { 0:{items:1}, 600:{items:2}, 960:{items:3} }
+    // Initialize carousel
+    $('.owl-carousel').owlCarousel({
+        rtl: false,
+        loop: true,
+        margin: 50,
+        center: true,
+        autoplay: true,
+        autoplayTimeout: 1500,
+        autoplayHoverPause: true,
+        responsive: {
+            0: { items: 1 },
+            600: { items: 2 },
+            960: { items: 3 }
+        }
+    });
+
+    // Add styling when carousel changes
+    $(".owl-carousel").on("translated.owl.carousel", function () {
+        $(this).find(".owl-item").css({
+            "border": "5px solid transparent",
+            "box-shadow": `0 4px 10px ${borderColor}`,
+            "transform": "scale(1)",
+            "transition": "none"
+        });
+
+        // Force reflow before applying to center item
+        void this.offsetWidth;
+
+        $(this).find(".owl-item.center").css({
+            "border-width": "20px",
+            "border-color": borderColor,
+            "box-shadow": `0 4px 20px ${borderColor}`,
+            "transform": "scale(1.05)",
+            "transition": "border-width 0.3s ease, border-color 0.3s ease, transform 0.2s ease"
+        });
+    });
 });
+
 
 document.getElementById('showAddTestimonialForm').addEventListener('click', function () {
     const addCardForm = document.getElementById('addTestimonialForm');
@@ -276,8 +324,6 @@ document.querySelectorAll('.edit-btn-testimonial').forEach(btn => {
       const roles = btn.dataset.role;
       const stars = btn.dataset.stars;
 
-
-
       document.getElementById('edit-id-testimonial').value = id;
       document.getElementById('edit-content-testimonial').value = content;
       document.getElementById('edit-name').value = name;
@@ -288,7 +334,7 @@ document.querySelectorAll('.edit-btn-testimonial').forEach(btn => {
     });
   });
 
-  // When Manage Testimonials modal closes, reset the Add Testimonial form
+// When Manage Testimonials modal closes, reset the Add Testimonial form
 document.getElementById('testimonialManageModal')
   .addEventListener('hidden.bs.modal', () => {
     const addFormWrapper = document.getElementById('addTestimonialForm');
@@ -304,7 +350,6 @@ document.getElementById('testimonialManageModal')
     const toggleBtn = document.getElementById('showAddTestimonialForm');
     if (toggleBtn) toggleBtn.textContent = 'Add New Card';
 });
-
 
 // Delete confirmation
 document.querySelectorAll('.delete-testimonial-btn').forEach(button => {
@@ -331,6 +376,38 @@ document.querySelectorAll('.modal').forEach(modal => {
     forms.forEach(form => form.reset());
   });
 });
+
+
+/* ✅ HEX <-> COLOR SYNC FUNCTION (Place at the very bottom) */
+function syncColorInputs(hexInputId, colorInputId, hiddenInputId) {
+  const hexInput = document.getElementById(hexInputId);
+  const colorInput = document.getElementById(colorInputId);
+  const hiddenInput = document.getElementById(hiddenInputId);
+
+  if (!hexInput || !colorInput || !hiddenInput) return;
+
+  // Hex → Color
+  hexInput.addEventListener('input', () => {
+    let val = hexInput.value.trim();
+    if (!val.startsWith('#')) val = '#' + val;
+    if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+      colorInput.value = val;
+      hiddenInput.value = val;
+    }
+  });
+
+  // Color → Hex
+  colorInput.addEventListener('input', () => {
+    hexInput.value = colorInput.value.toUpperCase();
+    hiddenInput.value = colorInput.value;
+  });
+}
+
+// Apply sync for all 4 pairs
+syncColorInputs("test_paragraph_hex", "test_paragraph_color", "test_paragraph_hidden");
+syncColorInputs("test_title_hex", "test_title_color", "test_title_hidden");
+syncColorInputs("test_border_hex", "test_border_color", "test_border_hidden");
+syncColorInputs("test_quotation_hex", "test_quotation_color", "test_quotation_hidden");
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
