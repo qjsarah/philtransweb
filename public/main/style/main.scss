@@ -282,18 +282,17 @@ footer{
   opacity: 0.3;
   transition: opacity 0.1s ease, transform 0.5s ease-in-out;
   transform: scale(.9);
-  box-shadow: 0 4px 10px $danger;
+  border: none;
 }
 .owl-stage {
   padding-top: 8%;
   padding-bottom: 8%;
 
 }
-.owl-carousel .owl-item.center {
+.owl-carousel .owl-item.center{
   opacity: 1;
   transform: scale(1.1);
-  border: 20px solid $danger;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .img-area {

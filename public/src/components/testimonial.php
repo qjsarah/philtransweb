@@ -247,12 +247,33 @@ testimonialDiv.innerHTML =
         <?php endif; ?>
     </div>
 `;
+$(document).ready(function(){
+    const borderColor = $("#test_border_color").val() || "#1a1a1a";
 
-$('.owl-carousel').owlCarousel({
-    rtl: false, loop: true, margin: 50, center: true,
-    smartSpeed: 1000, autoplay: true, autoplayTimeout: 1500, autoplayHoverPause: true,
-    responsive: { 0:{items:1}, 600:{items:2}, 960:{items:3} }
+    $('.owl-carousel').owlCarousel({
+        rtl: false, loop: true, margin: 50, center: true,
+        autoplay: true, autoplayTimeout: 2000, autoplayHoverPause: true,
+        responsive: { 0:{items:1}, 600:{items:2}, 960:{items:3} }
+    });
+
+    $(".owl-carousel").on("translated.owl.carousel", function() {
+        $(this).find(".owl-item").css({
+            "border": "5px solid transparent",
+            "box-shadow": `0 4px 10px ${borderColor}`,
+            "transform": "scale(1) 0.5s ease-in-out",         
+            "transition": "none o.5s ease-in-out"
+        });
+        void this.offsetWidth;
+        $(this).find(".owl-item.center").css({
+            "border-width": "20px",
+            "border-color": borderColor,
+            "box-shadow": `0 4px 20px ${borderColor}`,
+            "transform": "scale(1.05)",
+            "transition": "border-width 0.3s ease, border-color 0.3s ease, transform 0.2s ease"
+        });
+    });
 });
+
 
 document.getElementById('showAddTestimonialForm').addEventListener('click', function () {
     const addCardForm = document.getElementById('addTestimonialForm');
@@ -331,6 +352,4 @@ document.querySelectorAll('.modal').forEach(modal => {
     forms.forEach(form => form.reset());
   });
 });
-
 </script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

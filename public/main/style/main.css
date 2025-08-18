@@ -12243,7 +12243,7 @@ footer {
   opacity: 0.3;
   transition: opacity 0.1s ease, transform 0.5s ease-in-out;
   transform: scale(0.9);
-  box-shadow: 0 4px 10px #BF0D3D;
+  border: none;
 }
 
 .owl-stage {
@@ -12254,8 +12254,7 @@ footer {
 .owl-carousel .owl-item.center {
   opacity: 1;
   transform: scale(1.1);
-  border: 20px solid #BF0D3D;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .img-area {
@@ -12405,4 +12404,4 @@ footer {
 
 .upload-box input {
   display: none;
-}/*# sourceMappingURL=main.css.map */
+}
