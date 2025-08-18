@@ -8,7 +8,6 @@
 - background image cms
 
 - database archive
-- navbar icon and effect
-
-- Login & Regsitration Mobile Viewport 
+- Testimonials border color CMS
+- COntact & Footer CMS 
 - Add Readmore in Welcome section

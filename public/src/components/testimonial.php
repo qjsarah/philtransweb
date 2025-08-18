@@ -219,7 +219,7 @@ testimonialDiv.innerHTML =
         
         <div class="cardtest owl-carousel owl-theme container mt-5">
         <?php foreach ($testimonials as $test): ?>
-            <div class="item text-center p-4 d-flex flex-column mt-5">
+            <div class="item text-center p-4 d-flex flex-column mt-5" style="max-height: auto; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word;">
                 <div class="img-area bg-light" >
                     <p class="fw-bolder display-1" style="color:<?php echo htmlspecialchars($content['test_quotation_color'] ?? '#1a1a1a'); ?>">"</p>
                 </div>
