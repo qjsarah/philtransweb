@@ -12075,13 +12075,13 @@ textarea.form-control-lg {
   animation-range: entry 0 cover 30%;
 }
 
-.ad3 {
+.ads3 {
   animation: appear linear;
   animation-timeline: view();
   animation-range: entry 0 cover 50%;
 }
 
-.ad3-2 {
+.ads3-2 {
   animation: appearRight linear;
   animation-timeline: view();
   animation-range: entry 0 cover 50%;

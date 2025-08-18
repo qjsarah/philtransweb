@@ -12,9 +12,9 @@ while ($row = $result->fetch_assoc()) {
   <?php if (isset($_SESSION['user_id'])): ?>
     <div class="d-flex flex-column flex-xl-row justify-content-around gap-3">
         <!-- Ads 5 -->
-        <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads5'] ?? 'ads_no_3.png'); ?>" class="ad3 img-fluid current-cms-img" alt="Ad Image" data-cms-key="ads5" style="max-width: 100%;">
+        <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads5'] ?? 'ads_no_3.png'); ?>" class="ads3 img-fluid current-cms-img" alt="Ad Image" data-cms-key="ads5" style="max-width: 100%;">
         <!-- Ads 6 -->
-        <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads6'] ?? 'ads_no_4.png'); ?>" class="ad3-2 img-fluid current-cms-img" alt="Ad Image" data-cms-key="ads6" style="max-width: 100%;">
+        <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads6'] ?? 'ads_no_4.png'); ?>" class="ads3-2 img-fluid current-cms-img" alt="Ad Image" data-cms-key="ads6" style="max-width: 100%;">
     </div>
     <!-- EDIT BUTTON -->
     <div class="text-center mb-3 ad1">
@@ -69,10 +69,10 @@ while ($row = $result->fetch_assoc()) {
   <?php else: ?>
     <div class="ad1 d-flex flex-column flex-xl-row justify-content-center align-items-center gap-3">
       <div>
-        <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads5'] ?? 'ads_no_3.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img" data-cms-key="ads5" style="max-width: 100%; height: auto;">
+        <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads5'] ?? 'ads_no_3.png'); ?>" alt="Ad Image" class="ads3 img-fluid mb-2 current-cms-img" data-cms-key="ads5" style="max-width: 100%; height: auto;">
       </div>
       <div>
-        <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads6'] ?? 'ads_no_4.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img" data-cms-key="ads6" style="max-width: 100%; height: auto;">
+        <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads6'] ?? 'ads_no_4.png'); ?>" alt="Ad Image" class="ads3-2 img-fluid mb-2 current-cms-img" data-cms-key="ads6" style="max-width: 100%; height: auto;">
       </div>
     </div>
   <?php endif; ?>
