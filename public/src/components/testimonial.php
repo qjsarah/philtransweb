@@ -269,7 +269,6 @@ $(document).ready(function () {
         loop: true,
         margin: 50,
         center: true,
-        smartSpeed: 1000,
         autoplay: true,
         autoplayTimeout: 1500,
         autoplayHoverPause: true,
