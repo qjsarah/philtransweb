@@ -23,22 +23,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_result($userId, $hashedPassword, $activationHash);
     $stmt->fetch();
 
-    // Pang check kung activated na ang account
-    if ($activationHash !== null) {
-            echo json_encode(['status' => 'error', 'message' => 'Account not activated.']);
-            exit;
-        }
+ 
+    if (!password_verify($password, $hashedPassword)) {
+        echo json_encode(['status' => 'error', 'message' => 'Invalid email or password.']);
+        exit;
+    }
 
-    $stmt->bind_result($userId, $hashedPassword, $activation_token);
-    $stmt->fetch();
-
+    if (!empty($activationHash)) {
+        echo json_encode(['status' => 'error', 'message' => 'Account not activated.']);
+        exit;
+    }
 
     session_start();
     $_SESSION['user_id'] = $userId; 
 
-    echo json_encode(['status' => 'success', 'message' => 'Login successful.']);
+    echo json_encode(['status' => 'success', 'message' => 'Redirecting...']);
 }
 
 $stmt->close();
 $conn->close();
 ?>
+    

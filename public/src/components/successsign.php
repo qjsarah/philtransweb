@@ -24,21 +24,16 @@ if (isset($_SESSION["user_id"])) {
         <div class="row w-100 justify-content-center" style="max-width: 600px;">
             <div class="col-12">
 
-                <!-- Logo centered above card -->
-                <div class="text-center mb-3">
+
+                <div class="card shadow-lg border-0 rounded-5"
+                    style="background-color: #ffffff; border-radius: 25px; box-shadow: 0 0 10px #BF0D3D;">
+
+                    <div class="text-center mt-3">
                     <img src="../../main/images/successsign_section/philtranslogo.png" alt="Philtrans Logo"
                         class="img-fluid"
                         style="max-height: 80px;">
                 </div>
 
-                <div class="card shadow-lg border-0 rounded-5"
-                    style="background-color: #ffffff; border-radius: 25px; box-shadow: 0 0 10px #BF0D3D;">
-
-                    <!-- Card Header -->
-                    <div class="card-header text-center rounded-top-4 py-3"
-                        style="background-color: #ffffff; color:#BF0D3D;">
-                        <h4 class="card-title fw-bold mb-0">Sign Up Successful!</h4>
-                    </div>
 
                     <!-- Card Body -->
                     <div class="card-body text-center px-4 py-4" style="color: #BF0D3D;">
