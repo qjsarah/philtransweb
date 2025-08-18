@@ -14,6 +14,9 @@ const cropSizes = {
   services_image: {width: 1182, height: 445},
   ads5: { width: 666, height: 182 },
   ads6: { width: 666, height: 182 },
+  location_img: { width: 46, height: 63 },
+  contact_img: { width: 61, height: 45 },
+  web_img: { width: 75, height: 80 }
 };
 
 if (!imageBase64 || !cmsKey || !cropSizes[cmsKey]) {

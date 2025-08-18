@@ -3,7 +3,7 @@ session_start();
 include 'config.php';
 
 // Text fields
-$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission_title', 'vision_title', 'mission_content', 'vision_content', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bg_color', 'services_title_color' ,'card_title_color','card_desc_color', 'paragraph_test', 'test_title', 'download_title_color', 'download_desc_color', 'welcome_title_color','welcome_desc_color', 'aboutus_title_color','aboutus_sub_color', 'aboutus_desc_color', 'mission_title_color', 'mission_content_color', 'vision_title_color', 'vision_content_color', 'test_paragraph_color', 'test_title_color', 'test_border_color', 'test_quotation_color'];
+$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission_title', 'vision_title', 'mission_content', 'vision_content', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bg_color', 'services_title_color' ,'card_title_color','card_desc_color', 'paragraph_test', 'test_title', 'download_title_color', 'download_desc_color', 'welcome_title_color','welcome_desc_color', 'aboutus_title_color','aboutus_sub_color', 'aboutus_desc_color', 'mission_title_color', 'mission_content_color', 'vision_title_color', 'vision_content_color', 'test_paragraph_color', 'test_title_color', 'test_border_color', 'test_quotation_color', 'contact_title', 'email', 'number', 'location', 'phone4_img', 'location_img', 'contact_img', 'web_img', 'footer_copyright', 'footer_credits'];
 
 
 foreach ($fields as $field) {
@@ -61,13 +61,21 @@ foreach ($fields as $field) {
             $redirectSection = '#testimonial';
         }
         // ✅ Update CFS table fields
-        if (in_array($field, ['contact_bg'])) {
+        if (in_array($field, ['contact_bg', 'contact_title', 'email', 'number', 'location'])) {
             $content = $_POST[$field];
-            $stmt = $conn->prepare("UPDATE cfs SET content = ? WHERE key_name = ?");
+            $stmt = $conn->prepare("UPDATE contact SET content = ? WHERE key_name = ?");
             $stmt->bind_param("ss", $content, $field);
             $stmt->execute();
             $stmt->close();
             $redirectSection = '#contact';
+        }
+
+        if (in_array($field, ['footer_copyright', 'footer_credits'])) {
+            $stmt = $conn->prepare("UPDATE footer SET content = ? WHERE key_name = ?");
+            $stmt->bind_param("ss", $content, $field);
+            $stmt->execute();
+            $stmt->close();
+            $redirectSection = '#footer';
         }
     }
 }
@@ -231,6 +239,47 @@ if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['services_image', '
                 $stmt->execute();
                 $stmt->close();
             $redirectSection = '#services';
+            }
+        }
+    }
+}
+
+// Contact Section
+if (isset($_POST['cms_key']) && in_array($_POST['cms_key'], ['phone4_img', 'location_img', 'contact_img', 'web_img'])) {
+    $cmsKey = $_POST['cms_key'];
+
+    if (isset($_FILES['cms_image']) && $_FILES['cms_image']['error'] === UPLOAD_ERR_OK) {
+       $allowedKeys = [
+        'location_img' => ['dir' => '../../main/images/contact_section/', 'path' => ''],
+        'contact_img' => ['dir' => '../../main/images/contact_section/', 'path' => ''],
+        'web_img' => ['dir' => '../../main/images/contact_section/', 'path' => ''],
+        ];
+        
+
+        if (!array_key_exists($cmsKey, $allowedKeys)) {
+            http_response_code(400);
+            exit('Invalid CMS key.');
+        }
+
+        $uploadDir = $allowedKeys[$cmsKey]['dir'];
+        $relativePath = $allowedKeys[$cmsKey]['path'];
+
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        $maxSize = 2 * 1024 * 1024; // 2MB
+
+        $fileType = $_FILES['cms_image']['type'];
+        $fileSize = $_FILES['cms_image']['size'];
+
+        if (in_array($fileType, $allowedTypes) && $fileSize <= $maxSize) {
+            $filename = time() . '_' . basename($_FILES['cms_image']['name']);
+            $targetPath = $uploadDir . $filename;
+            $dbPath = $relativePath . $filename;
+
+            if (move_uploaded_file($_FILES['cms_image']['tmp_name'], $targetPath)) {
+                $stmt = $conn->prepare("UPDATE contact SET content = ? WHERE key_name = ?");
+                $stmt->bind_param("ss", $dbPath, $cmsKey);
+                $stmt->execute();
+                $stmt->close();
             }
         }
     }

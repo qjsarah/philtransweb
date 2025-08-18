@@ -35,7 +35,7 @@ const testimonialDiv = document.getElementById('testimonial');
 testimonialDiv.innerHTML = 
 `
     <!-- Modal 1: Edit Title & Paragraph -->
-    <div class="modal fade" id="testimonialTitleModal">
+    <div class="modal fade textimonial" id="testimonialTitleModal">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content" style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.85); border-radius: 8px; border: 2px solid black;">
                 <div class="modal-header">
@@ -212,9 +212,9 @@ testimonialDiv.innerHTML =
 
     <!-- FRONTEND DISPLAY -->
     <div class="vh-80 mt-5">
-        <div class="text-danger text-center my-4">
+        <div class="textimonial text-danger text-center my-4">
             <h5 style="color:<?php echo htmlspecialchars($content['test_paragraph_color'] ?? '#1a1a1a'); ?>"><?php echo htmlspecialchars($content['paragraph_test'] ?? "What our Client Says"); ?></h5>
-            <h4 class="fw-bold display-5" style="color:<?php echo htmlspecialchars($content['test_title_color'] ?? '#1a1a1a'); ?>"><?php echo htmlspecialchars($content['test_title'] ?? "TESTIMONIAL"); ?></h4>
+            <h4 class="textimonial fw-bold display-5" style="color:<?php echo htmlspecialchars($content['test_title_color'] ?? '#1a1a1a'); ?>"><?php echo htmlspecialchars($content['test_title'] ?? "TESTIMONIAL"); ?></h4>
         </div>
         
         <div class="cardtest owl-carousel owl-theme container mt-5">
