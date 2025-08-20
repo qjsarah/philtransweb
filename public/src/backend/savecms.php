@@ -3,7 +3,7 @@ session_start();
 include 'config.php';
 
 // Text fields
-$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission_title', 'vision_title', 'mission_content', 'vision_content', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bg_color', 'services_title_color' ,'card_title_color','card_desc_color', 'paragraph_test', 'test_title', 'download_title_color', 'download_desc_color', 'welcome_title_color','welcome_desc_color', 'aboutus_title_color','aboutus_sub_color', 'aboutus_desc_color', 'mission_title_color', 'mission_content_color', 'vision_title_color', 'vision_content_color', 'test_paragraph_color', 'test_title_color', 'test_border_color', 'test_quotation_color', 'contact_title', 'email', 'number', 'location', 'phone4_img', 'location_img', 'contact_img', 'web_img', 'footer_copyright', 'footer_credits'];
+$fields = ['download1', 'paragraph1', 'welcome', 'paragraph2', 'paragraph3', 'aboutus', 'PTAS', 'paragraph4', 'mission_title', 'vision_title', 'mission_content', 'vision_content', 'mission_image', 'vision_image', 'ads1', 'ads2', 'person1', 'phone_image', 'services_image', 'service_title', 'ads5', 'ads6', 'download_bg_color', 'aboutus_bgcolor', 'contact_bg', 'services_bg_color', 'services_title_color' ,'card_title_color','card_desc_color', 'paragraph_test', 'test_title', 'download_title_color', 'download_desc_color', 'welcome_title_color','welcome_desc_color', 'aboutus_title_color','aboutus_sub_color', 'aboutus_desc_color', 'mission_title_color', 'mission_content_color', 'vision_title_color', 'vision_content_color', 'test_paragraph_color', 'test_title_color', 'test_border_color', 'test_quotation_color', 'contact_title', 'email', 'number', 'location', 'phone4_img', 'location_img', 'contact_img', 'web_img', 'footer_copyright', 'footer_credits', 'contact_title_color', 'contact_font_color', 'footer_bg_color', 'footer_font_color'];
 
 
 foreach ($fields as $field) {
@@ -61,7 +61,7 @@ foreach ($fields as $field) {
             $redirectSection = '#testimonial';
         }
         // ✅ Update CFS table fields
-        if (in_array($field, ['contact_bg', 'contact_title', 'email', 'number', 'location'])) {
+        if (in_array($field, ['contact_bg', 'contact_title', 'email', 'number', 'location', 'contact_title_color', 'contact_font_color'])) {
             $content = $_POST[$field];
             $stmt = $conn->prepare("UPDATE contact SET content = ? WHERE key_name = ?");
             $stmt->bind_param("ss", $content, $field);
@@ -70,7 +70,7 @@ foreach ($fields as $field) {
             $redirectSection = '#contact';
         }
 
-        if (in_array($field, ['footer_copyright', 'footer_credits'])) {
+        if (in_array($field, ['footer_copyright', 'footer_credits', 'footer_bg_color', 'footer_font_color'])) {
             $stmt = $conn->prepare("UPDATE footer SET content = ? WHERE key_name = ?");
             $stmt->bind_param("ss", $content, $field);
             $stmt->execute();

@@ -8,6 +8,6 @@
 - background image cms
 
 - database archive
-- Testimonials border color CMS
-- COntact & Footer CMS 
-- Add Readmore in Welcome section
+
+### Problems
+- Crop Image will auto save it even though the user cancels it.
