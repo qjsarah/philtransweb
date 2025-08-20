@@ -456,9 +456,14 @@ footer{
 
   /* SWAL */
   
+.swal2-container {
+  z-index: 9999;
+}
+
 .swal-custom-popup {
     border: 5px solid #BF0D3D;
     border-radius: 30px;
+    z-index: 9999;
 }
 
 

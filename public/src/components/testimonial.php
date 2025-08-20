@@ -168,7 +168,7 @@ testimonialDiv.innerHTML =
                             <br>
                             <input type="number" max="5" name="stars" placeholder="5">
                             
-                            <button class="contact_button px-5 py-2 rounded text-dark w-100 w-md-auto mt-3" style="border-color: black;" type="submit">Add Testimonial</button>
+                            <button class="contact_button px-5 py-2 rounded text-dark w-100 w-md-auto mt-3 add-button" style="border-color: black;" type="submit">Add Testimonial</button>
                         </form>
                     </div>
                        <div class="container">
@@ -203,7 +203,7 @@ testimonialDiv.innerHTML =
 
           <form action="backend/delete_testimonial.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $test['id']; ?>">
-            <button type="button" class="contact_button px-4 py-2 rounded text-dark w-100 delete-testimonial-btn" style="border-color: black;">
+            <button type="button" class="contact_button px-4 py-2 rounded text-dark w-100 delete-button" style="border-color: black;">
               Delete
             </button>
           </form>
@@ -351,23 +351,7 @@ document.getElementById('testimonialManageModal')
     if (toggleBtn) toggleBtn.textContent = 'Add New Card';
 });
 
-// Delete confirmation
-document.querySelectorAll('.delete-testimonial-btn').forEach(button => {
-  button.addEventListener('click', function () {
-    const form = this.closest('form');
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'This testimonial will be deleted permanently!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#aaa',
-      confirmButtonText: 'Delete'
-    }).then((result) => {
-      if (result.isConfirmed) form.submit();
-    });
-  });
-});
+
 
 // Reset all forms inside modals when they are closed
 document.querySelectorAll('.modal').forEach(modal => {

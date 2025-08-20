@@ -78,9 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
               confirmButtonText: 'LOGOUT',
               cancelButtonText: 'CANCEL',
               background: '#ffffff',
-              color: '#000066',
+              color: '#BF0D3D',
               buttonsStyling: false,
-              imageUrl: '../main/images/nav_section/navtrycicle.png', 
+              imageUrl: '../main/images/nav_section/navimage.png', 
               imageHeight: 200,
               imageAlt: 'Top Image',
               customClass: {
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   const separator = document.createElement('div');
                   separator.style.height = '2px';
                   separator.style.width = '100%';
-                  separator.style.backgroundColor = '#000066';
+                  separator.style.backgroundColor = '#BF0D3D';
                   separator.style.borderRadius = '5px';
                   const popup = Swal.getPopup();
                   popup.insertBefore(separator, popup.querySelector('.swal2-title'));
@@ -112,8 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
             showConfirmButton: false,
             timer: 1500,
             background: '#ffffff',
-            color: '#000066',
-            imageUrl: '../main/images/nav_section/navtrycicle.png', 
+            color: '#BF0D3D',
+            imageUrl: '../main/images/nav_section/navimage.png', 
             imageHeight: 200,
             imageAlt: 'Top Image',
             customClass: {
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   const separator = document.createElement('div');
                   separator.style.height = '2px';
                   separator.style.width = '100%';
-                  separator.style.backgroundColor = '#000066';
+                  separator.style.backgroundColor = '#BF0D3D';
                   separator.style.borderRadius = '5px';
                   const popup = Swal.getPopup();
                   popup.insertBefore(separator, popup.querySelector('.swal2-title'));

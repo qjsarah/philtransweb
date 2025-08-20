@@ -42,48 +42,97 @@ function cropAndUpload() {
   const { width, height } = cropSize;
   const canvas = cropper.getCroppedCanvas({ width, height });
 
-  canvas.toBlob(blob => {
-    const formData = new FormData();
-    formData.append("cms_key", cmsKey);
-    formData.append("cms_image", blob, "cropped.png");
+  Swal.fire({
+    html: `
+      <h2 class="swal-modern-title">Are you sure?</h2>
+      <p class="swal-modern-text">Do you want to save your changes?</p>
+    `,
+    icon: null,
+    showCancelButton: true,
+    confirmButtonText: 'Save',
+    cancelButtonText: 'Cancel',
+    background: '#ffffff',
+    color: '#BF0D3D',
+    buttonsStyling: false,
+    imageUrl: '../../../public/main/images/adscropper_section/adscropperimage.png',
+    imageHeight: 200,
+    imageAlt: 'Top Image',
+    customClass: {
+      popup: 'swal-custom-popup',
+      title: 'swal-modern-title',
+      content: 'swal-modern-text',
+      confirmButton: 'swal-button-btn ok-btn',
+      cancelButton: 'swal-button-btn cancel-btn',
+    },
+    didOpen: () => {
+      const img = Swal.getImage();
+      img.style.marginTop = '-110px';
+      const separator = document.createElement('div');
+      separator.style.height = '2px';
+      separator.style.width = '100%';
+      separator.style.backgroundColor = '#BF0D3D';
+      separator.style.borderRadius = '5px';
+      const popup = Swal.getPopup();
+      popup.insertBefore(separator, popup.querySelector('.swal2-title'));
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      canvas.toBlob(blob => {
+        const formData = new FormData();
+        formData.append("cms_key", cmsKey);
+        formData.append("cms_image", blob, "cropped.png");
 
-    fetch("../backend/savecms.php", {
-      method: "POST",
-      body: formData
-    })
-    .then(res => {
-      if (res.ok) {
-        swal.fire({
-          title: 'Are you sure?',
-          text: "Do you want to save your changes?",
-          icon: 'question',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, save it!',
-          cancelButtonText: 'Cancel',
-          confirmButtonColor: '#28a745',
-          cancelButtonColor: '#6c757d'
-        }).then((result) => {
-            if (result.isConfirmed) {
-               swal.fire({
-                title: 'Saved!',
-                text: 'Your changes have been saved successfully.',
-                icon: 'success',
-                confirmButtonColor: '#28a745'
-              }).then(() => {
-                sessionStorage.removeItem("tempImage");
-                sessionStorage.removeItem("cmsKey");
-                window.history.back();
-              });
-            }
+        fetch("../backend/savecms.php", {
+          method: "POST",
+          body: formData
+        })
+        .then(res => {
+          if (res.ok) {
+            Swal.fire({
+              html: `
+                <h2 class="swal-modern-title">Saved Successfully!</h2>
+                <p class="swal-modern-text">Your changes have been saved successfully.</p>
+              `,
+              icon: null,
+              showConfirmButton: false,
+              timer: 1500,
+              background: '#ffffff',
+              color: '#BF0D3D',
+              imageUrl: '../../../public/main/images/adscropper_section/adscropperimage.png',
+              imageHeight: 200,
+              imageAlt: 'Top Image',
+              customClass: {
+                popup: 'swal-custom-popup',
+                title: 'swal-modern-title',
+                content: 'swal-modern-text',
+              },
+              didOpen: () => {
+                const img = Swal.getImage();
+                img.style.marginTop = '-110px';
+                const separator = document.createElement('div');
+                separator.style.height = '2px';
+                separator.style.width = '100%';
+                separator.style.backgroundColor = '#BF0D3D';
+                separator.style.borderRadius = '5px';
+                const popup = Swal.getPopup();
+                popup.insertBefore(separator, popup.querySelector('.swal2-title'));
+              }
+            }).then(() => {
+              sessionStorage.removeItem("tempImage");
+              sessionStorage.removeItem("cmsKey");
+              window.history.back(); 
+            });
+          } else {
+            alert("Upload failed.");
+          }
+        })
+        .catch(err => {
+          console.error("Upload error", err);
+          alert("Something went wrong.");
         });
-      } else {
-        alert("Upload failed.");
-      }
-    })
-    .catch(err => {
-      console.error("Upload error", err);
-      alert("Something went wrong.");
-    });
-  }, "image/png");
+      }, "image/png");
+    }
+  });
 }
+
                

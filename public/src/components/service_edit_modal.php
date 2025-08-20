@@ -21,7 +21,7 @@
           <hr>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="contact_button w-25 px-3 py-2 mt-2 rounded text-dark" style="border-color: black;">Update Card</button>
+          <button type="submit" class="contact_button w-25 px-3 py-2 mt-2 rounded text-dark update-button" style="border-color: black;">Update Card</button>
         </div>
       </div>
     </form>

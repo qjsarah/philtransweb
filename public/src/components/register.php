@@ -140,7 +140,7 @@ if (isset($_SESSION["user_id"])) {
               background: '#ffffff',
               color: '#BF0D3D',
               buttonsStyling: false,
-              imageUrl: '../../main/images/login_section/logintrycicle.png', 
+              imageUrl: '../../main/images/register_section/registerimage.png', 
               imageHeight: 200,
               imageAlt: 'Top Image',
               customClass: {
@@ -178,7 +178,7 @@ if (isset($_SESSION["user_id"])) {
                       timer: 1500,
                       background: '#ffffff',
                       color: '#BF0D3D',
-                      imageUrl: '../../main/images/register_section/registerphiltrans.png', 
+                      imageUrl: '../../main/images/register_section/registerimage.png', 
                       imageHeight: 200,
                       imageAlt: 'Top Image',
                       customClass: { popup: 'swal-custom-popup', title: 'swal-modern-title', content: 'swal-modern-text' },
@@ -193,7 +193,7 @@ if (isset($_SESSION["user_id"])) {
                           const popup = Swal.getPopup();
                           popup.insertBefore(separator, popup.querySelector('.swal2-title'));
                       }
-                  }).then(() => { window.location.href = 'success.php'; });
+                  }).then(() => { window.location.href = 'successsign.php'; });
               } else {
                   Swal.fire({ icon: "error", title: "Error", text: response.message, showConfirmButton: false, timer: 2000 });
               }
