@@ -130,7 +130,7 @@ while ($row = $result->fetch_assoc()) {
                 </div>
                 <hr>
                 <div class="text-center modal-footer d-flex flex-column flex-md-row justify-content-center gap-3">
-                  <button type="submit" class="contact_button px-5 py-2 rounded text-dark save-button w-100 w-md-auto" style="border-color: black;">Save</button>
+                  <button type="button" class="contact_button px-5 py-2 rounded text-dark save-button w-100 w-md-auto" style="border-color: black;">Save</button>
                   <button type="button" class="contact_button px-5 py-2 rounded text-dark w-100 w-md-auto" style="border-color: black;" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </form>
