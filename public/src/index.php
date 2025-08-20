@@ -166,8 +166,8 @@ document.querySelectorAll(
     // Confirmation Swal
     Swal.fire({
       html: `
-        <h2 class="swal-modern-title">${title}</h2>
-        <p class="swal-modern-text">${text}</p>
+        <h2 class="swal-custom-title">${title}</h2>
+        <p class="swal-custom-text">${text}</p>
       `,
       showCancelButton: true,
       confirmButtonText: confirmText,
@@ -179,8 +179,8 @@ document.querySelectorAll(
       imageHeight: 200,
       customClass: {
         popup: 'swal-custom-popup',
-        title: 'swal-modern-title',
-        content: 'swal-modern-text',
+        title: 'swal-custom-title',
+        content: 'swal-custom-text',
         confirmButton: 'swal-button-btn ok-btn',
         cancelButton: 'swal-button-btn cancel-btn',
       },
@@ -198,8 +198,8 @@ document.querySelectorAll(
       if (result.isConfirmed) {
         Swal.fire({
           html: `
-            <h2 class="swal-modern-title">${confirmedText} Successfully!</h2>
-            <p class="swal-modern-text">${successMsg}</p>
+            <h2 class="swal-custom-title">${confirmedText} Successfully!</h2>
+            <p class="swal-custom-text">${successMsg}</p>
           `,
           showConfirmButton: false,
           timer: 1500,
@@ -209,8 +209,8 @@ document.querySelectorAll(
           imageHeight: 200,
           customClass: {
             popup: 'swal-custom-popup',
-            title: 'swal-modern-title',
-            content: 'swal-modern-text',
+            title: 'swal-custom-title',
+            content: 'swal-custom-text',
           },
           didOpen: () => {
             const img = Swal.getImage();
@@ -229,7 +229,6 @@ document.querySelectorAll(
     });
   });
 });
-
 
 
 const uploadBoxes = document.querySelectorAll(".uploadBox");

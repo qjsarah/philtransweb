@@ -133,8 +133,8 @@ if (isset($_SESSION["user_id"])) {
 
       if (password !== confirmPassword) {
           Swal.fire({
-              html: `<h2 class="swal-modern-title">Incorrect Password!</h2>
-                     <p class="swal-modern-text">Password do not match!</p>`,
+              html: `<h2 class="swal-custom-title">Incorrect Password!</h2>
+                     <p class="swal-custom-text">Password do not match!</p>`,
               icon: null,
               confirmButtonText: 'Try Again',
               background: '#ffffff',
@@ -145,9 +145,7 @@ if (isset($_SESSION["user_id"])) {
               imageAlt: 'Top Image',
               customClass: {
                   popup: 'swal-custom-popup',
-                  title: 'swal-modern-title',
-                  content: 'swal-modern-text',
-                  confirmButton: 'swal-button-btn ok-btn',
+                  confirmButton: 'swal-button-btn ok-btn'
               },
               didOpen: () => {
                   const img = Swal.getImage();
@@ -171,8 +169,8 @@ if (isset($_SESSION["user_id"])) {
           success: function (response) {
               if (response.status === 'success') {
                   Swal.fire({
-                      html: `<h2 class="swal-modern-title">Registered Successfully!</h2>
-                             <p class="swal-modern-text">Redirecting...</p>`,
+                      html: `<h2 class="swal-custom-title">Registered Successfully!</h2>
+                             <p class="swal-custom-text">Redirecting...</p>`,
                       icon: null,
                       showConfirmButton: false,
                       timer: 1500,
@@ -181,7 +179,7 @@ if (isset($_SESSION["user_id"])) {
                       imageUrl: '../../main/images/register_section/registerimage.png', 
                       imageHeight: 200,
                       imageAlt: 'Top Image',
-                      customClass: { popup: 'swal-custom-popup', title: 'swal-modern-title', content: 'swal-modern-text' },
+                      customClass: { popup: 'swal-custom-popup', title: 'swal-custom-title', content: 'swal-custom-text' },
                       didOpen: () => {
                           const img = Swal.getImage();
                           img.style.marginTop = '-110px'; 
@@ -195,12 +193,37 @@ if (isset($_SESSION["user_id"])) {
                       }
                   }).then(() => { window.location.href = 'successsign.php'; });
               } else {
-                  Swal.fire({ icon: "error", title: "Error", text: response.message, showConfirmButton: false, timer: 2000 });
+                  Swal.fire({ 
+                    html: `<h2 class="swal-custom-title">Error!</h2>
+                           <p class="swal-custom-text">All Fields Required!</p>`, 
+                     
+                    showConfirmButton: true, 
+                    icon: null,
+                    confirmButtonText: 'Try Again',
+              background: '#ffffff',
+              color: '#BF0D3D',
+              buttonsStyling: false,
+              imageUrl: '../../main/images/register_section/registerimage.png', 
+              imageHeight: 200,
+              imageAlt: 'Top Image',
+              customClass: {
+                  popup: 'swal-custom-popup',
+                  confirmButton: 'swal-button-btn ok-btn'
+              },
+              didOpen: () => {
+                  const img = Swal.getImage();
+                  img.style.marginTop = '-110px'; 
+                  const separator = document.createElement('div');
+                  separator.style.height = '2px';
+                  separator.style.width = '100%';
+                  separator.style.backgroundColor = '#BF0D3D';
+                  separator.style.borderRadius = '5px';
+                  const popup = Swal.getPopup();
+                  popup.insertBefore(separator, popup.querySelector('.swal2-title'));
+              }
+          });
               }
           },
-          error: function () {
-              Swal.fire({ icon: "error", title: "Oops...", text: "Something went wrong, please try again later.", showConfirmButton: false, timer: 2000 });
-          }
       });
     });
   </script>

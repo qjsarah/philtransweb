@@ -70,13 +70,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             Swal.fire({
               html: `
-                  <h2 class="swal-modern-title">Are you sure?</h2>
-                  <p class="swal-modern-text">You will be logged out of your account.</p>
+                  <h2 class="swal-custom-title">Are you sure?</h2>
+                  <p class="swal-custom-text">You will be logged out of your account.</p>
               `,
               icon: null,
               showCancelButton: true,
-              confirmButtonText: 'LOGOUT',
-              cancelButtonText: 'CANCEL',
+              confirmButtonText: 'Logout',
+              cancelButtonText: 'Cancel',
               background: '#ffffff',
               color: '#BF0D3D',
               buttonsStyling: false,
@@ -85,8 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
               imageAlt: 'Top Image',
               customClass: {
                   popup: 'swal-custom-popup',
-                  title: 'swal-modern-title',
-                  content: 'swal-modern-text',
                   confirmButton: 'swal-button-btn ok-btn',
                   cancelButton: 'swal-button-btn cancel-btn'
               },
@@ -105,8 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (result.isConfirmed) {
         Swal.fire({
            html: `
-                  <h2 class="swal-modern-title">Logged Out!</h2>
-                  <p class="swal-modern-text">You have successfully logged out.</p>
+                  <h2 class="swal-custom-title">Logged Out!</h2>
+                  <p class="swal-custom-text">You have successfully logged out.</p>
               `,
             icon: null,
             showConfirmButton: false,
@@ -117,9 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
             imageHeight: 200,
             imageAlt: 'Top Image',
             customClass: {
-                popup: 'swal-custom-popup',
-                title: 'swal-modern-title',
-                content: 'swal-modern-text',
+                popup: 'swal-custom-popup'
             },
              didOpen: () => {
                   const img = Swal.getImage();
