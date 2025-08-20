@@ -38,52 +38,60 @@ cropperTarget.onload = () => {
   });
 };
 
-function cropAndUpload() {
-  const { width, height } = cropSize;
-  const canvas = cropper.getCroppedCanvas({ width, height });
+const cropUploadBtn = document.getElementById("cropUploadBtn");
+const cancelBtn = document.getElementById("cancelBtn");
 
-  canvas.toBlob(blob => {
-    const formData = new FormData();
-    formData.append("cms_key", cmsKey);
-    formData.append("cms_image", blob, "cropped.png");
+cancelBtn.addEventListener("click", () => {
+  sessionStorage.removeItem("tempImage");
+  sessionStorage.removeItem("cmsKey");
+  window.history.back(); // no upload
+});
 
-    fetch("../backend/savecms.php", {
-      method: "POST",
-      body: formData
-    })
-    .then(res => {
-      if (res.ok) {
-        swal.fire({
-          title: 'Are you sure?',
-          text: "Do you want to save your changes?",
-          icon: 'question',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, save it!',
-          cancelButtonText: 'Cancel',
-          confirmButtonColor: '#28a745',
-          cancelButtonColor: '#6c757d'
-        }).then((result) => {
-            if (result.isConfirmed) {
-               swal.fire({
-                title: 'Saved!',
-                text: 'Your changes have been saved successfully.',
-                icon: 'success',
-                confirmButtonColor: '#28a745'
-              }).then(() => {
-                sessionStorage.removeItem("tempImage");
-                sessionStorage.removeItem("cmsKey");
-                window.history.back();
-              });
-            }
+cropUploadBtn.addEventListener("click", () => {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "Do you want to save your changes?",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, save it!',
+    cancelButtonText: 'Cancel',
+    confirmButtonColor: '#28a745',
+    cancelButtonColor: '#6c757d'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const { width, height } = cropSize;
+      const canvas = cropper.getCroppedCanvas({ width, height });
+
+      canvas.toBlob(blob => {
+        const formData = new FormData();
+        formData.append("cms_key", cmsKey);
+        formData.append("cms_image", blob, "cropped.png");
+
+        fetch("../backend/savecms.php", {
+          method: "POST",
+          body: formData
+        })
+        .then(res => {
+          if (res.ok) {
+            Swal.fire({
+              title: 'Saved!',
+              text: 'Your changes have been saved successfully.',
+              icon: 'success',
+              confirmButtonColor: '#28a745'
+            }).then(() => {
+              sessionStorage.removeItem("tempImage");
+              sessionStorage.removeItem("cmsKey");
+              window.history.back();
+            });
+          } else {
+            alert("Upload failed.");
+          }
+        })
+        .catch(err => {
+          console.error("Upload error", err);
+          alert("Something went wrong.");
         });
-      } else {
-        alert("Upload failed.");
-      }
-    })
-    .catch(err => {
-      console.error("Upload error", err);
-      alert("Something went wrong.");
-    });
-  }, "image/png");
-}
-               
+      }, "image/png");
+    }
+  });
+});

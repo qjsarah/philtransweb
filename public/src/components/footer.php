@@ -28,7 +28,7 @@ while ($row = $result->fetch_assoc()) {
 // Close statement
 $stmt->close();
 ?>
-<footer class="text-center text-white footer-section" 
+<footer class="text-center text-white footer-section pb-3" 
         style="background-color: <?php echo htmlspecialchars($content['footer_bg_color'] ?? '#BF0D3D'); ?>; color: <?php echo htmlspecialchars($content['footer_font_color'] ?? '#FFFFFF'); ?>;">
     <?php if (isset($_SESSION['user_id'])): ?>
         <div class="text-center mb-4">
@@ -88,7 +88,7 @@ $stmt->close();
                             <div class="flex-grow-1 w-100">
                                 <!-- Copyright -->
                                 <label class="form-label fw-bold text-secondary">Copyright:</label>
-                                <textarea name="footer_copyright" class="form-control mb-3 rounded-1 p-2" style="border-color: black;" rows="2"><?php echo htmlspecialchars($content['footer_copyright'] ?? "© 2025 PhilTransInc. All Rights Reserved"); ?></textarea>
+                                <textarea name="footer_copyright" class="form-control mb-3 rounded-1 p-2" style="border-color: black;" rows="3"><?php echo htmlspecialchars($content['footer_copyright'] ?? "© 2025 PhilTransInc. All Rights Reserved"); ?></textarea>
 
                                 <!-- Credits -->
                                 <label class="form-label fw-bold text-secondary pt-2 mt-3">Credits:</label>

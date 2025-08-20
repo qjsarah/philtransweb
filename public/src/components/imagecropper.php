@@ -14,16 +14,16 @@
 
   <!-- Buttons -->
   <div class="d-flex flex-column flex-md-row justify-content-center gap-2 gap-md-3">
-    <button onclick="window.history.back()" 
-            class="contact_button px-4 py-2 rounded text-dark w-100 w-md-auto" 
-            style="border: 1px solid black;">
-      Cancel
-    </button>
-    <button onclick="cropAndUpload()" 
-            class="contact_button px-4 py-2 rounded text-dark w-100 w-md-auto" 
-            style="border: 1px solid black;">
-      Crop & Upload
-    </button>
+  <button id="cancelBtn" 
+          class="contact_button px-4 py-2 rounded text-dark w-100 w-md-auto" 
+          style="border: 1px solid black;">
+    Cancel
+  </button>
+  <button id="cropUploadBtn" 
+        class="contact_button px-4 py-2 rounded text-dark w-100 w-md-auto" 
+        style="border: 1px solid black;">
+    Crop & Upload
+  </button>
   </div>
 </div>
 
