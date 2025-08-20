@@ -1,7 +1,7 @@
-$secondary: #000066;
+$secondary: #BF0D3D;
 $danger: #BF0D3D;
 @use "../../../public/node_modules/bootstrap/scss/bootstrap.scss" with (
-  $secondary: #000066,
+  $secondary: #BF0D3D,
   $danger: #BF0D3D
 );
 
@@ -453,3 +453,71 @@ footer{
     display: none;
   }
 
+
+  /* SWAL */
+  
+.swal-custom-popup {
+    border: 5px solid #BF0D3D;
+    border-radius: 30px;
+}
+
+
+.swal-modern-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+
+.swal-modern-text {
+    font-size: 1.5rem;
+    color: #8f8f8f;  
+}
+
+.swal2-actions {
+    display: flex ;
+    flex-direction: column;
+    width: 60% ;
+    gap: 15px ;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.swal-button-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 3px solid transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border 0.3s;
+    outline: none;
+}
+
+.ok-btn {
+    background-color: #BF0D3D;
+    color: white;
+    border: 3px solid #BF0D3D;
+}
+
+
+.cancel-btn {
+    background-color: #ff0000;
+    color: white;
+    border: 3px solid #ff0000;
+}
+
+.ok-btn:hover {
+    background-color: #ffffff;
+    color: #BF0D3D;
+    box-shadow: 5px 5px #BF0D3D;
+    border: 3px solid #BF0D3D;
+}
+
+.cancel-btn:hover {
+    background-color: #ffffff;
+    color: #ff0000;
+    box-shadow: 5px 5px #ff0000;
+    border: 3px solid #ff0000;
+}
