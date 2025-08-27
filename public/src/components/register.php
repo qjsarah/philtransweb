@@ -145,13 +145,13 @@ if (isset($_SESSION["user_id"])) {
               imageAlt: 'Top Image',
               customClass: {
                   popup: 'swal-custom-popup',
-                  confirmButton: 'swal-button-btn ok-btn'
+                  confirmButton: 'swal-entry-btn ok-btn'
               },
               didOpen: () => {
                   const img = Swal.getImage();
                   img.style.marginTop = '-110px'; 
                   const separator = document.createElement('div');
-                  separator.style.height = '2px';
+                  separator.style.height = '3px';
                   separator.style.width = '100%';
                   separator.style.backgroundColor = '#BF0D3D';
                   separator.style.borderRadius = '5px';
@@ -179,12 +179,14 @@ if (isset($_SESSION["user_id"])) {
                       imageUrl: '../../main/images/register_section/registerimage.png', 
                       imageHeight: 200,
                       imageAlt: 'Top Image',
-                      customClass: { popup: 'swal-custom-popup', title: 'swal-custom-title', content: 'swal-custom-text' },
+                      customClass: { 
+                        popup: 'swal-custom-popup', 
+                      },
                       didOpen: () => {
                           const img = Swal.getImage();
                           img.style.marginTop = '-110px'; 
                           const separator = document.createElement('div');
-                          separator.style.height = '2px';
+                          separator.style.height = '3px';
                           separator.style.width = '100%';
                           separator.style.backgroundColor = '#BF0D3D';
                           separator.style.borderRadius = '5px';
@@ -208,13 +210,13 @@ if (isset($_SESSION["user_id"])) {
               imageAlt: 'Top Image',
               customClass: {
                   popup: 'swal-custom-popup',
-                  confirmButton: 'swal-button-btn ok-btn'
+                  confirmButton: 'swal-entry-btn ok-btn'
               },
               didOpen: () => {
                   const img = Swal.getImage();
                   img.style.marginTop = '-110px'; 
                   const separator = document.createElement('div');
-                  separator.style.height = '2px';
+                  separator.style.height = '3px';
                   separator.style.width = '100%';
                   separator.style.backgroundColor = '#BF0D3D';
                   separator.style.borderRadius = '5px';

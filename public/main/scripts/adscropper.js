@@ -1,5 +1,6 @@
 const imageBase64 = sessionStorage.getItem('tempImage');
 const cmsKey = sessionStorage.getItem('cmsKey');
+console.log(cmsKey ?? 'no cmskey');
 
 const cropSizes = {
   ads1: { width: 666, height: 182 },
@@ -66,7 +67,7 @@ function cropAndUpload() {
       const img = Swal.getImage();
       img.style.marginTop = '-110px';
       const separator = document.createElement('div');
-      separator.style.height = '2px';
+      separator.style.height = '4px';
       separator.style.width = '100%';
       separator.style.backgroundColor = '#BF0D3D';
       separator.style.borderRadius = '5px';
@@ -106,7 +107,7 @@ function cropAndUpload() {
                 const img = Swal.getImage();
                 img.style.marginTop = '-110px';
                 const separator = document.createElement('div');
-                separator.style.height = '2px';
+                separator.style.height = '4px';
                 separator.style.width = '100%';
                 separator.style.backgroundColor = '#BF0D3D';
                 separator.style.borderRadius = '5px';

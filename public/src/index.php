@@ -188,7 +188,7 @@ document.querySelectorAll(
         const img = Swal.getImage();
         img.style.marginTop = '-110px';
         const separator = document.createElement('div');
-        separator.style.height = '2px';
+        separator.style.height = '4px';
         separator.style.width = '100%';
         separator.style.backgroundColor = '#BF0D3D';
         separator.style.borderRadius = '5px';
@@ -216,7 +216,7 @@ document.querySelectorAll(
             const img = Swal.getImage();
             img.style.marginTop = '-110px';
             const separator = document.createElement('div');
-            separator.style.height = '2px';
+            separator.style.height = '4px';
             separator.style.width = '100%';
             separator.style.backgroundColor = '#BF0D3D';
             separator.style.borderRadius = '5px';

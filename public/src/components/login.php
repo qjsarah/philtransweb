@@ -143,7 +143,6 @@ document.querySelector('form').addEventListener('submit', function (event) {
         Swal.fire({
             html: `<h2 class="swal-custom-title">Error!</h2>
                    <p class="swal-custom-text">All Fields Required!</p>`,
-            showConfirmButton: true,
             confirmButtonText: 'Try Again',
             background: '#ffffff',
             color: '#BF0D3D',
@@ -153,20 +152,18 @@ document.querySelector('form').addEventListener('submit', function (event) {
             imageAlt: 'Top Image',
             customClass: {
                 popup: 'swal-custom-popup',
-                title: 'swal-custom-title',
-                content: 'swal-custom-text',
-                confirmButton: 'swal-button-btn ok-btn',
+                confirmButton: 'swal-entry-btn ok-btn',
             },
             didOpen: () => {
                 const img = Swal.getImage();
                 img.style.marginTop = '-110px';
                 const separator = document.createElement('div');
-                separator.style.height = '2px';
+                separator.style.height = '3px';
                 separator.style.width = '100%';
                 separator.style.backgroundColor = '#BF0D3D';
                 separator.style.borderRadius = '5px';
                 const popup = Swal.getPopup();
-                popup.insertBefore(separator, popup.querySelector('.swal-custom-title'));
+                popup.insertBefore(separator, img.nextSibling);
             }
         });
         return;
@@ -197,12 +194,12 @@ document.querySelector('form').addEventListener('submit', function (event) {
                         const img = Swal.getImage();
                         img.style.marginTop = '-110px';
                         const separator = document.createElement('div');
-                        separator.style.height = '2px';
+                        separator.style.height = '3px';
                         separator.style.width = '100%';
                         separator.style.backgroundColor = '#BF0D3D';
                         separator.style.borderRadius = '5px';
                         const popup = Swal.getPopup();
-                        popup.insertBefore(separator, popup.querySelector('.swal-custom-title'));
+                        popup.insertBefore(separator, img.nextSibling);
                     }
                 }).then(() => {
                     window.location.href = '../index.php';
@@ -220,18 +217,18 @@ document.querySelector('form').addEventListener('submit', function (event) {
                     imageAlt: 'Top Image',
                     customClass: {
                         popup: 'swal-custom-popup',
-                        confirmButton: 'swal-button-btn ok-btn'
+                        confirmButton: 'swal-entry-btn ok-btn'
                     },
                     didOpen: () => {
                         const img = Swal.getImage();
                         img.style.marginTop = '-110px';
                         const separator = document.createElement('div');
-                        separator.style.height = '2px';
+                        separator.style.height = '3px';
                         separator.style.width = '100%';
                         separator.style.backgroundColor = '#BF0D3D';
                         separator.style.borderRadius = '5px';
                         const popup = Swal.getPopup();
-                        popup.insertBefore(separator, popup.querySelector('.swal-custom-title'));
+                        popup.insertBefore(separator, img.nextSibling);
                     }
                 });
             }

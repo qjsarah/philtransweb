@@ -124,7 +124,7 @@ testimonialDiv.innerHTML =
         value="<?= htmlspecialchars($content['test_quotation_color'] ?? '#1a1a1a'); ?>">
 </div>
                              <div class="text-center modal-footer d-flex flex-column flex-md-row justify-content-center gap-3">
-                                <button type="submit" class="contact_button px-5 py-2 rounded text-dark save-button w-100 w-md-auto" style="border-color: black;">Save</button>
+                                <button type="button" class="contact_button px-5 py-2 rounded text-dark save-button w-100 w-md-auto" style="border-color: black;">Save</button>
                                 <button type="button" class="contact_button px-5 py-2 rounded text-dark w-100 w-md-auto" style="border-color: black;" data-bs-dismiss="modal">Cancel</button>
                             </div>
 
@@ -203,7 +203,7 @@ testimonialDiv.innerHTML =
 
           <form action="backend/delete_testimonial.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $test['id']; ?>">
-            <button type="button" class="contact_button px-4 py-2 rounded text-dark w-100 delete-button" style="border-color: black;">
+            <button type="submit" class="contact_button px-4 py-2 rounded text-dark w-100 delete-button" style="border-color: black;">
               Delete
             </button>
           </form>
