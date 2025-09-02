@@ -133,88 +133,110 @@ if (isset($_SESSION["user_id"])) {
     </div>
 
     <script>
-        document.querySelector('form').addEventListener('submit', function (event) {
-            event.preventDefault();
+document.querySelector('form').addEventListener('submit', function (event) {
+    event.preventDefault();
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-           $.ajax({
-                url: '../backend/checklogin.php',
-                method: 'POST',
-                data: { email: email, password: password },
-                dataType: 'json',
-                success: function (response) {
-                    if (response.status === 'success') {
-                        Swal.fire({
-                            html: `
-                                <h2 class="swal-modern-title">Login Successfully!</h2>
-                                <p class="swal-modern-text">Redirecting...</p>
-                            `, 
-                            icon: null,
-                            showConfirmButton: false,
-                            timer: 1500,
-                            background: '#ffffff',
-                            color: '#BF0D3D',
-                            imageUrl: '../../main/images/login_section/philtransimage.png', 
-                            imageHeight: 200,
-                            imageAlt: 'Top Image',
-                            customClass: {
-                                popup: 'swal-custom-popup',
-                                title: 'swal-modern-title',
-                                content: 'swal-modern-text',
-                            },
-                            didOpen: () => {
-                                const img = Swal.getImage();
-                                img.style.marginTop = '-110px'; 
-                                const separator = document.createElement('div');
-                                separator.style.height = '2px';
-                                separator.style.width = '100%';
-                                separator.style.backgroundColor = '#BF0D3D';
-                                separator.style.borderRadius = '5px';
-                                const popup = Swal.getPopup();
-                                popup.insertBefore(separator, popup.querySelector('.swal2-title'));
-                            }
-                        }).then(() => {
-                            window.location.href = '../index.php';
-                        });
-                    } else {
-                        Swal.fire({
-                            html: `
-                                <h2 class="swal-modern-title">Invalid Email or Password!</h2>
-                                <p class="swal-modern-text">Wrong Credentials...</p>
-                            `,
-                            icon: null,
-                            confirmButtonText: 'Try Again',
-                            background: '#ffffff',
-                            color: '#BF0D3D',
-                            buttonsStyling: false,
-                            imageUrl: '../../main/images/login_section/philtransimage.png', 
-                            imageHeight: 200,
-                            imageAlt: 'Top Image',
-                            customClass: {
-                                popup: 'swal-custom-popup',
-                                title: 'swal-modern-title',
-                                content: 'swal-modern-text',
-                                confirmButton: 'swal-button-btn ok-btn',
-                            },
-                            didOpen: () => {
-                                const img = Swal.getImage();
-                                img.style.marginTop = '-110px'; 
-                                const separator = document.createElement('div');
-                                separator.style.height = '2px';
-                                separator.style.width = '100%';
-                                separator.style.backgroundColor = '#BF0D3D';
-                                separator.style.borderRadius = '5px';
-                                const popup = Swal.getPopup();
-                                popup.insertBefore(separator, popup.querySelector('.swal2-title'));
-                            }
-                        });
-                    }
-                },
-            });
+    if (!email || !password) {
+        Swal.fire({
+            html: `<h2 class="swal-custom-title">Error!</h2>
+                   <p class="swal-custom-text">All Fields Required!</p>`,
+            confirmButtonText: 'Try Again',
+            background: '#ffffff',
+            color: '#BF0D3D',
+            buttonsStyling: false,
+            imageUrl: '../../main/images/register_section/registerimage.png',
+            imageHeight: 200,
+            imageAlt: 'Top Image',
+            customClass: {
+                popup: 'swal-custom-popup',
+                confirmButton: 'swal-entry-btn ok-btn',
+            },
+            didOpen: () => {
+                const img = Swal.getImage();
+                img.style.marginTop = '-110px';
+                const separator = document.createElement('div');
+                separator.style.height = '3px';
+                separator.style.width = '100%';
+                separator.style.backgroundColor = '#BF0D3D';
+                separator.style.borderRadius = '5px';
+                const popup = Swal.getPopup();
+                popup.insertBefore(separator, img.nextSibling);
+            }
         });
-    </script>
+        return;
+    }
+
+    // AJAX call for login
+    $.ajax({
+        url: '../backend/checklogin.php',
+        method: 'POST',
+        data: { email, password },
+        dataType: 'json',
+        success: function(response) {
+            if (response.status === 'success') {
+                Swal.fire({
+                    html: `<h2 class="swal-custom-title">Login Successfully!</h2>
+                           <p class="swal-custom-text">Redirecting...</p>`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                    background: '#ffffff',
+                    color: '#BF0D3D',
+                    imageUrl: '../../main/images/login_section/philtransimage.png',
+                    imageHeight: 200,
+                    imageAlt: 'Top Image',
+                    customClass: {
+                        popup: 'swal-custom-popup'
+                    },
+                    didOpen: () => {
+                        const img = Swal.getImage();
+                        img.style.marginTop = '-110px';
+                        const separator = document.createElement('div');
+                        separator.style.height = '3px';
+                        separator.style.width = '100%';
+                        separator.style.backgroundColor = '#BF0D3D';
+                        separator.style.borderRadius = '5px';
+                        const popup = Swal.getPopup();
+                        popup.insertBefore(separator, img.nextSibling);
+                    }
+                }).then(() => {
+                    window.location.href = '../index.php';
+                });
+            } else {
+                Swal.fire({
+                    html: `<h2 class="swal-custom-title">Invalid Email or Password!</h2>
+                           <p class="swal-custom-text">Wrong Credentials...</p>`,
+                    confirmButtonText: 'Try Again',
+                    background: '#ffffff',
+                    color: '#BF0D3D',
+                    buttonsStyling: false,
+                    imageUrl: '../../main/images/login_section/philtransimage.png',
+                    imageHeight: 200,
+                    imageAlt: 'Top Image',
+                    customClass: {
+                        popup: 'swal-custom-popup',
+                        confirmButton: 'swal-entry-btn ok-btn'
+                    },
+                    didOpen: () => {
+                        const img = Swal.getImage();
+                        img.style.marginTop = '-110px';
+                        const separator = document.createElement('div');
+                        separator.style.height = '3px';
+                        separator.style.width = '100%';
+                        separator.style.backgroundColor = '#BF0D3D';
+                        separator.style.borderRadius = '5px';
+                        const popup = Swal.getPopup();
+                        popup.insertBefore(separator, img.nextSibling);
+                    }
+                });
+            }
+        },
+    });
+});
+</script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>

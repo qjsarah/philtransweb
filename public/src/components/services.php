@@ -181,7 +181,7 @@ while ($row = $result->fetch_assoc()) {
 
                             <label for="Card Description" class="form-label fw-bold text-secondary">Card Description:</label>
                             <textarea name="content" class="form-control mb-2 border border-black" rows="3" placeholder="Card Description" required></textarea>
-                            <button class="contact_button w-25 px-3 py-2 mt-3 rounded text-dark border border-dark d-block mx-auto " type="submit">Add Card</button>
+                            <button class="contact_button w-25 px-3 py-2 mt-3 rounded text-dark border border-dark d-block mx-auto add-button" type="submit">Add Card</button>
                             
                         </form>
                         <hr>
@@ -392,27 +392,6 @@ document.querySelectorAll('.edit-btn').forEach(btn => {
 
 document.getElementById('services_bgcolor')?.addEventListener('input', function () {
     document.querySelector('.servicetext.services').style.backgroundColor = this.value;
-});
-
-document.querySelectorAll('.delete-btn').forEach(button => {
-  button.addEventListener('click', function () {
-    const form = this.closest('form');
-
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'This card will be permanently deleted!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#aaa',
-      confirmButtonText: 'Delete',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        form.submit();
-      }
-    });
-  });
 });
 
 </script>
