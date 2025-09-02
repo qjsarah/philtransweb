@@ -70,6 +70,7 @@ while ($row = $result->fetch_assoc()) {
   <!-- Contact Info -->
   <div class="d-flex w-75 flex-column flex-md-row text-center justify-content-md-between mx-auto">
     <div class="iconleft py-4">
+      
       <div class="contact_info d-flex justify-content-center align-items-center mx-auto mb-3">
         <img src="../../public/main/images/contact_section/<?php echo htmlspecialchars($content['contact_img'] ?? 'message.png')?>"
              class="icon-img current-cms-img" alt="Mail Icon" data-cms-key="contact_img">

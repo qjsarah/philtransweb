@@ -151,6 +151,7 @@ testimonialDiv.innerHTML =
                     <div id="addTestimonialForm" class="mb-5" style="display: none;">
                         <h5 class="text-center">Add new testimonial</h5>
                         <form action="backend/add_testimonial.php" method="POST" class="w-75 mx-auto">
+                        
                             <label class="form-label fw-bold text-secondary mt-2">Testimonial Content:</label>
                             <textarea name="test_content" class="form-control mb-2" rows="3" style="border-color: black;" placeholder="Testimonial Content" required></textarea>
 
@@ -226,6 +227,7 @@ testimonialDiv.innerHTML =
     <div class="vh-80 mt-5">
         <div class="textimonial text-danger text-center my-4">
             <h5 style="color:<?php echo htmlspecialchars($content['test_paragraph_color'] ?? '#1a1a1a'); ?>"><?php echo htmlspecialchars($content['paragraph_test'] ?? "What our Client Says"); ?></h5>
+            
             <h4 class="textimonial fw-bold display-5" style="color:<?php echo htmlspecialchars($content['test_title_color'] ?? '#1a1a1a'); ?>"><?php echo htmlspecialchars($content['test_title'] ?? "TESTIMONIAL"); ?></h4>
         </div>
         

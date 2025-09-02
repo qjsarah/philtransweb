@@ -140,7 +140,7 @@ while ($row = $result->fetch_assoc()) {
       </div>
 
           <!-- Image Edit Modal -->
-        <div class="modal fade edit-download-iamge" tabindex="-1">
+        <div class="modal fade edit-download-image" tabindex="-1">
           <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content" style="backdrop-filter: blur(10px); background-color: rgba(255,255,255,0.85); border-radius: 8px; border: 2px solid black;">
               <div class="modal-header px-4 border-bottom-0">
@@ -196,7 +196,7 @@ while ($row = $result->fetch_assoc()) {
   <div class="person1 text-center mt-1 py-5 me-5 w-100 mx-auto">
     <img src="../main/images/download_section/<?php echo htmlspecialchars($content['person1'] ?? 'intro_img.png')?>" alt="Person" class="img-fluid current-cms-img" data-cms-key="person1">
     <?php if (isset($_SESSION['user_id'])): ?>
-      <button type="button" class="contact_button w-50 px-3 py-2 mt-2 rounded text-white" onclick="toggleEditAll(this)" data-modal-target=".edit-download-iamge">Change Image</button>
+      <button type="button" class="contact_button w-50 px-3 py-2 mt-2 rounded text-white" onclick="toggleEditAll(this)" data-modal-target=".edit-download-image">Change Image</button>
     <?php endif ?>
   </div>
 
@@ -206,6 +206,7 @@ while ($row = $result->fetch_assoc()) {
       </p>
     
 </section>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -307,4 +308,5 @@ document.addEventListener("DOMContentLoaded", function () {
     // Reset when modal is closed by other means (click outside or ESC)
     modal.addEventListener('hidden.bs.modal', resetPreview);
 });
+
 </script>

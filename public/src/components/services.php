@@ -168,9 +168,7 @@ while ($row = $result->fetch_assoc()) {
                 </div>
 
                 <div class="modal-body">
-                     <!-- Font Color -->
-
-
+                    <!-- Font Color -->
                     <div class="text-center">
                         <button id="showAddCardForm" class="services-card w-75 p-3 mx-auto d-block rounded my-3 text-dark fw-bold" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.27); transition: transform 0.2s ease, box-shadow 0.2s ease; background: none; border: 2px dashed #aaa;">Add New Card</button>
                     </div>
@@ -193,11 +191,14 @@ while ($row = $result->fetch_assoc()) {
                             style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.27); transition: transform 0.2s ease, box-shadow 0.2s ease; background: none; border: none;">
                             <h4><?php echo htmlspecialchars($card['title']); ?></h4>
                             <p><?php echo htmlspecialchars($card['content']); ?></p>
+
                             <form action="backend/delete_card.php" method="POST" class="delete-form">
                                 <input type="hidden" name="id" value="<?php echo $card['id']; ?>">
                                 <div class="d-flex justify-content-center gap-2">
                                     <button type="button" class="contact_button w-25 px-3 py-2 mt-2 rounded text-dark border border-dark delete-btn">Delete</button>
+
                                     <button type="button" class="contact_button w-25 px-3 py-2 mt-2 rounded text-dark border border-dark edit-btn"data-id="<?php echo $card['id']; ?>"data-title="<?php echo htmlspecialchars($card['title'], ENT_QUOTES); ?>"data-content="<?php echo htmlspecialchars($card['content'], ENT_QUOTES); ?>">Edit Content</button>
+                                    
                                 </div>
                             </form>
                         </div>

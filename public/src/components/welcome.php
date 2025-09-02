@@ -17,8 +17,15 @@ while ($row = $result->fetch_assoc()) {
 <section class="welcome mt-5 container">
     <div class="mt-5 pt-5 d-flex flex-column flex-lg-row justify-content-start gap-5 mx-3">
         <div class="col-md-6 mx-auto">
-            <img src="../main/images/intro_section/<?php echo htmlspecialchars($content['phone_image'] ?? 'welcome_img.png')?>" class="phone1 current-cms-img img-fluid" data-cms-key="phone_image" alt="welcome image">
+            <img src="<?php echo '../main/images/intro_section/' . htmlspecialchars($content['phone_image'] ?? 'welcome_img.png'); ?>" 
+     class="phone1 current-cms-img img-fluid" 
+     data-cms-key="phone_image" 
+     alt="welcome image">
+
+
+            
              <?php if (isset($_SESSION['user_id'])): ?>
+
             <button type="button" class="contact_button rounded text-dark w-50 w-md-25 px-3 py-2 mt-2 d-block mx-auto " style="border-color: black;"  onclick="toggleEditAll(this)" data-modal-target=".edit-welcome-image">Change Image</button>      
                     <?php endif; ?>
         </div>
