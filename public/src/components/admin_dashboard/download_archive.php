@@ -11,13 +11,13 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 <div class="container">
-    <h1 class="mb-3">Archived Images for Download Section</h1>
+    <h1 class="my-3 text-secondary">Archived Images for Download Section</h1>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php if ($result->num_rows > 0): ?>
         <?php while ($row = $result->fetch_assoc()): ?>
             <div class="col">
-                <div class="card h-auto p-3">
+                <div class="card h-auto p-3 shadow">
                     <img src="/philtransweb/public/main/images/download_section/archive/<?php echo htmlspecialchars($row['file_name']); ?>" 
                         class="card-img-top" 
                         alt="Archived Image">
@@ -28,11 +28,11 @@ $result = $stmt->get_result();
                         </p>
                     </div>
 
-                    <div class="card-footer text-center">
+                    <div class="text-center">
                         <form method="POST" action="../../backend/admin_dashboard/restore_download.php" class="d-inline">
                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                             <input type="hidden" name="key_name" value="<?php echo $row['key_name']; ?>">
-                            <button type="button" class="btn btn-outline-primary border-none restore-button">↺</button>
+                            <button type="button" class="form-control btn btn-secondary border-none restore-button py-2">↺</button>
                         </form>
                     </div>
                 </div>

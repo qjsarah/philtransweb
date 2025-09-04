@@ -1,8 +1,10 @@
 $secondary: #BF0D3D;
+$primary: #000066;
 $danger: #BF0D3D;
 @use "../../../public/node_modules/bootstrap/scss/bootstrap.scss" with (
   $secondary: #BF0D3D,
-  $danger: #BF0D3D
+  $danger: #BF0D3D,
+  $primary: #000066
 );
 .person1 {
   animation: appearRight 1.5s ease-in-out;
