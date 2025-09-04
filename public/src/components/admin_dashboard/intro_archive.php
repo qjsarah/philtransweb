@@ -1,6 +1,7 @@
-
 <link rel="stylesheet" href="../../../main/style/main.css">
 <?php
+session_start(); 
+if (isset($_SESSION['user_id'])): 
 include __DIR__ . '/../../backend/config.php';
 
 
@@ -46,6 +47,12 @@ $result = $stmt->get_result();
         <?php endif; ?>
     </div>
 </div>
+<?php 
+else: 
+    header("Location: ../../index.php");
+    exit;
+endif; 
+?>
 <script src="../../../main/scripts/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/philtransweb2/public/main/scripts/swal_archive.js"></script>
