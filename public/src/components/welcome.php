@@ -20,18 +20,13 @@ while ($row = $result->fetch_assoc()) {
             <img src="<?php echo '../main/images/intro_section/' . htmlspecialchars($content['phone_image'] ?? 'welcome_img.png'); ?>" 
      class="phone1 current-cms-img img-fluid" 
      data-cms-key="phone_image" 
-     alt="welcome image">
-
-
-            
-             <?php if (isset($_SESSION['user_id'])): ?>
-
+     alt="welcome image">     
+        <?php if (isset($_SESSION['user_id'])): ?>
             <button type="button" class="contact_button rounded text-dark w-50 w-md-25 px-3 py-2 mt-2 d-block mx-auto " style="border-color: black;"  onclick="toggleEditAll(this)" data-modal-target=".edit-welcome-image">Change Image</button>      
-                    <?php endif; ?>
+        <?php endif; ?>
         </div>
         <div class="my-5  fs-5">
 
-        <?php if (isset($_SESSION['user_id'])): ?>
             <!-- Display Section -->
             <div id="all-display">
                 <h4 class="fw-bold display-5" style="color: <?php echo htmlspecialchars($content['welcome_title_color'] ?? '#FFFFFF'); ?>;"><?php echo htmlspecialchars($content['welcome'] ?? "Welcome to Philippine Transportation App System"); ?></h4>
@@ -45,8 +40,9 @@ while ($row = $result->fetch_assoc()) {
                     <?php echo htmlspecialchars($content['paragraph3'] ?? "..."); ?>
                 </p>
 
-
+            <?php if (isset($_SESSION['user_id'])): ?>
                 <button type="button" class="contact_button rounded text-dark w-50 w-md-25 px-3 py-2 mt-2 " style="border-color: black;"onclick="toggleEditAll(this)" data-modal-target=".welcomeContent">Edit Content</button>
+            <?php endif; ?>
             </div>
 
            <!-- Welcome Content Modal -->
@@ -133,13 +129,6 @@ while ($row = $result->fetch_assoc()) {
                     </div>
                 </div>
             </div>
-
-        <?php else: ?>
-        <!-- Public Display Content -->
-            <h4 class="fw-bold display-5 text-danger"><?php echo htmlspecialchars($content['welcome'] ?? "Welcome to Philippine Transportation App System"); ?></h4>
-            <p class="textstyle text-danger mb-4 fs-4"><?php echo htmlspecialchars($content['paragraph2'] ?? "PTAS breaks the mold of traditional transportation apps. They're not just about getting you from point A to point B; they're shaking up the transportation industry with a people-centric approach. PTAS goes beyond offering rides. They empower drivers by increasing their earning potential and fostering positive changes in their lives. But the impact doesn't stop there. PTAS is dedicated to creating a smoother and more enjoyable experience for passengers as well.");  ?></p>
-            <p class="textstyle text-danger mb-4 fs-4"><?php echo htmlspecialchars($content['paragraph3'] ?? "In essence, PTAS represents a paradigm shift in transportation, where the focus lies not only on the journey's endpoint but also on enhancing the journey itself. It's about fostering empowerment, enriching experiences, and prioritizing the well-being of both drivers and passengers in every aspect of their transportation needs." ); ?></p>
-        <?php endif; ?>
         </div>
     </div>
 </section>

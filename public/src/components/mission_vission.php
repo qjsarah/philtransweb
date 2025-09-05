@@ -30,7 +30,6 @@ while ($row = $result->fetch_assoc()) {
 
 <!-- MISSION + VISION -->
 <section class="container text-black mt-md-5 mt-lg-0">
-  <?php if (isset($_SESSION['user_id'])): ?>
     <div id="mv-view">
       <div class="mission d-flex align-items-start gap-3">
         <div class="col-md-5 text-center d-none d-lg-block">
@@ -66,8 +65,10 @@ while ($row = $result->fetch_assoc()) {
     </div>
 
       <div class="text-center mb-5 d-flex gap-3">
+  <?php if (isset($_SESSION['user_id'])): ?>
          <button type="button" class="contact_button px-5 py-2 rounded text-dark w-100 w-md-auto" style="border-color: black;" onclick="toggleEditAll(this)" data-modal-target=".mvContent">Edit Contents</button>
         <button type="button" class="contact_button px-5 py-2 rounded text-dark w-100 w-md-auto" style="border-color: black;"onclick="toggleEditAll(this)" data-modal-target=".mission-iamge">Change Images</button>
+  <?php endif; ?>
       </div>
     </div>
 
@@ -186,38 +187,6 @@ while ($row = $result->fetch_assoc()) {
   </div>
 </div>
 
-
-  <?php else: ?>
-    <!-- PUBLIC VIEW -->
-    <div class="mission row align-items-center">
-      <div class="col-md-5 text-center mb-5 d-none d-lg-block">
-        <img src="../main/images/mission_and_vission_section/<?php echo htmlspecialchars($content['mission_image'] ?? 'mission.png')?>"
-      alt="Mission Image" class="img-fluid" style="max-width: 350px;">
-      </div>
-      <div class="col-12 col-lg-7 text-start">
-        <h1 class="fw-bold display-4" style="color: <?php echo htmlspecialchars($content['mission_title_color'] ?? '#1a1a1a'); ?>">
-          <?php echo htmlspecialchars($content['mission_title'] ?? "MISSION"); ?>
-        </h1>
-        <p class="mt-4 fs-4" style="color: <?php echo htmlspecialchars($content['mission_content_color'] ?? '#1a1a1a'); ?>">
-    <?php echo htmlspecialchars($content['mission_content'] ?? "Our mission is to empower every tricycle driver..."); ?>
-</p>
-
-      </div>
-    </div>
-
-    <div class="vision row align-items-center flex-lg-row-reverse mt-5 mb-5">
-      <div class="col-md-5 text-center mb-5 mb-md-0 d-none d-lg-block">
-        <img src="../main/images/mission_and_vission_section/<?php echo htmlspecialchars($content['vision_image'] ?? 'vision.png')?>"
-              alt="Vision Image" class="img-fluid" style="max-width: 350px;">
-      </div>
-      <div class="col-12 col-lg-7 text-end">
-        <h1 class="fw-bold display-4" style="color: <?php echo htmlspecialchars($content['vision_title_color'] ?? '#1a1a1a'); ?>">
-          <?php echo htmlspecialchars($content['vision_title'] ?? "VISION"); ?>
-        </h1>
-        <p class="mt-4 fs-4"><?php echo htmlspecialchars($content['vision_content'] ?? "In a future powered by our app..."); ?></p>
-      </div>
-    </div>
-  <?php endif; ?>
 </section>
 
 <script>

@@ -16,8 +16,6 @@ while ($row = $result->fetch_assoc()) {
 ?>
 <section>
     <!-- Ads -->
-  <?php if (isset($_SESSION['user_id'])): ?>
-  <!--DISPLAY-->
     <div class="text-center row justify-content-center align-items-center gap-3 pb-5">
       <div class="col-7 col-md-5 col-lg-4">
         <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads3'] ?? 'rural.png'); ?>" alt="Rural" class="ad2-1 img-fluid current-cms-img" data-cms-key="ads3" style="width:100%; max-width: 400px;">
@@ -29,9 +27,11 @@ while ($row = $result->fetch_assoc()) {
     
    <!-- EDIT BUTTON -->
 <div class="text-center mb-3">
-  <button type="button" class="contact_button rounded text-dark w-50 w-md-25 px-2 py-2 mt-2 mb-2" style="border-color: black;" onclick="toggleEditAll(this)" data-modal-target=".edit-ads-mv">
-    Change Advertisements
-  </button>
+  <?php if (isset($_SESSION['user_id'])): ?>
+    <button type="button" class="contact_button rounded text-dark w-50 w-md-25 px-2 py-2 mt-2 mb-2" style="border-color: black;" onclick="toggleEditAll(this)" data-modal-target=".edit-ads-mv">
+      Change Advertisements
+    </button>
+  <?php endif; ?>
 </div>
 
 <!-- Modal -->
@@ -78,16 +78,4 @@ while ($row = $result->fetch_assoc()) {
     </div>
   </div>
 </div>
-
-    <?php else: ?>
-      <div class="row justify-content-center align-items-center gap-3 pb-5">
-        <div class="col-7 col-md-5 col-lg-4">
-          <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads3'] ?? 'rural.png'); ?>" alt="Rural" class="ad2-1 img-fluid current-cms-img" data-cms-key="ads3" style="width:100%; max-width: 400px;">
-        </div>
-        <div class="col-7 col-md-5 col-lg-4">
-          <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads4'] ?? 'greenhouse.png'); ?>" alt="Greenhouse" class="ad2-2 img-fluid" style="width:100%; max-width: 400px;">
-        </div>
-      </div>
-    <?php endif; ?>
-
 </section>

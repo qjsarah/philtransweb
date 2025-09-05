@@ -44,19 +44,19 @@ while ($row = $result->fetch_assoc()) {
 
     <!-- Contact Form -->
     <div class="row justify-content-center">
-      <form class="col-md-8 mt-4">
+      <form class="col-md-8 mt-4" id="contactForm" method="POST" action="backend/savemessages.php">
         <div class="form-group row mb-3">
           <div class="col-md-6 mb-3 mb-md-0">
-            <input type="text" class="form-control" placeholder="Enter your name">
+            <input type="text" class="form-control" name="name" placeholder="Enter your name">
           </div>
           <div class="col-md-6">
-            <input type="email" class="form-control" placeholder="Enter your email">
+            <input type="email" class="form-control" name="email" placeholder="Enter your email">
           </div>
         </div>
 
         <div class="form-group row mb-4">
           <div class="col-12">
-            <textarea class="form-control" rows="7" placeholder="Type your message here..."></textarea>
+            <textarea class="form-control" rows="7" name="message" placeholder="Type your message here..."></textarea>
           </div>
         </div>
 

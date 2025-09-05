@@ -29,8 +29,6 @@ while ($row = $result->fetch_assoc()) {
 
   <!-- Text & Buttons Column -->
   <div class="mb-4 mb-md-0 px-5">
-    <?php if (isset($_SESSION['user_id'])): ?>
-      <!-- Edit Button -->
       <!-- Display Content -->
       <div id="download1-display">
         <h1 class="h1main fw-bold mb-3 display-3"
@@ -45,7 +43,9 @@ while ($row = $result->fetch_assoc()) {
         </div>
       </div>
       <div class="text-start my-3 h1main">
+    <?php if (isset($_SESSION['user_id'])): ?>
         <button type="button" class="contact_button w-auto px-3 py-2 rounded text-white" onclick="toggleEditAll(this)" data-modal-target=".editContentModal">Edit Content</button>
+    <?php endif ?>
       </div>
 
       <!-- Modal Form -->
@@ -172,18 +172,6 @@ while ($row = $result->fetch_assoc()) {
             </div>
           </div>
         </div>
-
-    <?php else: ?>
-      <!-- Public View -->
-     <h1 class="h1main fw-bold display-3 pt-3 text-center text-lg-start"
-    style="color: <?php echo htmlspecialchars($content['download_title_color'] ?? '#FFFFFF'); ?>;">
-    <?php echo htmlspecialchars($content['download1'] ?? 'DOWNLOAD OUR APP NOW!'); ?>
-</h1>
-
-     <p class="desktop textstyle mb-4 fs-4 text-center text-lg-start" style="color: <?php echo htmlspecialchars($content['download_desc_color'] ?? '#FFFFFF'); ?>;">
-        <?php echo htmlspecialchars($content['paragraph1'] ?? "Download the Philippine Trans App System today..."); ?>
-      </p>
-    <?php endif; ?>
 
     <!-- Download Icons -->
     <div class="icons d-flex gap-lg-4 flex-md-row flex-sm-row flex-lg-row flex-column justify-content-center justify-content-md-center justify-content-lg-start">
