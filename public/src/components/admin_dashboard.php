@@ -20,6 +20,9 @@ if (isset($_SESSION['user_id'])): ?>
     <h1>Contact Section</h1>
     <a href="admin_dashboard/contact_archive.php">Contact Section</a>
 
+    <h1>Messages Section</h1>
+    <a href="admin_dashboard/messages.php"> Messages Section</a>
+
 <?php 
 else: 
     header("Location: ../index.php");
