@@ -46,11 +46,11 @@ function cropAndUpload() {
   Swal.fire({
     html: `
       <h2 class="swal-custom-title">Are you sure?</h2>
-      <p class="swal-custom-text">Do you want to save your changes?</p>
+      <p class="swal-custom-text">Do you want to upload your changes?</p>
     `,
     icon: null,
     showCancelButton: true,
-    confirmButtonText: 'Save',
+    confirmButtonText: 'Upload',  
     cancelButtonText: 'Cancel',
     background: '#ffffff',
     color: '#BF0D3D',
@@ -89,11 +89,12 @@ function cropAndUpload() {
           if (res.ok) {
             Swal.fire({
               html: `
-                <h2 class="swal-custom-title">Saved Successfully!</h2>
-                <p class="swal-custom-text">Your changes have been saved successfully.</p>
+                <h2 class="swal-custom-title">Uploaded Successfully!</h2>
+                <p class="swal-custom-text">Your changes have been uploaded successfully.</p>
               `,
               icon: null,
               showConfirmButton: false,
+              confirmButtonText: 'Upload',  
               timer: 1500,
               background: '#ffffff',
               color: '#BF0D3D',
@@ -136,12 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancelBtn = document.getElementById("cancelBtn");
   const cropUploadBtn = document.getElementById("cropUploadBtn");
 
-
   cancelBtn.addEventListener("click", () => {
     window.history.back();
   });
 
-  
   cropUploadBtn.addEventListener("click", () => {
     cropAndUpload();
   });

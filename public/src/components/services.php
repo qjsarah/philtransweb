@@ -195,7 +195,7 @@ while ($row = $result->fetch_assoc()) {
                             <form action="backend/delete_card.php" method="POST" class="delete-form">
                                 <input type="hidden" name="id" value="<?php echo $card['id']; ?>">
                                 <div class="d-flex justify-content-center gap-2">
-                                    <button type="button" class="contact_button w-25 px-3 py-2 mt-2 rounded text-dark border border-dark delete-btn">Delete</button>
+                                    <button type="button" class="contact_button w-25 px-3 py-2 mt-2 rounded text-dark border border-dark delete-button">Delete</button>
 
                                     <button type="button" class="contact_button w-25 px-3 py-2 mt-2 rounded text-dark border border-dark edit-btn"data-id="<?php echo $card['id']; ?>"data-title="<?php echo htmlspecialchars($card['title'], ENT_QUOTES); ?>"data-content="<?php echo htmlspecialchars($card['content'], ENT_QUOTES); ?>">Edit Content</button>
                                     

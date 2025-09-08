@@ -28,9 +28,13 @@ $result = $stmt->get_result();
             <form method="POST" action="../../backend/admin_dashboard/restore_download.php">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                 <input type="hidden" name="key_name" value="<?php echo $row['key_name']; ?>">
-                <button type="submit">Restore</button>
+                <button type="submit" class="restore-button">Restore</button>
             </form>
         </td>
     </tr>
     <?php endwhile; ?>
 </table>
+
+<link rel="stylesheet" href="/philtrans/philtransweb/public/main/style/main.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/philtrans/philtransweb/public/main/scripts/swal.js"></script>
