@@ -22,18 +22,22 @@ $descColor = htmlspecialchars($content['aboutus_desc_color'] ?? '#1a1a1a');
 ?>
 
 <section class="text-white my-5 aboutus-section" style="background-color: <?= $bgColor ?>; height: auto;">
-<?php if (isset($_SESSION['user_id'])): ?>
     <div class="d-flex flex-column flex-lg-row w-100 justify-content-between py-5 container">
         <div class="col-lg-6 about-left">
             <h1 class="fw-bold display-5 about-title" style="color: <?= $titleColor ?>;"><?= htmlspecialchars($content['aboutus'] ?? "ABOUT US") ?></h1>
             <h2 class="fw-semibold mb-3 mt-4 about-subtitle" style="color: <?= $subColor ?>;"><?= htmlspecialchars($content['PTAS'] ?? "PTAS: REVOLUTIONIZING RIDES AND REDEFINING THE TRICYCLE INDUSTRY") ?></h2>
             <p class="fs-5 about-desc" style="color: <?= $descColor ?>;"><?= htmlspecialchars($content['paragraph4'] ?? "") ?></p>
+<?php if (isset($_SESSION['user_id'])): ?>
             <button type="button" class="contact_button w-50 px-3 py-2 mt-2 rounded text-white" onclick="toggleEditAll(this)" data-modal-target=".aboutContent">Edit Content</button>
+<?php endif; ?>
+
         </div>
 
         <div class="col-lg-6 text-center mt-5 about-right">
             <img src="../main/images/about_section/<?= htmlspecialchars($content['tricycle'] ?? 'desktop_trycicle.png') ?>" alt="Tricycle" class="img-fluid w-75 current-cms-img">
+<?php if (isset($_SESSION['user_id'])): ?>
             <button type="button" class="contact_button w-50 px-3 py-2 mt-2 rounded text-white" onclick="toggleEditAll(this)" data-modal-target=".edit-about-image">Change Image</button>
+<?php endif; ?>
         </div>
     </div>
 
@@ -131,18 +135,6 @@ $descColor = htmlspecialchars($content['aboutus_desc_color'] ?? '#1a1a1a');
     </div>
 </div>
 
-<?php else: ?>
-    <div class="d-flex flex-column flex-lg-row w-100 justify-content-between py-5 container">
-        <div class="col-lg-6 about-left">
-            <h1 class="fw-bold display-5"><?= htmlspecialchars($content['aboutus'] ?? "ABOUT US") ?></h1>
-            <h2 class="fw-semibold fs-4 mb-3 mt-4"><?= htmlspecialchars($content['PTAS'] ?? "") ?></h2>
-            <p class="fs-5"><?= htmlspecialchars($content['paragraph4'] ?? "") ?></p>
-        </div>
-        <div class="col-lg-6 text-center mt-5 about-right">
-            <img src="../main/images/about_section/<?= htmlspecialchars($content['tricycle'] ?? 'desktop_trycicle.png') ?>" alt="Tricycle" class="img-fluid w-75 current-cms-img">
-        </div>
-    </div>
-<?php endif; ?>
 </section>
 <script>
 document.addEventListener("DOMContentLoaded", function() {

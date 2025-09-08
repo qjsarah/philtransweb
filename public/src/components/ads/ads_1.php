@@ -10,7 +10,6 @@ while ($row = $result->fetch_assoc()) {
 ?>
 
 <section class="mt-5">
-  <?php if (isset($_SESSION['user_id'])): ?>
     <!-- Display current image -->
     <div class="ad1 d-flex flex-column flex-xl-row justify-content-center align-items-center gap-3">
       <div>
@@ -22,6 +21,7 @@ while ($row = $result->fetch_assoc()) {
     </div>
     <!--EDIT BUTTOn-->
 <div class="text-center mb-3 ad1">
+  <?php if (isset($_SESSION['user_id'])): ?>
   <button type="button" 
           class="contact_button rounded text-dark w-50 w-md-25 px-2 py-2 mt-2" 
           style="border-color: black;" 
@@ -29,6 +29,8 @@ while ($row = $result->fetch_assoc()) {
           data-modal-target=".edit-ads-1">
     Change Advertisement
   </button>
+  <?php endif; ?>
+
 </div>
 
 
@@ -76,16 +78,4 @@ while ($row = $result->fetch_assoc()) {
     </div>
   </div>
 </div>
-
-<?php else: ?>
-  <div class="ad1 d-flex flex-column flex-xl-row justify-content-center align-items-center gap-3">
-    <div>
-      <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads1'] ?? 'ads_no_1.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img " data-cms-key="ads1" style="max-width: 100%; height: auto;">
-    </div>
-    <div>
-      <img src="../main/images/ads_section/<?php echo htmlspecialchars($content['ads2'] ?? 'ads_no_2.png'); ?>" alt="Ad Image" class="img-fluid mb-2 current-cms-img" data-cms-key="ads2" style="max-width: 100%; height: auto;">
-    </div>
-  </div>
-<?php endif; ?>
-
 </section>
