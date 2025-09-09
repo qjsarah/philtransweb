@@ -49,7 +49,7 @@ $result = $stmt->get_result();
                         <td class="text-center">
                             <form method="POST" class="my-auto">
                                 <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                            <button class="btn"><img src="../../../main/images/trash.svg" alt="" class="delete-button img-fluid mx-auto"></button>
+                            <button class="btn" type="submit"><img src="../../../main/images/trash.svg" alt="" class="delete-button img-fluid mx-auto"></button>
                             </form>
                         </td>
                     </tr>
@@ -62,3 +62,7 @@ $result = $stmt->get_result();
         </tbody>
     </table>
 </div>
+
+<script src="../../../main/scripts/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../../../main/scripts/swal.js"></script>

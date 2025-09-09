@@ -55,4 +55,4 @@ endif;
 ?>
 <script src="../../../main/scripts/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/philtransweb2/public/main/scripts/swal_archive.js"></script>
+<script src="../../../main/scripts/swal.js"></script>
