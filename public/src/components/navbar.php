@@ -3,7 +3,7 @@
       <ul class="navbar-nav d-flex flex-row jsutify-content-around gap-5 align-items-center" id="navBar">
         <?php if (isset($_SESSION['user_id'])): ?>
           <li class="nav-item">
-            <a href="components/admin_dashboard.php" class="nav-link text-secondary">Admin Dashboard
+            <a href="components/admin_dashboard/home_archive.php" class="nav-link text-secondary">Admin Dashboard
             </a>
           </li>
         <?php endif; ?>  

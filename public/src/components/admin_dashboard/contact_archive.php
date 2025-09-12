@@ -14,6 +14,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param(str_repeat('s', count($keys)), ...$keys);
 $stmt->execute();
 $result = $stmt->get_result();
+include 'admin_navbar.php'; 
 
 ?>
 <div class="container text-secondary">
@@ -57,6 +58,3 @@ else:
     exit;
 endif; 
 ?>
-<script src="../../../main/scripts/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="../../../main/scripts/swal.js"></script>

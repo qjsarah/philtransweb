@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../../../main/style/main.css">
 <?php
+session_start();
 include __DIR__ . '/../../backend/config.php';
 
 // Handle delete request
@@ -24,6 +25,7 @@ if (!$stmt) {
 }
 $stmt->execute();
 $result = $stmt->get_result();
+include 'admin_navbar.php'; 
 ?>
 <div class="container">
     <h1 class="my-3 text-secondary">Messages Management</h1>
@@ -62,7 +64,3 @@ $result = $stmt->get_result();
         </tbody>
     </table>
 </div>
-
-<script src="../../../main/scripts/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="../../../main/scripts/swal.js"></script>
