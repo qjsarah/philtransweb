@@ -33,7 +33,7 @@ include 'admin_navbar.php';
     <table class="table table-hover rounded-5">
         <thead class="table-secondary">   
             <tr>
-                <th width="50" class="text-light py-3">ID</th>
+                <th width="50" class="text-secondary py-3">ID</th>
                 <th width="150" class="py-3 text-secondary">Name</th>
                 <th width="200" class="py-3 text-secondary">Email</th>
                 <th class="py-3 text-secondary">Message</th>
