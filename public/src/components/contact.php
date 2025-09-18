@@ -61,7 +61,7 @@ while ($row = $result->fetch_assoc()) {
         </div>
 
         <div class="col text-end">
-          <button type="submit" class="contact_button px-3 py-2 rounded text-white">Send Message</button>
+          <button type="submit" class="send-button contact_button px-3 py-2 rounded text-white">Send Message</button>
         </div>
       </form>
     </div>

@@ -6,11 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST['email'] ?? '');
     $message = trim($_POST['message'] ?? '');
 
-    // Validate inputs
-    if (empty($name) || empty($email) || empty($message)) {
-        echo "<script>alert('Please fill in all fields.'); window.history.back();</script>";
-        exit;
-    }
 
     // Insert message into DB
     $sql = "INSERT INTO messages (name, email, message) VALUES (?, ?, ?)";
@@ -22,11 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $stmt->bind_param("sss", $name, $email, $message);
 
+    
     if ($stmt->execute()) {
-        echo "<script>alert('Message sent successfully!'); window.location.href='../index.php#contacts';</script>";
-    } else {
-        echo "<script>alert('Error: Could not send message.'); window.history.back();</script>";
-    }
+    header("Location: ../index.php#contacts?status=sent");
+    exit;
+} else {
+    header("Location: ../index.php#contacts?status=error");
+    exit;
+}
 
     $stmt->close();
     $conn->close();
