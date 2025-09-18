@@ -81,7 +81,7 @@ if (!isset($_SESSION['user_id'])) {
     }
 
     .logout-section {
-      margin-bottom: 50px;
+      margin-bottom: 70px;
       cursor: pointer;
     }
 
@@ -130,8 +130,10 @@ if (!isset($_SESSION['user_id'])) {
 <div id="sidebar">
   <!-- Logo -->
   <div class="logo d-flex align-items-center justify-content-center">
+    <a href="../../../src/index.php">
     <img src="../../../main/images/admin_dashboard/admin_logo.png" alt="Logo"
     style="width: 240px; height: 60px; margin-right:20px;">
+  </a>
   </div>
 
   <!-- Navigation -->

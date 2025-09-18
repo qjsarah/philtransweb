@@ -6,13 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const form = this.closest('form');
 
-      // ✅ Validation only for send-button
+     
       if (this.classList.contains('send-button')) {
         const name = form.querySelector('input[name="name"]');
         const email = form.querySelector('input[name="email"]');
         const message = form.querySelector('textarea[name="message"]');
 
-        // 1. Check empty fields
         if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
           Swal.fire({
             html: `
@@ -48,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
           Swal.fire({
             html: `
               <h2 class="swal-custom-title">Invalid Email</h2>
-              <p class="swal-custom-text">Please enter a valid email address..</p>
+              <p class="swal-custom-text">Please enter a valid email address.</p>
             `,
             background: '#ffffff',
             color: '#BF0D3D',
@@ -71,11 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
               Swal.getPopup().insertBefore(separator, Swal.getPopup().querySelector('.swal2-title'));
             }
           });
-          return; // ⛔ stop if email is invalid
+          return;
         }
       }
 
-      // ✅ Determine the action type
+   
       let action = '';
       if (this.classList.contains('save-button')) action = 'save';
       else if (this.classList.contains('delete-button')) action = 'delete';
@@ -84,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (this.classList.contains('add-button')) action = 'add';
       else if (this.classList.contains('restore-button')) action = 'restore';
 
-      // ✅ Define texts based on action
+
       let title = 'Are you sure?';
       let text = '';
       let confirmText = '';
@@ -123,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         successMsg = 'File has been restored successfully.';
       }
 
-      // ✅ Confirmation Swal
+
       Swal.fire({
         html: `
           <h2 class="swal-custom-title">${title}</h2>

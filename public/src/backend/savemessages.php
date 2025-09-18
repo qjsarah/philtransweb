@@ -1,35 +1,35 @@
 <?php
-include 'config.php'; // DB connection
+// Include database config
+include 'config.php';
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $message = trim($_POST['message'] ?? '');
+// Check if form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get form inputs safely
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $message = trim($_POST['message']);
 
-
-    // Insert message into DB
-    $sql = "INSERT INTO messages (name, email, message) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-
-    if ($stmt === false) {
-        die("Error preparing query: " . $conn->error);
+    
+    // Prepare SQL query
+    $stmt = $conn->prepare("INSERT INTO messages (name, email, message) VALUES (?, ?, ?)");
+    if (!$stmt) {
+        die("SQL Error: " . $conn->error);
     }
 
     $stmt->bind_param("sss", $name, $email, $message);
 
-    
     if ($stmt->execute()) {
-    header("Location: ../index.php#contacts?status=sent");
+    header("Location: ../index.php");
     exit;
 } else {
-    header("Location: ../index.php#contacts?status=error");
+    header("Location: ../index.php");
     exit;
 }
 
     $stmt->close();
     $conn->close();
 } else {
-    header("Location: ../index.php#contacts");
-    exit;
+    header("Location: ../index.php");
+    exit();
 }
 ?>
