@@ -6,43 +6,76 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const form = this.closest('form');
 
-      // Check empty inputs for send-button only
+      // ✅ Validation only for send-button
       if (this.classList.contains('send-button')) {
         const name = form.querySelector('input[name="name"]');
         const email = form.querySelector('input[name="email"]');
         const message = form.querySelector('textarea[name="message"]');
 
-      if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
-  Swal.fire({
-    html: `
-      <h2 class="swal-custom-title">Missing Fields</h2>
-      <p class="swal-custom-text">Please fill in all fields before sending.</p>
-    `,
-    background: '#ffffff',
-    color: '#BF0D3D',
-    buttonsStyling: false,
-    confirmButtonText: 'OK',
-    imageUrl: '/philtrans/philtransweb/public/main/images/archive_section/archivetrycicle.png',
-    imageHeight: 200,
-    customClass: {
-      popup: 'swal-custom-popup',
-      confirmButton: 'swal-button-btn ok-btn'
-    },
-    didOpen: () => {
-      const img = Swal.getImage();
-      img.style.marginTop = '-110px';
-      const separator = document.createElement('div');
-      separator.style.height = '3px';
-      separator.style.width = '100%';
-      separator.style.backgroundColor = '#BF0D3D';
-      separator.style.borderRadius = '5px';
-      Swal.getPopup().insertBefore(separator, Swal.getPopup().querySelector('.swal2-title'));
-    }
-  });
-  return; // stop execution if fields are empty
-}};
+        // 1. Check empty fields
+        if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+          Swal.fire({
+            html: `
+              <h2 class="swal-custom-title">Missing Fields</h2>
+              <p class="swal-custom-text">Please fill in all fields before sending.</p>
+            `,
+            background: '#ffffff',
+            color: '#BF0D3D',
+            buttonsStyling: false,
+            confirmButtonText: 'OK',
+            imageUrl: '/philtrans/philtransweb/public/main/images/archive_section/archivetrycicle.png',
+            imageHeight: 200,
+            customClass: {
+              popup: 'swal-custom-popup',
+              confirmButton: 'swal-button-btn ok-btn'
+            },
+            didOpen: () => {
+              const img = Swal.getImage();
+              img.style.marginTop = '-110px';
+              const separator = document.createElement('div');
+              separator.style.height = '3px';
+              separator.style.width = '100%';
+              separator.style.backgroundColor = '#BF0D3D';
+              separator.style.borderRadius = '5px';
+              Swal.getPopup().insertBefore(separator, Swal.getPopup().querySelector('.swal2-title'));
+            }
+          });
+          return; 
+        }
 
-      // Determine the action type
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email.value.trim())) {
+          Swal.fire({
+            html: `
+              <h2 class="swal-custom-title">Invalid Email</h2>
+              <p class="swal-custom-text">Please enter a valid email address..</p>
+            `,
+            background: '#ffffff',
+            color: '#BF0D3D',
+            buttonsStyling: false,
+            confirmButtonText: 'OK',
+            imageUrl: '/philtrans/philtransweb/public/main/images/archive_section/archivetrycicle.png',
+            imageHeight: 200,
+            customClass: {
+              popup: 'swal-custom-popup',
+              confirmButton: 'swal-button-btn ok-btn'
+            },
+            didOpen: () => {
+              const img = Swal.getImage();
+              img.style.marginTop = '-110px';
+              const separator = document.createElement('div');
+              separator.style.height = '3px';
+              separator.style.width = '100%';
+              separator.style.backgroundColor = '#BF0D3D';
+              separator.style.borderRadius = '5px';
+              Swal.getPopup().insertBefore(separator, Swal.getPopup().querySelector('.swal2-title'));
+            }
+          });
+          return; // ⛔ stop if email is invalid
+        }
+      }
+
+      // ✅ Determine the action type
       let action = '';
       if (this.classList.contains('save-button')) action = 'save';
       else if (this.classList.contains('delete-button')) action = 'delete';
@@ -50,8 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (this.classList.contains('send-button')) action = 'send';
       else if (this.classList.contains('add-button')) action = 'add';
       else if (this.classList.contains('restore-button')) action = 'restore';
-    
-      // Define texts based on action
+
+      // ✅ Define texts based on action
       let title = 'Are you sure?';
       let text = '';
       let confirmText = '';
@@ -90,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         successMsg = 'File has been restored successfully.';
       }
 
-      // Confirmation Swal
+      // ✅ Confirmation Swal
       Swal.fire({
         html: `
           <h2 class="swal-custom-title">${title}</h2>

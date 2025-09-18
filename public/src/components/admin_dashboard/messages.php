@@ -50,9 +50,12 @@ include 'admin_navbar.php';
                         <td style="max-width: 400px; white-space: pre-wrap;" class="w-auto"><?php echo htmlspecialchars($row['message']); ?></td>
                         <td class="text-center">
                             <form method="POST" class="my-auto">
-                                <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                            <button class="btn" type="submit"><img src="../../../main/images/trash.svg" alt="" class="delete-button img-fluid mx-auto"></button>
-                            </form>
+  <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+  <button class="btn delete-button" type="submit">
+    <img src="../../../main/images/trash.svg" alt="" class="img-fluid mx-auto">
+  </button>
+</form>
+
                         </td>
                     </tr>
                 <?php endwhile; ?>

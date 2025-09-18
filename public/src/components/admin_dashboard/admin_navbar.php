@@ -81,8 +81,7 @@ if (!isset($_SESSION['user_id'])) {
     }
 
     .logout-section {
-      margin-top: auto;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       cursor: pointer;
     }
 
