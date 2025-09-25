@@ -6,47 +6,14 @@ include __DIR__ . '/../../backend/config.php';
 
 $key = 'tricycle';
 
-
 $stmt = $conn->prepare("SELECT * FROM aboutus_archive WHERE key_name = ? ORDER BY created_at DESC");
 $stmt->bind_param("s", $key);
 $stmt->execute();
 $result = $stmt->get_result();
 include 'admin_navbar.php'; 
 ?>
-
-<h2>Archived Images for <?php echo htmlspecialchars($key); ?></h2>
-<table border="1" cellpadding="10">
-    <tr>
-        <th>Preview</th>
-        <th>File Name</th>
-        <th>Uploaded On</th>
-        <th>Action</th>
-    </tr>
-    <?php while ($row = $result->fetch_assoc()): ?>
-    <tr>
-        <td>
-            <img src="/philtrans/philtransweb/public/main/images/about_section/archive/<?php echo htmlspecialchars($row['file_name']); ?>" width="100">
-        </td>
-        <td><?php echo htmlspecialchars($row['file_name']); ?></td>
-        <td><?php echo $row['created_at']; ?></td>
-        <td>
-             <form method="POST" action="../../backend/admin_dashboard/restore_aboutus.php">
-                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <input type="hidden" name="key_name" value="<?php echo $row['key_name']; ?>">
-                <button type="submit" class="restore-button">Restore</button>
-            </form>
-        </td>
-    </tr>
-    <?php endwhile; ?>
-</table>
-
-
-<link rel="stylesheet" href="/philtrans/philtransweb/public/main/style/main.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/philtrans/philtransweb/public/main/scripts/swal.js"></script>
-
-<div class="container text-secondary">
-    <h1 class="my-3">Archived Images for About Section</h1>
+<div class="container">
+    <h1 class="my-3 text-secondary">Archived Images for About Section</h1>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php if ($result->num_rows > 0): ?>

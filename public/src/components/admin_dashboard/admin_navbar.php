@@ -42,14 +42,13 @@ if (!isset($_SESSION['user_id'])) {
       flex-grow: 1;
       list-style: none;
       padding-left: 0;
-      margin-top: 50px;
+      margin-top: 30px;
     }
 
     #sidebar li {
       margin: 15px 0;
     }
 
-    /* Shared nav link style */
     #sidebar .nav-link {
       display: flex;
       align-items: center;
@@ -57,7 +56,7 @@ if (!isset($_SESSION['user_id'])) {
       width: calc(100% - 40px);
       margin: 0 20px;
       padding: 13px 10px;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: #BF0D3D;
       border-radius: 15px;
       background: transparent;
@@ -65,8 +64,8 @@ if (!isset($_SESSION['user_id'])) {
     }
 
     #sidebar .nav-link i {
-      margin-right: 12px;
-      font-size: 1.6rem;
+      margin-right: 15px;
+      font-size: 1.3rem;
       color: #BF0D3D;
       transition: color 0.3s;
     }
@@ -110,18 +109,21 @@ if (!isset($_SESSION['user_id'])) {
       transition: left 0.3s ease;
     }
 
-    .bar {
-      display: block;
-      width: 30px;
-      height: 4px;
-      margin: 6px 0;
-      background-color: #BF0D3D;
-      transition: all 0.3s ease;
+    
+    .arrow {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-top: 3px solid #BF0D3D;
+      border-right: 3px solid #BF0D3D;
+      transform: rotate(-135deg); 
+      transition: transform 0.3s ease;
     }
 
-    #toggleBtn.open .bar1 { transform: rotate(45deg) translate(6px, 6px); }
-    #toggleBtn.open .bar2 { opacity: 0; }
-    #toggleBtn.open .bar3 { transform: rotate(-45deg) translate(7px, -7px); }
+    
+    #toggleBtn.closed .arrow {
+      transform: rotate(45deg);
+    }
   </style>
 </head>
 <body>
@@ -131,9 +133,9 @@ if (!isset($_SESSION['user_id'])) {
   <!-- Logo -->
   <div class="logo d-flex align-items-center justify-content-center">
     <a href="../../../src/index.php">
-    <img src="../../../main/images/admin_dashboard/admin_logo.png" alt="Logo"
-    style="width: 240px; height: 60px; margin-right:20px;">
-  </a>
+      <img src="../../../main/images/admin_dashboard/admin_logo.png" alt="Logo"
+           style="width: 240px; height: 60px; margin-right:20px;">
+    </a>
   </div>
 
   <!-- Navigation -->
@@ -156,11 +158,9 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 </div>
 
-<!-- Hamburger -->
+<!-- Arrow Button -->
 <button id="toggleBtn" aria-label="Toggle Sidebar">
-  <span class="bar bar1"></span>
-  <span class="bar bar2"></span>
-  <span class="bar bar3"></span>
+  <span class="arrow"></span>
 </button>
 
 <!-- Main content -->
@@ -250,17 +250,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let isOpen = true;
 
     btn.addEventListener("click", () => {
-      btn.classList.toggle("open");
-
       if (isOpen) {
         sidebar.style.transform = `translateX(-${sidebarWidth}px)`;
         mainContent.style.marginLeft = "0";
         btn.style.left = "10px";
+        btn.classList.add("closed");
         isOpen = false;
       } else {
         sidebar.style.transform = "translateX(0)";
         mainContent.style.marginLeft = sidebarWidth + "px";
         btn.style.left = (sidebarWidth - btn.offsetWidth/2) + "px";
+        btn.classList.remove("closed");
         isOpen = true;
       }
     });
